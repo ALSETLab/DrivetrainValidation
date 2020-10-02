@@ -1,4 +1,4 @@
-within ARMAC.Examples;
+within DrivetrainValidation.Examples;
 model Drive
   extends ARMAC.Templates.Basic(
     redeclare BrushlessDCDrives.Machines.Averaged machine(redeclare

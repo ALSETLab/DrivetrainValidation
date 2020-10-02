@@ -1,4 +1,4 @@
-within ARMAC.Records;
+within DrivetrainValidation.Records;
 record Hacker_Q150_45_4 "(BLDCD) Trap: Hacker Q-150-45-4, 12 kWatt"
   import Modelica.Constants.pi;
   extends BrushlessDCDrives.Machines.Records.Base.Trapezoidal(

@@ -1,2 +1,6 @@
 DirectionChangeAveraged
-Drive
+SharedBattery_45_4Motor
+SharedBattery_25_4Motor
+Drive_45
+Drive_25
+Drive_45_withControl

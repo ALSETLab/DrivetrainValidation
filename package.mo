@@ -1,5 +1,5 @@
 within ;
-package ARMAC
+package DrivetrainValidation
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)),
   uses(
@@ -7,4 +7,4 @@ package ARMAC
     DymolaModels(version="1.0.1"),
     Modelica(version="3.2.3"),
     Battery(version="2.1.3")));
-end ARMAC;
+end DrivetrainValidation;

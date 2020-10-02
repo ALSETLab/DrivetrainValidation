@@ -1,4 +1,4 @@
-within ARMAC.Templates;
+within DrivetrainValidation.Templates;
 partial model Drive "Basic components of a BLDC drive without supply"
 
   replaceable BrushlessDCDrives.Controller.Interfaces.Controller controller
