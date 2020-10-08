@@ -1,6 +1,6 @@
 within DrivetrainValidation.Examples;
-model Drive
-  extends ARMAC.Templates.Basic(
+model Drive_45_varyingload
+  extends DrivetrainValidation.Templates.Basic(
     redeclare BrushlessDCDrives.Machines.Averaged machine(redeclare
         Records.Hacker_Q150_45_4 data),
     redeclare BrushlessDCDrives.Controller.NoController controller(
@@ -9,12 +9,9 @@ model Drive
     redeclare BrushlessDCDrives.Inverter.Averaged inverter(redeclare
         BrushlessDCDrives.Inverter.Records.Data.Averaged.Unidirectional data));
 
-
-  Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque speedDependentTorque(
-    TorqueDirection=false,
-    tau_nominal=-machine.data.tau_nom,
-    w_nominal(displayUnit="rpm") = machine.data.w_nom)
-                           annotation (Placement(transformation(extent={{160,-10},{140,10}})));
+  Modelica.Mechanics.Rotational.Sources.Torque                     speedDependentTorque
+                           annotation (Placement(transformation(extent={{156,-10},
+            {136,10}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia(
     phi(fixed=true, start=0),
     w(fixed=true, start=0),
@@ -37,10 +34,13 @@ model Drive
   BrushlessDCDrives.Common.MachineEnergyAnalyser
                                machineAnalyser(useBusConnector=true)
     annotation (Placement(transformation(extent={{28,-48},{48,-28}})));
+  Modelica.Blocks.Interfaces.RealInput tau
+    "Accelerating torque acting at flange (= -flange.tau)"
+    annotation (Placement(transformation(extent={{200,-20},{160,20}})));
 equation
   connect(multiSensorLoad.flange_a, inertia.flange_b) annotation (Line(points={{120,0},{115,0},{110,0}},       color={0,0,0}));
   connect(multiSensorLoad.flange_b, speedDependentTorque.flange)
-    annotation (Line(points={{132,0},{136,0},{140,0}},       color={0,0,0}));
+    annotation (Line(points={{132,0},{136,0}},               color={0,0,0}));
   connect(multiSensorMotor.flange_a, inertia.flange_a) annotation (Line(points={{80,0},{90,0}},              color={0,0,0}));
   connect(controller.dutyCycleOut, modulation.dutyCycleIn) annotation (Line(points={{-59,6},{-50.5,6},{-42,6}}, color={0,0,127}));
   connect(inverter.pin_p_Out, machine.pin_p) annotation (Line(points={{19.8,6},{29.9,6},{40,6}}, color={0,0,255}));
@@ -61,6 +61,8 @@ equation
       points={{38,-48},{38,-54},{10,-54},{10,-10}},
       color={0,100,120},
       thickness=0.5));
+  connect(speedDependentTorque.tau, tau)
+    annotation (Line(points={{158,0},{180,0}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-140,-60},{160,60}},
         initialScale=0.1), graphics={Rectangle(extent={{-140,60},{160,-60}},
@@ -72,4 +74,4 @@ equation
     Documentation(info="<html>
 <p>See <a href=\"BrushlessDCDrives.Examples.LevelOfDetail.ReadMe\">Read me</a> for a description.</p>
 </html>"));
-end Drive;
+end Drive_45_varyingload;
