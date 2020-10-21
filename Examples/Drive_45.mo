@@ -61,10 +61,10 @@ equation
       color={0,100,120},
       thickness=0.5));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
-        extent={{-140,-60},{160,60}},
+        extent={{-180,-60},{180,80}},
         initialScale=0.1), graphics={Rectangle(extent={{-140,60},{160,-60}},
             lineColor={28,108,200})}),                           Diagram(coordinateSystem(preserveAspectRatio=false,
-        extent={{-140,-60},{160,60}},
+        extent={{-180,-60},{180,80}},
         initialScale=0.1)),
     experiment(StopTime=1,__Dymola_NumberOfIntervals=1000),
     __Dymola_Commands(file="modelica://BrushlessDCDrives/Resources/Scripts/ExamplesLevelOfDetail.mos" "plot"),
