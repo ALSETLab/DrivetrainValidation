@@ -6,7 +6,8 @@ package DrivetrainValidation
     Modelica(version="3.2.3"),
     DymolaModels(version="1.0.1"),
     Battery(version="2.1.3"),
-    BrushlessDCDrives(version="1.1")),
+    BrushlessDCDrives(version="1.1"),
+    ModelicaServices(version="3.2.3")),
   version="1",
   conversion(noneFromVersion=""));
 end DrivetrainValidation;

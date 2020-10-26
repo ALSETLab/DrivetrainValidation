@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fmiModelDescription author="Bob" copyright=""
+                     description="This FMU calculates the forces and moments produced by a typical small eVTOL rotor using Blade Element Theory and a Uniform Inflow Model. All Units are SI (mks).&#xA;&#xA;Inputs:&#xA;- Rotor Rotational Speed (1x1 Double)&#xA;- Rotor Linear Velocity (3x1 Double)&#xA;- Rotor Angular Velocity (3x1 Double)&#xA;- Rotor Radius (1x1 Double)&#xA;- Spin Direction (1x1 Boolean)&#xA;&#xA;The two velocity inputs are defined in a hub-attached reference frame, and represent the velocity of the rotor hub with respect to the air. X-axis is positive forward, Y-axis is positive toward the right, and Z-axis is positive down.&#xA;&#xA;The spin direction is 0 for counter-clockwise spin, 1 for clockwise spin&#xA;&#xA;The outputs are:&#xA;&#xA;- Rotor Forces (3x1 Double)&#xA;- Rotor Moment (3x1 Double)&#xA;&#xA;The forces and moments are evaluated at the rotor hub, and are defined in the same coordinate frame as the velocities (e.g. thrust is positive down)"
+                     fmiVersion="2.0"
+                     generationDateAndTime="2020-10-21T15:33:19Z"
+                     generationTool="Simulink (R2019a)"
+                     guid="c0d31e8b-97b9-747f-d797-30d8aa800234"
+                     license=""
+                     modelName="Rotor"
+                     variableNamingConvention="structured"
+                     version="1.11">
+   <CoSimulation canBeInstantiatedOnlyOncePerProcess="false"
+                 canHandleVariableCommunicationStepSize="true"
+                 canNotUseMemoryManagementFunctions="true"
+                 modelIdentifier="Rotor"/>
+   <LogCategories>
+      <Category description="Error message from FMU or MATLAB exceptions."
+                name="logStatusError"/>
+      <Category description="All messages from FMU, MATLAB exceptions, and MATLAB command window."
+                name="logAll"/>
+   </LogCategories>
+   <DefaultExperiment startTime="0" stopTime="10"/>
+   <VendorAnnotations>
+      <Tool name="Simulink">
+         <Simulink>
+            <ImportCompatibility requireMATLABOnPath="yes" requireRelease="R2019a"/>
+            <SimulinkProject modelName="Rotor.slx" projectName="RotorModel.zip"/>
+            <SimulinkModelInterface>
+               <Inport blockPath="Rotor/In1" dataType="double" dimension="[1]" portNumber="1"
+                       sampleTime="[0 0]"
+                       tag="cosimTransformedInput_1"
+                       unit=""/>
+               <Inport blockPath="Rotor/In2" dataType="double" dimension="[3]" portNumber="2"
+                       sampleTime="[0 0]"
+                       tag="cosimTransformedInput_2"
+                       unit=""/>
+               <Inport blockPath="Rotor/In3" dataType="double" dimension="[3]" portNumber="3"
+                       sampleTime="[0 0]"
+                       tag="cosimTransformedInput_3"
+                       unit=""/>
+               <Inport blockPath="Rotor/In4" dataType="double" dimension="[1]" portNumber="4"
+                       sampleTime="[0 0]"
+                       tag="cosimTransformedInput_4"
+                       unit=""/>
+               <Inport blockPath="Rotor/In5" dataType="boolean" dimension="[1]" portNumber="5"
+                       sampleTime="[0 0]"
+                       tag="cosimTransformedInput_5"
+                       unit=""/>
+               <Outport blockPath="Rotor/Out1" dataType="double" dimension="[3]" portNumber="1"
+                        sampleTime="[0 0]"
+                        tag="cosimTransformedOutput_1"
+                        unit=""/>
+               <Outport blockPath="Rotor/Out2" dataType="double" dimension="[3]" portNumber="2"
+                        sampleTime="[0 0]"
+                        tag="cosimTransformedOutput_2"
+                        unit=""/>
+            </SimulinkModelInterface>
+         </Simulink>
+      </Tool>
+   </VendorAnnotations>
+   <ModelVariables>
+      <ScalarVariable causality="input" description="Input Port: In1" name="In1" valueReference="0"
+                      variability="continuous"><!--Index = 1--><Real start="0"/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="" tag="cosimTransformedInput_1"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="input" description="Input Port: In2" name="In2[1]"
+                      valueReference="1"
+                      variability="continuous"><!--Index = 2--><Real start="0"/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(1)" tag="cosimTransformedInput_2"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="input" description="Input Port: In2" name="In2[2]"
+                      valueReference="2"
+                      variability="continuous"><!--Index = 3--><Real start="0"/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(2)" tag="cosimTransformedInput_2"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="input" description="Input Port: In2" name="In2[3]"
+                      valueReference="3"
+                      variability="continuous"><!--Index = 4--><Real start="0"/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(3)" tag="cosimTransformedInput_2"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="input" description="Input Port: In3" name="In3[1]"
+                      valueReference="4"
+                      variability="continuous"><!--Index = 5--><Real start="0"/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(1)" tag="cosimTransformedInput_3"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="input" description="Input Port: In3" name="In3[2]"
+                      valueReference="5"
+                      variability="continuous"><!--Index = 6--><Real start="0"/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(2)" tag="cosimTransformedInput_3"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="input" description="Input Port: In3" name="In3[3]"
+                      valueReference="6"
+                      variability="continuous"><!--Index = 7--><Real start="0"/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(3)" tag="cosimTransformedInput_3"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="input" description="Input Port: In4" name="In4" valueReference="7"
+                      variability="continuous"><!--Index = 8--><Real start="0"/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="" tag="cosimTransformedInput_4"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="input" description="Input Port: In5" name="In5" valueReference="0"
+                      variability="continuous"><!--Index = 9--><Boolean start="false"/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="" tag="cosimTransformedInput_5"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="output" description="Output Port: Out1" initial="calculated"
+                      name="Out1[1]"
+                      valueReference="8"
+                      variability="continuous"><!--Index = 10--><Real/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(1)" tag="cosimTransformedOutput_1"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="output" description="Output Port: Out1" initial="calculated"
+                      name="Out1[2]"
+                      valueReference="9"
+                      variability="continuous"><!--Index = 11--><Real/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(2)" tag="cosimTransformedOutput_1"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="output" description="Output Port: Out1" initial="calculated"
+                      name="Out1[3]"
+                      valueReference="10"
+                      variability="continuous"><!--Index = 12--><Real/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(3)" tag="cosimTransformedOutput_1"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="output" description="Output Port: Out2" initial="calculated"
+                      name="Out2[1]"
+                      valueReference="11"
+                      variability="continuous"><!--Index = 13--><Real/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(1)" tag="cosimTransformedOutput_2"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="output" description="Output Port: Out2" initial="calculated"
+                      name="Out2[2]"
+                      valueReference="12"
+                      variability="continuous"><!--Index = 14--><Real/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(2)" tag="cosimTransformedOutput_2"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+      <ScalarVariable causality="output" description="Output Port: Out2" initial="calculated"
+                      name="Out2[3]"
+                      valueReference="13"
+                      variability="continuous"><!--Index = 15--><Real/>
+         <Annotations>
+            <Tool name="Simulink">
+               <Data elementAccess="(3)" tag="cosimTransformedOutput_2"/>
+            </Tool>
+         </Annotations>
+      </ScalarVariable>
+   </ModelVariables>
+   <ModelStructure>
+      <Outputs>
+         <Unknown index="10"/>
+         <Unknown index="11"/>
+         <Unknown index="12"/>
+         <Unknown index="13"/>
+         <Unknown index="14"/>
+         <Unknown index="15"/>
+      </Outputs>
+      <InitialUnknowns>
+         <Unknown index="10"/>
+         <Unknown index="11"/>
+         <Unknown index="12"/>
+         <Unknown index="13"/>
+         <Unknown index="14"/>
+         <Unknown index="15"/>
+      </InitialUnknowns>
+   </ModelStructure>
+</fmiModelDescription>

@@ -36,6 +36,18 @@ model Drive_25
   BrushlessDCDrives.Common.MachineEnergyAnalyser
                                machineAnalyser(useBusConnector=true)
     annotation (Placement(transformation(extent={{28,-48},{48,-28}})));
+  Modelica.Blocks.Interfaces.RealOutput w
+    "Absolute angular velocity of flange_a as output signal" annotation (
+      Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={62,-70})));
+  Modelica.Blocks.Interfaces.RealOutput tau
+    "Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal"
+    annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={100,-70})));
 equation
   connect(multiSensorLoad.flange_a, inertia.flange_b) annotation (Line(points={{120,0},{115,0},{110,0}},       color={0,0,0}));
   connect(multiSensorLoad.flange_b, speedDependentTorque.flange)
@@ -60,6 +72,10 @@ equation
       points={{38,-48},{38,-54},{10,-54},{10,-10}},
       color={0,100,120},
       thickness=0.5));
+  connect(multiSensorMotor.w, w) annotation (Line(points={{70.4,-6.6},{70.4,
+          -16.3},{62,-16.3},{62,-70}}, color={0,0,127}));
+  connect(multiSensorMotor.tau, tau) annotation (Line(points={{74,-6.6},{74,-36},
+          {100,-36},{100,-70}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-140,-60},{160,60}},
         initialScale=0.1), graphics={Rectangle(extent={{-140,60},{160,-60}},

@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta> <!-- fits the page to the device screen -->
+<title>Supporting Information from the FMU</title>
+<link href="css/bootstrap.min.css " rel="stylesheet" type="text/css"></link>
+<link href="css/site6.css?201507 " rel="stylesheet" type="text/css"></link>
+<link href="css/doc_center.css?20150306 " rel="stylesheet" type="text/css"></link>
+<style>
+.content_container { padding-top: 20px; min-height: 20px; }
+#doc_center_content { min-height: 20px; }
+info_param { width: 200px; display: block; vertical-align: middle; float:left; clear:left; }
+info_value { outline: none; }
+</style>
+</head><body>
+<div class="content_container" id="content_container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <section id="doc_center_content">
+          <!-- START CONTENT HERE -->
+          <div id="pgtype-topic">
+            <div itemprop="content">
+              <form>
+                <div><info_param>FMU Model Name</info_param><info_value>Rotor</info_value></div>
+                <div><info_param>FMI Version</info_param><info_value>2.0</info_value></div>
+                <div><info_param>FMU Types</info_param><info_value>Co-Simulation</info_value></div>
+                <div><info_param>Binaries</info_param><info_value>Rotor</info_value></div>
+                <div><info_param>Description</info_param><info_value>This FMU calculates the forces and moments produced by a typical small eVTOL rotor using Blade Element Theory and a Uniform Inflow Model. All Units are SI (mks).
+
+Inputs:
+- Rotor Rotational Speed (1x1 Double)
+- Rotor Linear Velocity (3x1 Double)
+- Rotor Angular Velocity (3x1 Double)
+- Rotor Radius (1x1 Double)
+- Spin Direction (1x1 Boolean)
+
+The two velocity inputs are defined in a hub-attached reference frame, and represent the velocity of the rotor hub with respect to the air. X-axis is positive forward, Y-axis is positive toward the right, and Z-axis is positive down.
+
+The spin direction is 0 for counter-clockwise spin, 1 for clockwise spin
+
+The outputs are:
+
+- Rotor Forces (3x1 Double)
+- Rotor Moment (3x1 Double)
+
+The forces and moments are evaluated at the rotor hub, and are defined in the same coordinate frame as the velocities (e.g. thrust is positive down)</info_value></div>
+                <div><info_param>Author</info_param><info_value>Bob</info_value></div>
+                <div><info_param>Generation Date and Time</info_param><info_value>2020-10-21T15:33:19Z</info_value></div>
+              </form>
+              <br/>
+              <div><p><a href="../modelDescription.xml" target="_blank">Open Model Description XML File</a></p></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>
