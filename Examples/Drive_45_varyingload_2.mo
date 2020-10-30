@@ -14,8 +14,8 @@ model Drive_45_varyingload_2
             {136,10}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia(
     phi(fixed=true, start=0),
-    w(fixed=true, start=0),
-    J=10e-6)
+    w(start=400),
+    J=3e-6)
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   Modelica.Mechanics.Rotational.Sensors.MultiSensor multiSensorLoad
     annotation (Placement(transformation(

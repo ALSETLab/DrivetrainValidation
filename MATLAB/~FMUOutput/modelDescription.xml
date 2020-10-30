@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fmiModelDescription
   fmiVersion="1.0"
-  modelName="Hacker_Q150_45"
-  modelIdentifier="Hacker_Q150_45"
-  guid="{b5d6180b-a7c0-45c5-ab27-185065173f4a}"
+  modelName="Hacker_Q150_25"
+  modelIdentifier="Hacker_Q150_25"
+  guid="{17101399-7792-417a-9ba1-5fdf12d44848}"
   generationTool="Dymola Version 2020x (64-bit), 2019-10-10 (requires license to execute)"
-  generationDateAndTime="2020-10-26T14:30:30Z"
+  generationDateAndTime="2020-10-30T16:08:25Z"
   variableNamingConvention="structured"
   numberOfContinuousStates="31"
   numberOfEventIndicators="36">
@@ -697,7 +697,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.controller.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -747,7 +747,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.controller.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -756,7 +756,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.controller.dutyCycleOut"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Connector of Real output signal"
       alias="alias">
       <Real
@@ -764,7 +764,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.controller.dutyCycleIn"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Ratio of on-time to period duration"
       alias="alias">
       <Real
@@ -805,7 +805,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.modulation.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -859,7 +859,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.modulation.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -868,7 +868,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.modulation.dutyCycleIn"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Ratio of on-time to period duration"
       alias="alias">
       <Real
@@ -876,7 +876,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.modulation.dutyCycleOut"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Connector of Real output signal"
       alias="alias">
       <Real
@@ -900,7 +900,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.pin_p.v"
-      valueReference="637534382"
+      valueReference="637534381"
       description="Potential at the pin"
       alias="alias">
       <Real
@@ -908,7 +908,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.pin_p.i"
-      valueReference="637534383"
+      valueReference="637534382"
       description="Current flowing into the pin"
       alias="alias">
       <Real
@@ -951,7 +951,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -1005,7 +1005,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -1021,7 +1021,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.dutyCycleIn"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Ratio of on-time to period duration"
       alias="alias">
       <Real
@@ -1068,7 +1068,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.uniOrBidirectional.u"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Connector of Real input signal"
       alias="alias">
       <Real
@@ -1134,7 +1134,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.uniOrBidirectional.gradient.u"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Input signal connector"
       alias="alias">
       <Real
@@ -1142,7 +1142,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.uniOrBidirectional.gradient.y"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Output signal connector"
       alias="alias">
       <Real
@@ -1159,7 +1159,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.uniOrBidirectional.add.u2"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Connector of Real input signal 2"
       alias="alias">
       <Real
@@ -1167,7 +1167,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.uniOrBidirectional.add.y"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Connector of Real output signal"
       alias="alias">
       <Real
@@ -1242,7 +1242,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.uniOrBidirectional.limiter.u"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Connector of Real input signal"
       alias="alias">
       <Real
@@ -1258,14 +1258,14 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.uniOrBidirectional.limiter.simplifiedExpr"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Simplified expression for homotopy-based initialization"
       alias="alias">
       <Real/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.idealBuckConverter.v1"
-      valueReference="637534382"
+      valueReference="637534381"
       description="Voltage drop of port 1 (= p1.v - n1.v)"
       alias="alias">
       <Real
@@ -1281,7 +1281,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.idealBuckConverter.i1"
-      valueReference="637534383"
+      valueReference="637534382"
       description="Current flowing from pos. to neg. pin of port 1"
       alias="alias">
       <Real
@@ -1296,7 +1296,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.idealBuckConverter.p1.v"
-      valueReference="637534382"
+      valueReference="637534381"
       description="Potential at the pin"
       alias="alias">
       <Real
@@ -1304,7 +1304,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.idealBuckConverter.p1.i"
-      valueReference="637534383"
+      valueReference="637534382"
       description="Current flowing into the pin"
       alias="alias">
       <Real
@@ -1370,14 +1370,14 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.dutyCycle"
-      valueReference="637534381"
+      valueReference="637534380"
       alias="alias">
       <Real
         declaredType="DymolaModels.Blocks.Interfaces.NormalizedInput"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.pin_p_supply.v"
-      valueReference="637534382"
+      valueReference="637534381"
       description="Potential at the pin"
       alias="alias">
       <Real
@@ -1385,7 +1385,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.coreElement.pin_p_supply.i"
-      valueReference="637534383"
+      valueReference="637534382"
       description="Current flowing into the pin"
       alias="alias">
       <Real
@@ -1509,7 +1509,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.currentSensorDC.p.v"
-      valueReference="637534382"
+      valueReference="637534381"
       description="Potential at the pin"
       alias="alias">
       <Real
@@ -1517,7 +1517,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.currentSensorDC.p.i"
-      valueReference="637534383"
+      valueReference="637534382"
       description="Current flowing into the pin"
       alias="alias">
       <Real
@@ -1525,7 +1525,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.currentSensorDC.n.v"
-      valueReference="637534382"
+      valueReference="637534381"
       description="Potential at the pin"
       alias="alias">
       <Real
@@ -1541,7 +1541,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.currentSensorDC.i"
-      valueReference="637534383"
+      valueReference="637534382"
       description="Current in the branch from p to n as output signal"
       alias="alias">
       <Real
@@ -1550,7 +1550,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.currentDC.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -1622,7 +1622,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.currentDC.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -1631,7 +1631,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.currentDC.u"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -1698,7 +1698,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.currentAC_Averaged.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -1752,7 +1752,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.currentAC_Averaged.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -1798,7 +1798,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.voltageSensorDC.p.v"
-      valueReference="637534382"
+      valueReference="637534381"
       description="Potential at the pin"
       alias="alias">
       <Real
@@ -1833,7 +1833,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.voltageSensorDC.v"
-      valueReference="637534382"
+      valueReference="637534381"
       description="Voltage between pin p and n (= p.v - n.v) as output signal"
       alias="alias">
       <Real
@@ -1842,7 +1842,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.voltageDC.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -1869,7 +1869,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.voltageDC.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -1923,7 +1923,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inverter.voltageDC.u"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -2010,7 +2010,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Resistance"
-        start="0.0155"/>
+        start="0.0135"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.p"
@@ -2040,7 +2040,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Inductance"
-        start="0.17"/>
+        start="0.00095"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.L"
@@ -2085,7 +2085,7 @@
       variability="constant">
       <Real
         unit="N.m/A"
-        start="0.1342"/>
+        start="0.0762"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.k_speed"
@@ -2094,7 +2094,7 @@
       variability="constant">
       <Real
         unit="rev.min-1/V"
-        start="71"/>
+        start="125"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.Jr"
@@ -2122,7 +2122,7 @@
       <Real
         declaredType="Modelica.SIunits.Current"
         min="0.0"
-        start="9.8"/>
+        start="12"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.w_0"
@@ -2132,7 +2132,7 @@
       <Real
         declaredType="Modelica.SIunits.AngularVelocity"
         min="1E-60"
-        start="3550"/>
+        start="6250"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.u_s_nom"
@@ -2150,7 +2150,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ElectricCurrent"
-        start="177.8"/>
+        start="192.45"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.tau_nom"
@@ -2159,7 +2159,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Torque"
-        start="23.853"/>
+        start="14.67"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.w_nom"
@@ -2168,7 +2168,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.AngularVelocity"
-        start="352.3819759776551"/>
+        start="622.1400651658987"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.P_nom"
@@ -2177,7 +2177,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Power"
-        start="8405.367272995007"/>
+        start="9126.794755983734"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.kDC"
@@ -2186,7 +2186,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ElectricalTorqueConstant"
-        start="0.1342"/>
+        start="0.0762"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.b"
@@ -2195,7 +2195,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.RotationalDampingConstant"
-        start="0.0003704676056338029"/>
+        start="0.00014630400000000001"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.Rs"
@@ -2204,7 +2204,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Resistance"
-        start="0.00775"/>
+        start="0.00675"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.Ls"
@@ -2213,7 +2213,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Inductance"
-        start="0.085"/>
+        start="0.000475"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.data.maxEMF_constant"
@@ -2287,7 +2287,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -2341,7 +2341,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -2457,7 +2457,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Resistance"
-        start="0.0155"/>
+        start="0.0135"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.coreElement.useL"
@@ -2473,7 +2473,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Inductance"
-        start="0.17"/>
+        start="0.00095"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.coreElement.Jr"
@@ -2500,7 +2500,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.RotationalDampingConstant"
-        start="0.0003704676056338029"/>
+        start="0.00014630400000000001"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.coreElement.useSupport"
@@ -2523,7 +2523,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ElectricalTorqueConstant"
-        start="0.1342"/>
+        start="0.0762"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.coreElement.w"
@@ -2604,7 +2604,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Resistance"
-        start="0.0155"/>
+        start="0.0135"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.coreElement.resistor.T_ref"
@@ -2703,7 +2703,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Resistance"
-        start="0.0155"/>
+        start="0.0135"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.coreElement.backEMF.k"
@@ -2712,7 +2712,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ElectricalTorqueConstant"
-        start="0.1342"/>
+        start="0.0762"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.coreElement.backEMF.v"
@@ -2936,7 +2936,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="der(drive.machine.coreElement.inertiaRotor.w)"
-      valueReference="369098922"
+      valueReference="369098921"
       description="der(Absolute angular velocity of component (= der(phi)))"
       alias="alias">
       <Real
@@ -2944,7 +2944,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.coreElement.inertiaRotor.a"
-      valueReference="369098922"
+      valueReference="369098921"
       description="Absolute angular acceleration of component (= der(w))"
       alias="alias">
       <Real
@@ -2970,7 +2970,9 @@
       valueReference="33554433"
       description="Relative angular velocity (= der(phi_rel))">
       <Real
-        declaredType="Modelica.SIunits.AngularVelocity"/>
+        declaredType="Modelica.SIunits.AngularVelocity"
+        start="0"
+        fixed="true"/>
     </ScalarVariable>
     <ScalarVariable
       name="der(drive.machine.coreElement.damper.w_rel)"
@@ -3045,7 +3047,7 @@
       <Real
         declaredType="Modelica.SIunits.RotationalDampingConstant"
         min="0.0"
-        start="0.0003704676056338029"/>
+        start="0.00014630400000000001"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.coreElement.damper.lossPower"
@@ -3295,7 +3297,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Inductance"
-        start="0.17"/>
+        start="0.00095"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.coreElement.internalSupport.phi"
@@ -3441,7 +3443,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.innerMachinePower.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -3486,7 +3488,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.innerMachinePower.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -3530,7 +3532,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.electricMachinePower.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -3575,7 +3577,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.electricMachinePower.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -3803,7 +3805,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.innerTorque.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -3848,7 +3850,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.innerTorque.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -3883,7 +3885,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.airGapTorque.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -3937,7 +3939,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.airGapTorque.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -4113,7 +4115,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.machineAngle.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -4158,7 +4160,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.machineAngle.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -4202,7 +4204,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.machineSpeed.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -4247,7 +4249,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machine.machineSpeed.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -4298,7 +4300,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.speedDependentTorque.flange.tau"
-      valueReference="905969835"
+      valueReference="905969834"
       description="Cut torque in the flange"
       alias="alias">
       <Real
@@ -4360,7 +4362,7 @@
       <Real
         declaredType="Modelica.SIunits.Inertia"
         min="0.0"
-        start="1E-05"/>
+        start="0.13"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.inertia.phi"
@@ -4381,23 +4383,22 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.inertia.w"
-      valueReference="905969833"
-      description="Absolute angular velocity of component (= der(phi))">
+      valueReference="369098920"
+      description="Absolute angular velocity of component (= der(phi))"
+      alias="alias">
       <Real
-        declaredType="Modelica.SIunits.AngularVelocity"
-        start="0"
-        fixed="true"/>
+        declaredType="Modelica.SIunits.AngularVelocity"/>
     </ScalarVariable>
     <ScalarVariable
       name="der(drive.inertia.w)"
-      valueReference="369098922"
+      valueReference="369098921"
       description="der(Absolute angular velocity of component (= der(phi)))">
       <Real
         unit="rad/s2"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.inertia.a"
-      valueReference="369098922"
+      valueReference="369098921"
       description="Absolute angular acceleration of component (= der(w))"
       alias="alias">
       <Real
@@ -4421,7 +4422,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.multiSensorLoad.flange_a.tau"
-      valueReference="905969835"
+      valueReference="905969834"
       description="Cut torque in the flange">
       <Real
         declaredType="Modelica.SIunits.Torque"/>
@@ -4444,7 +4445,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.multiSensorLoad.power"
-      valueReference="905969836"
+      valueReference="905969835"
       description="Power in flange flange_a as output signal">
       <Real
         declaredType="Modelica.Blocks.Interfaces.RealOutput"
@@ -4461,7 +4462,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.multiSensorLoad.tau"
-      valueReference="905969835"
+      valueReference="905969834"
       description="Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal"
       alias="alias">
       <Real
@@ -4470,7 +4471,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.dutyCycleIn"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Ratio of on-time to period duration">
       <Real
         declaredType="DymolaModels.Blocks.Interfaces.NormalizedInput"/>
@@ -4485,21 +4486,21 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.pin_p.v"
-      valueReference="637534382"
+      valueReference="637534381"
       description="Potential at the pin">
       <Real
         declaredType="Modelica.SIunits.ElectricPotential"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.pin_p.i"
-      valueReference="637534383"
+      valueReference="637534382"
       description="Current flowing into the pin">
       <Real
         declaredType="Modelica.SIunits.Current"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.pin_n.v"
-      valueReference="100663472"
+      valueReference="100663471"
       description="Potential at the pin"
       variability="constant">
       <Real
@@ -4508,21 +4509,21 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.pin_n.i"
-      valueReference="905969841"
+      valueReference="905969840"
       description="Current flowing into the pin">
       <Real
         declaredType="Modelica.SIunits.Current"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.useAveraging"
-      valueReference="100663474"
+      valueReference="100663473"
       description="true: Input powers will be averaged, false: instantaneous values will be used"
       variability="constant">
       <Boolean start="false"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.f"
-      valueReference="100663475"
+      valueReference="100663474"
       description="Base frequency for input averaging"
       variability="constant">
       <Real
@@ -4531,31 +4532,31 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.powerEfficiencyLimited"
-      valueReference="905969844">
+      valueReference="905969843">
       <Real
         declaredType="DymolaModels.Blocks.Interfaces.NormalizedOutput"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.powerEfficiency"
-      valueReference="905969845">
+      valueReference="905969844">
       <Real
         declaredType="DymolaModels.Blocks.Interfaces.NormalizedOutput"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.energyEfficiency"
-      valueReference="905969846">
+      valueReference="905969845">
       <Real
         declaredType="DymolaModels.Blocks.Interfaces.NormalizedOutput"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.motorEnergyEfficiency"
-      valueReference="905969847">
+      valueReference="905969846">
       <Real
         declaredType="DymolaModels.Blocks.Interfaces.NormalizedOutput"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatorEnergyEfficiency"
-      valueReference="905969848">
+      valueReference="905969847">
       <Real
         declaredType="DymolaModels.Blocks.Interfaces.NormalizedOutput"/>
     </ScalarVariable>
@@ -4569,7 +4570,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedElectricPower.u2"
-      valueReference="100663481"
+      valueReference="100663480"
       description="Connector of Real input signal 2"
       variability="constant">
       <Real
@@ -4578,7 +4579,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedElectricPower.y"
-      valueReference="637534394"
+      valueReference="637534393"
       description="Connector of Real output signal">
       <Real
         declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
@@ -4593,7 +4594,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedElectricPower.u2"
-      valueReference="100663483"
+      valueReference="100663482"
       description="Connector of Real input signal 2"
       variability="constant">
       <Real
@@ -4610,7 +4611,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedMechanicPower.u1"
-      valueReference="100663484"
+      valueReference="100663483"
       description="Connector of Real input signal 1"
       variability="constant">
       <Real
@@ -4627,7 +4628,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedMechanicPower.y"
-      valueReference="637534397"
+      valueReference="637534396"
       description="Connector of Real output signal">
       <Real
         declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
@@ -4642,7 +4643,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedMechanicPower.u2"
-      valueReference="100663486"
+      valueReference="100663485"
       description="Connector of Real input signal 2"
       variability="constant">
       <Real
@@ -4675,21 +4676,21 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.motorLosses.y"
-      valueReference="637534399"
+      valueReference="637534398"
       description="Connector of Real output signal">
       <Real
         declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.motorLosses.k1"
-      valueReference="100663488"
+      valueReference="100663487"
       description="Gain of input signal 1"
       variability="constant">
       <Real start="1"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.motorLosses.k2"
-      valueReference="100663489"
+      valueReference="100663488"
       description="Gain of input signal 2"
       variability="constant">
       <Real start="-1"/>
@@ -4712,28 +4713,28 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatorLosses.y"
-      valueReference="637534402"
+      valueReference="637534401"
       description="Connector of Real output signal">
       <Real
         declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatorLosses.k1"
-      valueReference="100663491"
+      valueReference="100663490"
       description="Gain of input signal 1"
       variability="constant">
       <Real start="-1"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatorLosses.k2"
-      valueReference="100663492"
+      valueReference="100663491"
       description="Gain of input signal 2"
       variability="constant">
       <Real start="1"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.electricEnergy.k"
-      valueReference="100663493"
+      valueReference="100663492"
       description="Integrator gain"
       variability="constant">
       <Real
@@ -4742,7 +4743,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.electricEnergy.initType"
-      valueReference="100663496"
+      valueReference="100663495"
       description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
       variability="constant">
       <Enumeration
@@ -4751,7 +4752,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.electricEnergy.y_start"
-      valueReference="100663497"
+      valueReference="100663496"
       description="Initial or guess value of output (= state)"
       variability="constant">
       <Real start="0"/>
@@ -4779,7 +4780,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.mechanicEnergy.k"
-      valueReference="100663500"
+      valueReference="100663499"
       description="Integrator gain"
       variability="constant">
       <Real
@@ -4788,7 +4789,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.mechanicEnergy.initType"
-      valueReference="100663503"
+      valueReference="100663502"
       description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
       variability="constant">
       <Enumeration
@@ -4797,7 +4798,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.mechanicEnergy.y_start"
-      valueReference="100663504"
+      valueReference="100663503"
       description="Initial or guess value of output (= state)"
       variability="constant">
       <Real start="0"/>
@@ -4825,28 +4826,28 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.limiter.uMax"
-      valueReference="100663507"
+      valueReference="100663506"
       description="Upper limits of input signals"
       variability="constant">
       <Real start="1.1"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.limiter.uMin"
-      valueReference="100663508"
+      valueReference="100663507"
       description="Lower limits of input signals"
       variability="constant">
       <Real start="0"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.limiter.strict"
-      valueReference="100663509"
+      valueReference="100663508"
       description="= true, if strict limits with noEvent(..)"
       variability="constant">
       <Boolean start="true"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.limiter.homotopyType"
-      valueReference="100663510"
+      valueReference="100663509"
       description="Simplified model for homotopy-based initialization"
       variability="constant">
       <Enumeration
@@ -4855,14 +4856,14 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.limiter.limitsAtInit"
-      valueReference="100663511"
+      valueReference="100663510"
       description="Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
       variability="constant">
       <Boolean start="true"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.limiter.u"
-      valueReference="905969845"
+      valueReference="905969844"
       description="Connector of Real input signal"
       alias="alias">
       <Real
@@ -4870,7 +4871,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.limiter.y"
-      valueReference="905969844"
+      valueReference="905969843"
       description="Connector of Real output signal"
       alias="alias">
       <Real
@@ -4878,7 +4879,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.limiter.simplifiedExpr"
-      valueReference="905969845"
+      valueReference="905969844"
       description="Simplified expression for homotopy-based initialization"
       alias="alias">
       <Real/>
@@ -4917,7 +4918,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.losses.u1"
-      valueReference="637534399"
+      valueReference="637534398"
       description="Connector of Real input signal 1"
       alias="alias">
       <Real
@@ -4925,7 +4926,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.losses.u2"
-      valueReference="637534402"
+      valueReference="637534401"
       description="Connector of Real input signal 2"
       alias="alias">
       <Real
@@ -4941,21 +4942,21 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.losses.k1"
-      valueReference="100663512"
+      valueReference="100663511"
       description="Gain of input signal 1"
       variability="constant">
       <Real start="1"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.losses.k2"
-      valueReference="100663513"
+      valueReference="100663512"
       description="Gain of input signal 2"
       variability="constant">
       <Real start="1"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedElectricEnergyComp.k"
-      valueReference="100663514"
+      valueReference="100663513"
       description="Integrator gain"
       variability="constant">
       <Real
@@ -4964,7 +4965,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedElectricEnergyComp.initType"
-      valueReference="100663517"
+      valueReference="100663516"
       description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
       variability="constant">
       <Enumeration
@@ -4973,7 +4974,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedElectricEnergyComp.y_start"
-      valueReference="100663518"
+      valueReference="100663517"
       description="Initial or guess value of output (= state)"
       variability="constant">
       <Real start="0"/>
@@ -5001,7 +5002,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedElectricEnergyComp.k"
-      valueReference="100663521"
+      valueReference="100663520"
       description="Integrator gain"
       variability="constant">
       <Real
@@ -5010,7 +5011,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedElectricEnergyComp.initType"
-      valueReference="100663524"
+      valueReference="100663523"
       description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
       variability="constant">
       <Enumeration
@@ -5019,7 +5020,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedElectricEnergyComp.y_start"
-      valueReference="100663525"
+      valueReference="100663524"
       description="Initial or guess value of output (= state)"
       variability="constant">
       <Real start="0"/>
@@ -5047,7 +5048,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedMechanicEnergyComp.k"
-      valueReference="100663528"
+      valueReference="100663527"
       description="Integrator gain"
       variability="constant">
       <Real
@@ -5056,7 +5057,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedMechanicEnergyComp.initType"
-      valueReference="100663531"
+      valueReference="100663530"
       description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
       variability="constant">
       <Enumeration
@@ -5065,7 +5066,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedMechanicEnergyComp.y_start"
-      valueReference="100663532"
+      valueReference="100663531"
       description="Initial or guess value of output (= state)"
       variability="constant">
       <Real start="0"/>
@@ -5093,7 +5094,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedMechanicEnergyComp.k"
-      valueReference="100663535"
+      valueReference="100663534"
       description="Integrator gain"
       variability="constant">
       <Real
@@ -5102,7 +5103,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedMechanicEnergyComp.initType"
-      valueReference="100663538"
+      valueReference="100663537"
       description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
       variability="constant">
       <Enumeration
@@ -5111,7 +5112,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedMechanicEnergyComp.y_start"
-      valueReference="100663539"
+      valueReference="100663538"
       description="Initial or guess value of output (= state)"
       variability="constant">
       <Real start="0"/>
@@ -5139,7 +5140,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.lossEnergyComp.k"
-      valueReference="100663542"
+      valueReference="100663541"
       description="Integrator gain"
       variability="constant">
       <Real
@@ -5148,7 +5149,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.lossEnergyComp.initType"
-      valueReference="100663545"
+      valueReference="100663544"
       description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
       variability="constant">
       <Enumeration
@@ -5157,7 +5158,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.lossEnergyComp.y_start"
-      valueReference="100663546"
+      valueReference="100663545"
       description="Initial or guess value of output (= state)"
       variability="constant">
       <Real start="0"/>
@@ -5201,7 +5202,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.powerEfficiencyComp.y"
-      valueReference="905969845"
+      valueReference="905969844"
       description="Connector of Real output signal"
       alias="alias">
       <Real
@@ -5209,7 +5210,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.powerEfficiencyComp.eps"
-      valueReference="100663549"
+      valueReference="100663548"
       description="Smallest value used for division"
       variability="constant">
       <Real min="1E-60"
@@ -5217,7 +5218,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.powerEfficiencyComp.action"
-      valueReference="100663550"
+      valueReference="100663549"
       description="Optionally inform about divisions by zero with asserts"
       variability="constant">
       <Enumeration
@@ -5242,7 +5243,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedPower.y"
-      valueReference="637534463"
+      valueReference="637534462"
       description="Connector of Real output signal">
       <Real
         declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
@@ -5265,14 +5266,14 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedPower.y"
-      valueReference="637534464"
+      valueReference="637534463"
       description="Connector of Real output signal">
       <Real
         declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedEnergyComp.k"
-      valueReference="100663553"
+      valueReference="100663552"
       description="Integrator gain"
       variability="constant">
       <Real
@@ -5281,7 +5282,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedEnergyComp.initType"
-      valueReference="100663556"
+      valueReference="100663555"
       description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
       variability="constant">
       <Enumeration
@@ -5290,7 +5291,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatedEnergyComp.y_start"
-      valueReference="100663557"
+      valueReference="100663556"
       description="Initial or guess value of output (= state)"
       variability="constant">
       <Real start="0"/>
@@ -5318,7 +5319,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedEnergyComp.k"
-      valueReference="100663560"
+      valueReference="100663559"
       description="Integrator gain"
       variability="constant">
       <Real
@@ -5327,7 +5328,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedEnergyComp.initType"
-      valueReference="100663563"
+      valueReference="100663562"
       description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
       variability="constant">
       <Enumeration
@@ -5336,7 +5337,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.consumedEnergyComp.y_start"
-      valueReference="100663564"
+      valueReference="100663563"
       description="Initial or guess value of output (= state)"
       variability="constant">
       <Real start="0"/>
@@ -5380,7 +5381,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.energyEfficiencyComp.y"
-      valueReference="905969846"
+      valueReference="905969845"
       description="Connector of Real output signal"
       alias="alias">
       <Real
@@ -5388,7 +5389,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.energyEfficiencyComp.eps"
-      valueReference="100663567"
+      valueReference="100663566"
       description="Smallest value used for division"
       variability="constant">
       <Real min="1E-60"
@@ -5396,7 +5397,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.energyEfficiencyComp.action"
-      valueReference="100663568"
+      valueReference="100663567"
       description="Optionally inform about divisions by zero with asserts"
       variability="constant">
       <Enumeration
@@ -5421,7 +5422,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.motorEnergyEfficiencyComp.y"
-      valueReference="905969847"
+      valueReference="905969846"
       description="Connector of Real output signal"
       alias="alias">
       <Real
@@ -5429,7 +5430,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.motorEnergyEfficiencyComp.eps"
-      valueReference="100663569"
+      valueReference="100663568"
       description="Smallest value used for division"
       variability="constant">
       <Real min="1E-60"
@@ -5437,7 +5438,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.motorEnergyEfficiencyComp.action"
-      valueReference="100663570"
+      valueReference="100663569"
       description="Optionally inform about divisions by zero with asserts"
       variability="constant">
       <Enumeration
@@ -5462,7 +5463,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatorEnergyEfficiencyComp.y"
-      valueReference="905969848"
+      valueReference="905969847"
       description="Connector of Real output signal"
       alias="alias">
       <Real
@@ -5470,7 +5471,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatorEnergyEfficiencyComp.eps"
-      valueReference="100663571"
+      valueReference="100663570"
       description="Smallest value used for division"
       variability="constant">
       <Real min="1E-60"
@@ -5478,7 +5479,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.generatorEnergyEfficiencyComp.action"
-      valueReference="100663572"
+      valueReference="100663571"
       description="Optionally inform about divisions by zero with asserts"
       variability="constant">
       <Enumeration
@@ -5487,7 +5488,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.signChange.k"
-      valueReference="100663573"
+      valueReference="100663572"
       description="Gain value multiplied with input signal"
       variability="constant">
       <Real
@@ -5496,7 +5497,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.signChange.u"
-      valueReference="637534489"
+      valueReference="637534488"
       description="Input signal connector"
       alias="alias">
       <Real
@@ -5512,7 +5513,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.signChangeElectric.k"
-      valueReference="100663574"
+      valueReference="100663573"
       description="Gain value multiplied with input signal"
       variability="constant">
       <Real
@@ -5521,7 +5522,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.signChangeElectric.u"
-      valueReference="637534394"
+      valueReference="637534393"
       description="Input signal connector"
       alias="alias">
       <Real
@@ -5537,7 +5538,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.signChangeMechanic.k"
-      valueReference="100663575"
+      valueReference="100663574"
       description="Gain value multiplied with input signal"
       variability="constant">
       <Real
@@ -5546,7 +5547,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.signChangeMechanic.u"
-      valueReference="637534397"
+      valueReference="637534396"
       description="Input signal connector"
       alias="alias">
       <Real
@@ -5562,7 +5563,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.noNegativeGeneratedPower.u1"
-      valueReference="637534464"
+      valueReference="637534463"
       description="Connector of Real input signal 1"
       alias="alias">
       <Real
@@ -5570,7 +5571,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.noNegativeGeneratedPower.u2"
-      valueReference="100663576"
+      valueReference="100663575"
       description="Connector of Real input signal 2"
       variability="constant">
       <Real
@@ -5579,7 +5580,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.noNegativeGeneratedPower.y"
-      valueReference="637534489"
+      valueReference="637534488"
       description="Connector of Real output signal"
       alias="alias">
       <Real
@@ -5587,14 +5588,14 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.additionalConsumedPower.u1"
-      valueReference="637534489"
+      valueReference="637534488"
       description="Connector of Real input signal 1">
       <Real
         declaredType="Modelica.Blocks.Interfaces.RealInput"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.additionalConsumedPower.u2"
-      valueReference="637534464"
+      valueReference="637534463"
       description="Connector of Real input signal 2"
       alias="alias">
       <Real
@@ -5602,28 +5603,28 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.additionalConsumedPower.y"
-      valueReference="637534490"
+      valueReference="637534489"
       description="Connector of Real output signal">
       <Real
         declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.additionalConsumedPower.k1"
-      valueReference="100663579"
+      valueReference="100663578"
       description="Gain of input signal 1"
       variability="constant">
       <Real start="-1"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.additionalConsumedPower.k2"
-      valueReference="100663580"
+      valueReference="100663579"
       description="Gain of input signal 2"
       variability="constant">
       <Real start="1"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.overallConsumedPower.u1"
-      valueReference="637534490"
+      valueReference="637534489"
       description="Connector of Real input signal 1"
       alias="alias">
       <Real
@@ -5631,7 +5632,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.overallConsumedPower.u2"
-      valueReference="637534463"
+      valueReference="637534462"
       description="Connector of Real input signal 2"
       alias="alias">
       <Real
@@ -5647,28 +5648,28 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.overallConsumedPower.k1"
-      valueReference="100663581"
+      valueReference="100663580"
       description="Gain of input signal 1"
       variability="constant">
       <Real start="1"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.overallConsumedPower.k2"
-      valueReference="100663582"
+      valueReference="100663581"
       description="Gain of input signal 2"
       variability="constant">
       <Real start="1"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.zero2.k"
-      valueReference="100663583"
+      valueReference="100663582"
       description="Constant output value"
       variability="constant">
       <Real start="0"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.zero2.y"
-      valueReference="100663584"
+      valueReference="100663583"
       description="Connector of Real output signal"
       variability="constant">
       <Real
@@ -5677,14 +5678,14 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.zero3.k"
-      valueReference="100663585"
+      valueReference="100663584"
       description="Constant output value"
       variability="constant">
       <Real start="0"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.zero3.y"
-      valueReference="100663586"
+      valueReference="100663585"
       description="Connector of Real output signal"
       variability="constant">
       <Real
@@ -5693,14 +5694,14 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.zero4.k"
-      valueReference="100663587"
+      valueReference="100663586"
       description="Constant output value"
       variability="constant">
       <Real start="0"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.zero4.y"
-      valueReference="100663588"
+      valueReference="100663587"
       description="Connector of Real output signal"
       variability="constant">
       <Real
@@ -5709,13 +5710,13 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.withBus"
-      valueReference="100663589"
+      valueReference="100663588"
       variability="constant">
       <Boolean start="true"/>
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.useBusConnector"
-      valueReference="100663590"
+      valueReference="100663589"
       description="True: Bus connector will be active, false: real inputs will be active"
       variability="constant">
       <Boolean start="true"/>
@@ -5740,7 +5741,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -5794,7 +5795,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -5838,7 +5839,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.electricPowerFromBus.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -5883,7 +5884,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.electricPowerFromBus.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -5927,7 +5928,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.mechanicPowerFromBus.bldcBus.currentDC"
-      valueReference="637534383"
+      valueReference="637534382"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -5972,7 +5973,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="drive.machineAnalyser.mechanicPowerFromBus.bldcBus.voltageDC"
-      valueReference="637534382"
+      valueReference="637534381"
       description="DC current of the inverter"
       alias="alias">
       <Real
@@ -6002,6 +6003,15 @@
       alias="alias">
       <Real
         declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <ScalarVariable
+      name="drive.J"
+      valueReference="100663590"
+      description="Moment of inertia"
+      variability="constant">
+      <Real
+        declaredType="Modelica.SIunits.Inertia"
+        start="0.00013"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.packType"
@@ -6050,11 +6060,11 @@
       description="Number of cells in parallel"
       variability="constant">
       <Integer min="1"
-        start="5"/>
+        start="50"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       description="pack voltage"
       alias="alias">
       <Real
@@ -6069,7 +6079,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.p.v"
-      valueReference="637534382"
+      valueReference="637534381"
       description="Potential at the pin"
       alias="alias">
       <Real
@@ -6520,7 +6530,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.packBus.I_max"
@@ -6660,7 +6670,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -19572,7 +19582,7 @@
       description="Number of cells in y-direction"
       variability="constant">
       <Integer min="1"
-        start="5"/>
+        start="50"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.T_init"
@@ -19608,7 +19618,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.Length"
-        start="0.09050000000000001"/>
+        start="0.905"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.height"
@@ -19743,7 +19753,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="259.20648"/>
+        start="2592.0648"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.G_rightWall"
@@ -19752,7 +19762,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="259.20648"/>
+        start="2592.0648"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.G_frontWall"
@@ -19779,7 +19789,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="1086.0271500000003"/>
+        start="10860.2715"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.G_bottomWall"
@@ -19788,7 +19798,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="1086.0271500000003"/>
+        start="10860.2715"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.G_embeddingDepth"
@@ -19797,7 +19807,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="899.8024014705741"/>
+        start="8998.024014705743"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.G_embeddingWidth"
@@ -19885,7 +19895,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="1086.0271500000003"/>
+        start="10860.2715"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.top.Q_flow"
@@ -19946,7 +19956,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="1086.0271500000003"/>
+        start="10860.2715"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.front[1].Q_flow"
@@ -20312,7 +20322,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="40.2472520978099"/>
+        start="402.472520978099"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.right[2].Q_flow"
@@ -20373,7 +20383,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="40.2472520978099"/>
+        start="402.472520978099"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.right[3].Q_flow"
@@ -20434,7 +20444,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="40.2472520978099"/>
+        start="402.472520978099"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.right[4].Q_flow"
@@ -20495,7 +20505,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="40.2472520978099"/>
+        start="402.472520978099"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.right[5].Q_flow"
@@ -20556,7 +20566,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="40.2472520978099"/>
+        start="402.472520978099"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.left[1].Q_flow"
@@ -20617,7 +20627,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="40.2472520978099"/>
+        start="402.472520978099"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.left[2].Q_flow"
@@ -20678,7 +20688,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="40.2472520978099"/>
+        start="402.472520978099"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.left[3].Q_flow"
@@ -20739,7 +20749,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="40.2472520978099"/>
+        start="402.472520978099"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.left[4].Q_flow"
@@ -20800,7 +20810,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="40.2472520978099"/>
+        start="402.472520978099"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.left[5].Q_flow"
@@ -20861,7 +20871,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.SIunits.ThermalConductance"
-        start="40.2472520978099"/>
+        start="402.472520978099"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.housing.back[1].Q_flow"
@@ -21182,7 +21192,7 @@
       description="Number of cells in y-direction"
       variability="constant">
       <Integer min="1"
-        start="5"/>
+        start="50"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.N_verticalElements"
@@ -21245,11 +21255,11 @@
       description="Number of parallel cells"
       variability="constant">
       <Integer min="1"
-        start="5"/>
+        start="50"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.electricScalingPos.p.v"
-      valueReference="637534382"
+      valueReference="637534381"
       description="Potential at the pin"
       alias="alias">
       <Real
@@ -21293,7 +21303,7 @@
       description="Number of parallel cells"
       variability="constant">
       <Integer min="1"
-        start="5"/>
+        start="50"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.electricScalingNeg.p.v"
@@ -21334,7 +21344,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.N_surface"
@@ -21365,7 +21375,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.positivePin.battery.T"
@@ -21407,7 +21417,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.negativePin.battery.T"
@@ -21449,7 +21459,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[1,1].battery.T"
@@ -21491,7 +21501,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[1,2].battery.T"
@@ -21533,7 +21543,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[1,3].battery.T"
@@ -21575,7 +21585,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[1,4].battery.T"
@@ -21617,7 +21627,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[1,5].battery.T"
@@ -21659,7 +21669,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[2,1].battery.T"
@@ -21701,7 +21711,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[2,2].battery.T"
@@ -21743,7 +21753,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[2,3].battery.T"
@@ -21785,7 +21795,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[2,4].battery.T"
@@ -21827,7 +21837,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[2,5].battery.T"
@@ -21869,7 +21879,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[3,1].battery.T"
@@ -21911,7 +21921,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[3,2].battery.T"
@@ -21953,7 +21963,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[3,3].battery.T"
@@ -21995,7 +22005,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[3,4].battery.T"
@@ -22037,7 +22047,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[3,5].battery.T"
@@ -22079,7 +22089,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[4,1].battery.T"
@@ -22121,7 +22131,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[4,2].battery.T"
@@ -22163,7 +22173,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[4,3].battery.T"
@@ -22205,7 +22215,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[4,4].battery.T"
@@ -22247,7 +22257,7 @@
       description="Number of cells"
       variability="constant">
       <Integer min="1"
-        start="75"/>
+        start="750"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.thermalScaling.surface[4,5].battery.T"
@@ -23209,7 +23219,7 @@
       description="Number of cells in parallel"
       variability="constant">
       <Integer min="1"
-        start="5"/>
+        start="50"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.n"
@@ -23234,7 +23244,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.packBus.I_max"
@@ -23374,7 +23384,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -23956,7 +23966,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.minVoltage.packBus.I_max"
@@ -24088,7 +24098,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.minVoltage.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -24124,7 +24134,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.maxVoltage.packBus.I_max"
@@ -24256,7 +24266,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.maxVoltage.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -24292,7 +24302,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.minCurrent.packBus.I_max"
@@ -24424,7 +24434,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.minCurrent.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -24460,7 +24470,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.maxCurrent.packBus.I_min"
@@ -24592,7 +24602,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.maxCurrent.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -24635,7 +24645,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.meanSOC.packBus.I_max"
@@ -24767,7 +24777,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.meanSOC.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -24803,7 +24813,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.minSOC.packBus.I_max"
@@ -24935,7 +24945,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.minSOC.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -24971,7 +24981,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.maxSOC.packBus.I_max"
@@ -25103,7 +25113,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.maxSOC.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -25132,7 +25142,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.meanTemperature.packBus.I_max"
@@ -25264,7 +25274,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.meanTemperature.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -25300,7 +25310,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.minTemperature.packBus.I_max"
@@ -25432,7 +25442,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.minTemperature.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -25468,7 +25478,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.maxTemperature.packBus.I_max"
@@ -25600,7 +25610,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.maxTemperature.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -25636,7 +25646,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.meanSOH.packBus.I_max"
@@ -25768,7 +25778,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.meanSOH.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -25804,7 +25814,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.minSOH.packBus.I_max"
@@ -25936,7 +25946,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.minSOH.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -25972,7 +25982,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.maxSOH.packBus.I_max"
@@ -26104,7 +26114,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.maxSOH.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -26540,7 +26550,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.actualCapacity.packBus.I_max"
@@ -26680,7 +26690,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.actualCapacity.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -26699,7 +26709,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.nominalCapacity.packBus.C_actual"
@@ -26847,7 +26857,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.nominalCapacity.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -26859,7 +26869,7 @@
       variability="constant">
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.min2D.n_x"
@@ -27155,7 +27165,7 @@
       variability="constant">
       <Real
         unit="1"
-        start="5"/>
+        start="50"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.gain.u"
@@ -27179,7 +27189,7 @@
       variability="constant">
       <Real
         unit="1"
-        start="5"/>
+        start="50"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.fromCellToPack.gain1.u"
@@ -27197,7 +27207,7 @@
       variability="constant">
       <Real
         declaredType="Modelica.Blocks.Interfaces.RealOutput"
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.realExpression3.y"
@@ -27257,7 +27267,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.packCurrent.packBus.I_max"
@@ -27389,7 +27399,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.packCurrent.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -27404,7 +27414,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.packVoltage.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -27425,7 +27435,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.packVoltage.packBus.I_max"
@@ -27565,7 +27575,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.packVoltage.u"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"/>
@@ -27593,7 +27603,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.idealPower.packBus.I_max"
@@ -27725,7 +27735,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.idealPower.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -27761,7 +27771,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.lossPower.packBus.I_max"
@@ -27893,7 +27903,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.lossPower.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -27929,7 +27939,7 @@
       <Real
         declaredType="Battery.Common.Interfaces.ElectricChargeInput"
         quantity=""
-        start="38700.0"/>
+        start="387000.0"/>
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.terminalPower.packBus.I_max"
@@ -28061,7 +28071,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="batteryPack.terminalPower.packBus.V_pack"
-      valueReference="637534382"
+      valueReference="637534381"
       alias="alias">
       <Real
         declaredType="Battery.Common.Interfaces.VoltageInput"
@@ -28076,7 +28086,7 @@
     </ScalarVariable>
     <ScalarVariable
       name="speedInput.y"
-      valueReference="637534381"
+      valueReference="637534380"
       description="Value of Real output"
       alias="alias">
       <Real

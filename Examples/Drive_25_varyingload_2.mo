@@ -14,8 +14,8 @@ model Drive_25_varyingload_2
             {136,10}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia(
     phi(fixed=true, start=0),
-    w(fixed=true, start=0),
-    J=10e-6)
+    J=0.13,
+    w(start=-400))
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   Modelica.Mechanics.Rotational.Sensors.MultiSensor multiSensorLoad
     annotation (Placement(transformation(
@@ -49,6 +49,7 @@ model Drive_25_varyingload_2
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={120,-70})));
+  parameter Modelica.SIunits.Inertia J=1.3e-4 "Moment of inertia";
 equation
   connect(multiSensorLoad.flange_a, inertia.flange_b) annotation (Line(points={{120,0},{115,0},{110,0}},       color={0,0,0}));
   connect(multiSensorLoad.flange_b, speedDependentTorque.flange)

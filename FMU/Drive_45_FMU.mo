@@ -1,7 +1,7 @@
 within DrivetrainValidation.FMU;
 model Drive_45_FMU
 
-  Examples.Drive_45_varyingload
+  Examples.Drive_45_varyingload_2
                     drive
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
@@ -22,6 +22,13 @@ model Drive_45_FMU
   Modelica.Blocks.Interfaces.RealInput tau
     "Accelerating torque acting at flange (= -flange.tau)"
     annotation (Placement(transformation(extent={{-80,-20},{-40,20}})));
+  RealExtend realExtend1
+    annotation (Placement(transformation(extent={{86,-10},{94,-2}})));
+  Modelica.Blocks.Interfaces.RealOutput w
+    "Absolute angular velocity of flange_a as output signal"
+    annotation (Placement(transformation(extent={{140,-16},{160,4}})));
+  Modelica.Blocks.Interfaces.RealOutput tau_out
+    annotation (Placement(transformation(extent={{140,24},{160,44}})));
 equation
   connect(drive.pin_p, batteryPack.p) annotation (Line(points={{32,24},{32,62},{
           90,62}},           color={0,0,255}));
@@ -34,6 +41,13 @@ equation
                                                 color={255,0,255}));
   connect(drive.tau, tau) annotation (Line(points={{58,18},{110,18},{110,0},{
           -60,0}}, color={0,0,127}));
+  connect(w,realExtend1. y[3]) annotation (Line(points={{150,-6},{122,-6},{122,
+          -5.73333},{94.4,-5.73333}}, color={0,0,127}));
+  connect(drive.w1,realExtend1. u)
+    annotation (Line(points={{47,11},{47,-6},{85.2,-6}},
+                                                       color={0,0,127}));
+  connect(drive.tau1, tau_out) annotation (Line(points={{52,11},{114,11},{114,
+          34},{150,34}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-40,-20},{140,80}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,

@@ -1,0 +1,792 @@
+#1
+char Aclass(3,24)
+Adymosim
+1.4
+Modelica experiment file
+
+
+#    Experiment parameters
+double experiment(7,1)
+       0                   # StartTime    Time at which integration starts
+                           #              (and linearization and trimming time)
+      15                   # StopTime     Time at which integration stops
+       0                   # Increment    Communication step size, if > 0
+   10000                   # nInterval    Number of communication intervals, if > 0
+  1.0000000000000000E-04   # Tolerance    Relative precision of signals for
+                           #              simulation, linearization and trimming
+  1.0000000000000000E-02   # MaxFixedStep Maximum step size of fixed step size
+                           #              integrators, if > 0.0
+      14                   # Algorithm    Integration algorithm as integer (1...28)
+                           #
+                           #             | model|       |        | dense | state |
+                           # Algorithm   | typ  | stiff | order  | output| event |
+                           # ------------+------+-------+--------+-------+-------+
+                           #  1 | deabm  |  ode |   no  |  1-12  |  yes  |   no  |
+                           #  2 | lsode1 |  ode |   no  |  1-12  |  yes  |   no  |
+                           #  3 | lsode2 |  ode |  yes  |  1-5   |  yes  |   no  |
+                           #  4 | lsodar |  ode |  both |1-12,1-5|  yes  |  yes  |
+                           #  5 | dopri5 |  ode |   no  |   5    |   no  |   no  |
+                           #  6 | dopri8 |  ode |   no  |   8    |   no  |   no  |
+                           #  7 | grk4t  |  ode |  yes  |   4    |   no  |   no  |
+                           #  8 | dassl  |  dae |  yes  |  1-5   |  yes  |  yes  |
+                           #  9 | odassl | hdae |  yes  |  1-5   |  yes  |  yes  |
+                           # 10 | mexx   | hdae |   no  |  2-24  |   no  |   no  |
+                           # 11 | euler  |  ode |   no  |   1    |   no  |  yes  |
+                           # 12 | rkfix2 |  ode |   no  |   2    |   no  |  yes  |
+                           # 13 | rkfix3 |  ode |   no  |   3    |   no  |  yes  |
+                           # 14 | rkfix4 |  ode |   no  |   4    |   no  |  yes  |
+                           #>=14| others |  ode |yes/no |  2-5   |   yes |  yes  |
+                           # ---+--------+------+-------+--------+-------+-------+
+                           # euler and rkfix have fixed stepsize.
+
+
+#    Method tuning parameters
+double method(27,1)
+       1                   # grid     type of communication time grid, defined by
+                           #          = 1: equidistant points ("Increment/nInterval")
+                           #          = 2: vector of grid points ("tgrid")
+                           #          = 3: variable step integrator (automatically)
+                           #          = 4: model (call of "increment" in Dymola, e.g.
+                           #                      incr=Time > 2 then 0 else 0.1
+                           #                      dummy=increment(incr))
+                           #          grid = 1,3 is stopped by "StopTime"
+                           #          grid = 2   is stopped by "tgrid(last)"
+                           #          grid = 4   runs forever (stopped by model)
+       1                   # nt       Use every NT time instant, if grid = 3
+       3                   # dense    1/2/3 restart/step/interpolate GRID points
+       1                   # evgrid   0/1 do not/save event points in comm. time grid
+       1                   # evu      0/1 U-discontinuity does not/trigger events
+       0                   # evuord       U-discontinuity order to consider (0,1,...)
+       0                   # error    0/1/2 One message/warning/error messages
+       0                   # jac      0/1 Compute jacobian numerically/by BLOCKJ
+       0                   # xd0c     0/1 Compute/set XD0
+       0                   # f3       0/1 Ignore/use F3 of HDAE (= index 1)
+       0                   # f4       0/1 Ignore/use F4 of HDAE (= index 2)
+       0                   # f5       0/1 Ignore/use F5 of HDAE (= invar.)
+       0                   # debug    flags for debug information (1<<0 uses pdebug) 
+     100                   # pdebug       priority of debug information (1...100)
+       0                   # fmax     Maximum number of evaluations of BLOCKF, if > 0
+       0                   # ordmax   Maximum allowed integration order, if > 0
+       0                   # hmax     Maximum absolute stepsize, if > 0
+       0                   # hmin     Minimum absolute stepsize, if > 0 (use with care!)
+       0                   # h0       Stepsize to be attempted on first step, if > 0
+  2.0000000000000000E-14   # teps     Bound to check, if 2 equal time instants
+  1.0000000000000000E-10   # eveps    Hysteresis epsilon at event points
+      20                   # eviter   Maximum number of event iterations
+  9.9999999999999995E-07   # delaym   Minimum time increment in delay buffers
+       1                   # fexcep   0/1 floating exception crashes/stops dymosim
+       1                   # tscale   clock-time = tscale*simulation-time, if grid = 5
+                           #          > 1: simulation too slow
+                           #          = 1: simulation-time = real-time
+                           #          < 1: simulation too fast
+       1                   # shared   (not used)
+    2473                   # memkey   (not used)
+
+
+#    Output parameters
+int settings(13,1)
+ 0                         # lprec    0/1 do not/store result data in double
+ 1                         # lx       0/1 do not/store x  (state variables)
+ 1                         # lxd      0/1 do not/store xd (derivative of states)
+ 1                         # lu       0/1 do not/store u  (input     signals)
+ 1                         # ly       0/1 do not/store y  (output    signals)
+ 0                         # lz       0/1 do not/store z  (indicator signals)
+ 1                         # lw       0/1 do not/store w  (auxiliary signals)
+ 1                         # la       0/1 do not/store a  (alias     signals)
+ 0                         # lperf    0/1 do not/store performance indicators
+ 0                         # levent   0/1 do not/store event point
+ 1                         # lres     0/1 do not/store results on result file
+ 0                         # lshare   0/1 do not/store info data for shared memory on dsshare.txt
+ 1                         # lform    0/1 ASCII/Matlab-binary storage format of results
+                           #              (for simulation/linearization; not for trimming)
+
+
+#    Names of initial variables
+char initialName(211,25)
+sampleClock.blockType
+sampleClock.methodType
+sampleClock.sampleTime
+sampleClock.initType
+sampleClock.sampleTrigger
+Vt
+Q
+P
+w
+delta
+stepEfd.height
+stepEfd.y
+stepEfd.offset
+stepEfd.startTime
+multiplex3_1.n1
+multiplex3_1.n2
+multiplex3_1.n3
+multiplex3_1.u2[1]
+multiplex3_1.u3[1]
+multiplex3_1.y[2]
+multiplex3_1.y[3]
+stateSpace.system.A[1, 1]
+stateSpace.system.A[1, 2]
+stateSpace.system.A[1, 3]
+stateSpace.system.A[1, 4]
+stateSpace.system.A[1, 5]
+stateSpace.system.A[1, 6]
+stateSpace.system.A[2, 1]
+stateSpace.system.A[2, 2]
+stateSpace.system.A[2, 3]
+stateSpace.system.A[2, 4]
+stateSpace.system.A[2, 5]
+stateSpace.system.A[2, 6]
+stateSpace.system.A[3, 1]
+stateSpace.system.A[3, 2]
+stateSpace.system.A[3, 3]
+stateSpace.system.A[3, 4]
+stateSpace.system.A[3, 5]
+stateSpace.system.A[3, 6]
+stateSpace.system.A[4, 1]
+stateSpace.system.A[4, 2]
+stateSpace.system.A[4, 3]
+stateSpace.system.A[4, 4]
+stateSpace.system.A[4, 5]
+stateSpace.system.A[4, 6]
+stateSpace.system.A[5, 1]
+stateSpace.system.A[5, 2]
+stateSpace.system.A[5, 3]
+stateSpace.system.A[5, 4]
+stateSpace.system.A[5, 5]
+stateSpace.system.A[5, 6]
+stateSpace.system.A[6, 1]
+stateSpace.system.A[6, 2]
+stateSpace.system.A[6, 3]
+stateSpace.system.A[6, 4]
+stateSpace.system.A[6, 5]
+stateSpace.system.A[6, 6]
+stateSpace.system.B[1, 1]
+stateSpace.system.B[1, 2]
+stateSpace.system.B[1, 3]
+stateSpace.system.B[2, 1]
+stateSpace.system.B[2, 2]
+stateSpace.system.B[2, 3]
+stateSpace.system.B[3, 1]
+stateSpace.system.B[3, 2]
+stateSpace.system.B[3, 3]
+stateSpace.system.B[4, 1]
+stateSpace.system.B[4, 2]
+stateSpace.system.B[4, 3]
+stateSpace.system.B[5, 1]
+stateSpace.system.B[5, 2]
+stateSpace.system.B[5, 3]
+stateSpace.system.B[6, 1]
+stateSpace.system.B[6, 2]
+stateSpace.system.B[6, 3]
+stateSpace.system.C[1, 1]
+stateSpace.system.C[1, 2]
+stateSpace.system.C[1, 3]
+stateSpace.system.C[1, 4]
+stateSpace.system.C[1, 5]
+stateSpace.system.C[1, 6]
+stateSpace.system.C[2, 1]
+stateSpace.system.C[2, 2]
+stateSpace.system.C[2, 3]
+stateSpace.system.C[2, 4]
+stateSpace.system.C[2, 5]
+stateSpace.system.C[2, 6]
+stateSpace.system.C[3, 1]
+stateSpace.system.C[3, 2]
+stateSpace.system.C[3, 3]
+stateSpace.system.C[3, 4]
+stateSpace.system.C[3, 5]
+stateSpace.system.C[3, 6]
+stateSpace.system.C[4, 1]
+stateSpace.system.C[4, 2]
+stateSpace.system.C[4, 3]
+stateSpace.system.C[4, 4]
+stateSpace.system.C[4, 5]
+stateSpace.system.C[4, 6]
+stateSpace.system.C[5, 1]
+stateSpace.system.C[5, 2]
+stateSpace.system.C[5, 3]
+stateSpace.system.C[5, 4]
+stateSpace.system.C[5, 5]
+stateSpace.system.C[5, 6]
+stateSpace.system.D[1, 1]
+stateSpace.system.D[1, 2]
+stateSpace.system.D[1, 3]
+stateSpace.system.D[2, 1]
+stateSpace.system.D[2, 2]
+stateSpace.system.D[2, 3]
+stateSpace.system.D[3, 1]
+stateSpace.system.D[3, 2]
+stateSpace.system.D[3, 3]
+stateSpace.system.D[4, 1]
+stateSpace.system.D[4, 2]
+stateSpace.system.D[4, 3]
+stateSpace.system.D[5, 1]
+stateSpace.system.D[5, 2]
+stateSpace.system.D[5, 3]
+stateSpace.cont
+stateSpace.blockType
+stateSpace.continuous
+stateSpace.methodType
+stateSpace.init
+stateSpace.sampleFactor
+stateSpace.initType
+stateSpace.x_start[1]
+stateSpace.x_start[2]
+stateSpace.x_start[3]
+stateSpace.x_start[4]
+stateSpace.x_start[5]
+stateSpace.x_start[6]
+stateSpace.y_start[1]
+stateSpace.y_start[2]
+stateSpace.y_start[3]
+stateSpace.y_start[4]
+stateSpace.y_start[5]
+stateSpace.u[2]
+stateSpace.u[3]
+stateSpace.y[1]
+stateSpace.y[2]
+stateSpace.y[3]
+stateSpace.y[4]
+stateSpace.y[5]
+stateSpace.x[1]
+stateSpace.der(x[1])
+stateSpace.x[2]
+stateSpace.der(x[2])
+stateSpace.x[3]
+stateSpace.der(x[3])
+stateSpace.x[4]
+stateSpace.der(x[4])
+stateSpace.x[5]
+stateSpace.der(x[5])
+stateSpace.x[6]
+stateSpace.der(x[6])
+stateSpace.nx
+stateSpace.ny
+stateSpace.withDelay
+demultiplex2_2.n1
+demultiplex2_2.n2
+demultiplex2_2.n3
+demultiplex2_2.n4
+demultiplex2_2.n5
+addy[1].u2
+addy[1].k1
+addy[1].k2
+addy[2].u2
+addy[2].k1
+addy[2].k2
+addy[3].u2
+addy[3].k1
+addy[3].k2
+addy[4].u2
+addy[4].k1
+addy[4].k2
+addy[5].u2
+addy[5].k1
+addy[5].k2
+Pmchange.k
+Pmchange.y
+multiplex5_1.n1
+multiplex5_1.n2
+multiplex5_1.n3
+multiplex5_1.n4
+multiplex5_1.n5
+multiplex5_1.u1[1]
+multiplex5_1.u2[1]
+multiplex5_1.u3[1]
+multiplex5_1.u4[1]
+multiplex5_1.u5[1]
+multiplex5_1.y[1]
+multiplex5_1.y[2]
+multiplex5_1.y[3]
+multiplex5_1.y[4]
+multiplex5_1.y[5]
+y0_Vt.k
+y0_Vt.y
+y0_Q.k
+y0_Q.y
+y0_P.k
+y0_P.y
+y0_w.k
+y0_w.y
+y0_delta.k
+y0_delta.y
+Ploadchange.k
+Ploadchange.y
+CPUtime
+EventCounter
+
+double initialValue(211,6)
+  0       1                  1       2                  6   258   # sampleClock.blockType
+  0       3                  1       6                  6   258   # sampleClock.methodType
+  0       1                  0       0                  6   256   # sampleClock.sampleTime
+  0       2                  1       4                  6   258   # sampleClock.initType
+  0       0                  0       0                  6   769   # sampleClock.sampleTrigger
+  0       0                  0       0                  4   256   # Vt
+  0       0                  0       0                  4   256   # Q
+  0       0                  0       0                  4   256   # P
+  0       0                  0       0                  4   256   # w
+  0       0                  0       0                  4   256   # delta
+  0  1.0000000000000000E-02  0       0                  6   256   # stepEfd.height
+  0       0                  0       0                  6   320   # stepEfd.y
+  0       0                  0       0                  6   256   # stepEfd.offset
+  0       1                  0       0                  6   256   # stepEfd.startTime
+  0       1                  0       0                  6   258   # multiplex3_1.n1
+  0       1                  0       0                  6   258   # multiplex3_1.n2
+  0       1                  0       0                  6   258   # multiplex3_1.n3
+  0       0                  0       0                  6   256   # multiplex3_1.u2[1]
+  0       0                  0       0                  6   256   # multiplex3_1.u3[1]
+  0       0                  0       0                  6   256   # multiplex3_1.y[2]
+  0       0                  0       0                  6   256   # multiplex3_1.y[3]
+  0       0                  0       0                  6   256   # stateSpace.system.A[1, 1]
+  0  3.7699111838914104E+02  0       0                  6   256   # stateSpace.system.A[1, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.A[1, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.A[1, 4]
+  0       0                  0       0                  6   256   # stateSpace.system.A[1, 5]
+  0       0                  0       0                  6   256   # stateSpace.system.A[1, 6]
+  0 -1.5935012502522555E-01  0       0                  6   256   # stateSpace.system.A[2, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.A[2, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.A[2, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.A[2, 4]
+  0 -1.7302030869741220E-01  0       0                  6   256   # stateSpace.system.A[2, 5]
+  0  6.0007591136657129E-02  0       0                  6   256   # stateSpace.system.A[2, 6]
+  0 -2.2578659127686199E-01  0       0                  6   256   # stateSpace.system.A[3, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.A[3, 2]
+  0 -1.2499999999582975E-01  0       0                  6   256   # stateSpace.system.A[3, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.A[3, 4]
+  0 -2.6688988999089869E-01  0       0                  6   256   # stateSpace.system.A[3, 5]
+  0 -1.1041056183099536E-03  0       0                  6   256   # stateSpace.system.A[3, 6]
+  0  4.6107962381245693E-01  0       0                  6   256   # stateSpace.system.A[4, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.A[4, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.A[4, 3]
+  0 -1.0000000000758573E+00  0       0                  6   256   # stateSpace.system.A[4, 4]
+  0  6.3364245693560278E-03  0       0                  6   256   # stateSpace.system.A[4, 5]
+  0 -1.4894289460374501E+00  0       0                  6   256   # stateSpace.system.A[4, 6]
+  0 -2.9728307608838804E+00  0       0                  6   256   # stateSpace.system.A[5, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.A[5, 2]
+  0  3.3333333332221272E+01  0       0                  6   256   # stateSpace.system.A[5, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.A[5, 4]
+  0 -3.6847352792304790E+01  0       0                  6   256   # stateSpace.system.A[5, 5]
+  0 -1.4537265192078836E-02  0       0                  6   256   # stateSpace.system.A[5, 6]
+  0  2.6215590291419555E+00  0       0                  6   256   # stateSpace.system.A[6, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.A[6, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.A[6, 3]
+  0  1.4285714286797962E+01  0       0                  6   256   # stateSpace.system.A[6, 4]
+  0  3.6026990246437102E-02  0       0                  6   256   # stateSpace.system.A[6, 5]
+  0 -2.2754155959037135E+01  0       0                  6   256   # stateSpace.system.A[6, 6]
+  0       0                  0       0                  6   256   # stateSpace.system.B[1, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.B[1, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.B[1, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.B[2, 1]
+  0  1.4285715467720342E-01  0       0                  6   256   # stateSpace.system.B[2, 2]
+  0 -3.1538676432360496E-02  0       0                  6   256   # stateSpace.system.B[2, 3]
+  0  1.2500001034254637E-01  0       0                  6   256   # stateSpace.system.B[3, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.B[3, 2]
+  0 -4.0740077977829969E-02  0       0                  6   256   # stateSpace.system.B[3, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.B[4, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.B[4, 2]
+  0  9.7712005153738346E-02  0       0                  6   256   # stateSpace.system.B[4, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.B[5, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.B[5, 2]
+  0 -5.3640633601581555E-01  0       0                  6   256   # stateSpace.system.B[5, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.B[6, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.B[6, 2]
+  0  5.5556115263755146E-01  0       0                  6   256   # stateSpace.system.B[6, 3]
+  0 -1.3790065289076472E-01  0       0                  6   256   # stateSpace.system.C[1, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.C[1, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.C[1, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.C[1, 4]
+  0  4.3643881356359188E-01  0       0                  6   256   # stateSpace.system.C[1, 5]
+  0  4.9944013092172140E-01  0       0                  6   256   # stateSpace.system.C[1, 6]
+  0  3.1220898458855267E-01  0       0                  6   256   # stateSpace.system.C[2, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.C[2, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.C[2, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.C[2, 4]
+  0  1.4657741561523794E+00  0       0                  6   256   # stateSpace.system.C[2, 5]
+  0  7.7060764858988329E-01  0       0                  6   256   # stateSpace.system.C[2, 6]
+  0  1.2147747709609267E+00  0       0                  6   256   # stateSpace.system.C[3, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.C[3, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.C[3, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.C[3, 4]
+  0  1.3714659819497419E+00  0       0                  6   256   # stateSpace.system.C[3, 5]
+  0 -3.5800201025832312E-01  0       0                  6   256   # stateSpace.system.C[3, 6]
+  0       0                  0       0                  6   256   # stateSpace.system.C[4, 1]
+  0  9.9999999988956201E-01  0       0                  6   256   # stateSpace.system.C[4, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.C[4, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.C[4, 4]
+  0       0                  0       0                  6   256   # stateSpace.system.C[4, 5]
+  0       0                  0       0                  6   256   # stateSpace.system.C[4, 6]
+  0  9.9999999986325894E-01  0       0                  6   256   # stateSpace.system.C[5, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.C[5, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.C[5, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.C[5, 4]
+  0       0                  0       0                  6   256   # stateSpace.system.C[5, 5]
+  0       0                  0       0                  6   256   # stateSpace.system.C[5, 6]
+  0       0                  0       0                  6   256   # stateSpace.system.D[1, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.D[1, 2]
+  0 -1.5863310665054087E-02  0       0                  6   256   # stateSpace.system.D[1, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.D[2, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.D[2, 2]
+  0  2.1774582137368270E-02  0       0                  6   256   # stateSpace.system.D[2, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.D[3, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.D[3, 2]
+  0  2.1947843542591272E-01  0       0                  6   256   # stateSpace.system.D[3, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.D[4, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.D[4, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.D[4, 3]
+  0       0                  0       0                  6   256   # stateSpace.system.D[5, 1]
+  0       0                  0       0                  6   256   # stateSpace.system.D[5, 2]
+  0       0                  0       0                  6   256   # stateSpace.system.D[5, 3]
+  0       1                  0       0                  6  1281   # stateSpace.cont
+  0       1                  1       3                  6   770   # stateSpace.blockType
+  0       1                  0       0                  6   257   # stateSpace.continuous
+  0       7                  1       7                  6   770   # stateSpace.methodType
+  0       2                  1       4                  6   258   # stateSpace.init
+  0       1                  1 1.0000000000000000E+100  6   258   # stateSpace.sampleFactor
+  0       5                  1       5                  6   770   # stateSpace.initType
+  0       0                  0       0                  6   256   # stateSpace.x_start[1]
+  0       0                  0       0                  6   256   # stateSpace.x_start[2]
+  0       0                  0       0                  6   256   # stateSpace.x_start[3]
+  0       0                  0       0                  6   256   # stateSpace.x_start[4]
+  0       0                  0       0                  6   256   # stateSpace.x_start[5]
+  0       0                  0       0                  6   256   # stateSpace.x_start[6]
+  0       0                  0       0                  6   256   # stateSpace.y_start[1]
+  0       0                  0       0                  6   256   # stateSpace.y_start[2]
+  0       0                  0       0                  6   256   # stateSpace.y_start[3]
+  0       0                  0       0                  6   256   # stateSpace.y_start[4]
+  0       0                  0       0                  6   256   # stateSpace.y_start[5]
+  0       0                  0       0                  6   256   # stateSpace.u[2]
+  0       0                  0       0                  6   256   # stateSpace.u[3]
+  0       0                  0       0                  6   256   # stateSpace.y[1]
+  0       0                  0       0                  6   256   # stateSpace.y[2]
+  0       0                  0       0                  6   256   # stateSpace.y[3]
+  0       0                  0       0                  6   256   # stateSpace.y[4]
+  0       0                  0       0                  6   256   # stateSpace.y[5]
+ -1       0                  0       0                  2   272   # stateSpace.x[1]
+  0       0                  0       0                  3   256   # stateSpace.der(x[1])
+ -1       0                  0       0                  2   272   # stateSpace.x[2]
+  0       0                  0       0                  3   256   # stateSpace.der(x[2])
+ -1       0                  0       0                  2   272   # stateSpace.x[3]
+  0       0                  0       0                  3   256   # stateSpace.der(x[3])
+ -1       0                  0       0                  2   272   # stateSpace.x[4]
+  0       0                  0       0                  3   256   # stateSpace.der(x[4])
+ -1       0                  0       0                  2   272   # stateSpace.x[5]
+  0       0                  0       0                  3   256   # stateSpace.der(x[5])
+ -1       0                  0       0                  2   272   # stateSpace.x[6]
+  0       0                  0       0                  3   256   # stateSpace.der(x[6])
+  0       6                  0       0                  6   770   # stateSpace.nx
+  0       5                  0       0                  6   770   # stateSpace.ny
+  0       0                  0       0                  6   769   # stateSpace.withDelay
+  0       1                  0       0                  6   258   # demultiplex2_2.n1
+  0       1                  0       0                  6   258   # demultiplex2_2.n2
+  0       1                  0       0                  6   258   # demultiplex2_2.n3
+  0       1                  0       0                  6   258   # demultiplex2_2.n4
+  0       1                  0       0                  6   258   # demultiplex2_2.n5
+  0       1                  0       0                  6   256   # addy[1].u2
+  0       1                  0       0                  6   256   # addy[1].k1
+  0       1                  0       0                  6   256   # addy[1].k2
+  0  4.3600222468376160E-01  0       0                  6   256   # addy[2].u2
+  0       1                  0       0                  6   256   # addy[2].k1
+  0       1                  0       0                  6   256   # addy[2].k2
+  0  8.9999997615814209E-01  0       0                  6   256   # addy[3].u2
+  0       1                  0       0                  6   256   # addy[3].k1
+  0       1                  0       0                  6   256   # addy[3].k2
+  0       1                  0       0                  6   256   # addy[4].u2
+  0       1                  0       0                  6   256   # addy[4].k1
+  0       1                  0       0                  6   256   # addy[4].k2
+  0  1.2242474555969238E+00  0       0                  6   256   # addy[5].u2
+  0       1                  0       0                  6   256   # addy[5].k1
+  0       1                  0       0                  6   256   # addy[5].k2
+  0       0                  0       0                  6   256   # Pmchange.k
+  0       0                  0       0                  6   256   # Pmchange.y
+  0       1                  0       0                  6   258   # multiplex5_1.n1
+  0       1                  0       0                  6   258   # multiplex5_1.n2
+  0       1                  0       0                  6   258   # multiplex5_1.n3
+  0       1                  0       0                  6   258   # multiplex5_1.n4
+  0       1                  0       0                  6   258   # multiplex5_1.n5
+  0       1                  0       0                  6   256   # multiplex5_1.u1[1]
+  0  4.3600222468376160E-01  0       0                  6   256   # multiplex5_1.u2[1]
+  0  8.9999997615814209E-01  0       0                  6   256   # multiplex5_1.u3[1]
+  0       1                  0       0                  6   256   # multiplex5_1.u4[1]
+  0  1.2242474555969238E+00  0       0                  6   256   # multiplex5_1.u5[1]
+  0       1                  0       0                  6   256   # multiplex5_1.y[1]
+  0  4.3600222468376160E-01  0       0                  6   256   # multiplex5_1.y[2]
+  0  8.9999997615814209E-01  0       0                  6   256   # multiplex5_1.y[3]
+  0       1                  0       0                  6   256   # multiplex5_1.y[4]
+  0  1.2242474555969238E+00  0       0                  6   256   # multiplex5_1.y[5]
+  0       1                  0       0                  6   256   # y0_Vt.k
+  0       1                  0       0                  6   256   # y0_Vt.y
+  0  4.3600222468376160E-01  0       0                  6   256   # y0_Q.k
+  0  4.3600222468376160E-01  0       0                  6   256   # y0_Q.y
+  0  8.9999997615814209E-01  0       0                  6   256   # y0_P.k
+  0  8.9999997615814209E-01  0       0                  6   256   # y0_P.y
+  0       1                  0       0                  6   256   # y0_w.k
+  0       1                  0       0                  6   256   # y0_w.y
+  0  1.2242474555969238E+00  0       0                  6   256   # y0_delta.k
+  0  1.2242474555969238E+00  0       0                  6   256   # y0_delta.y
+  0       0                  0       0                  6   256   # Ploadchange.k
+  0       0                  0       0                  6   256   # Ploadchange.y
+  0       0                  0       0                  4   256   # CPUtime
+  0       0                  0       0                  4   256   # EventCounter
+
+
+# Matrix with 6 columns defining the initial value calculation
+# (columns 5 and 6 are not utilized for the calculation but are
+#  reported by dymosim via dymosim -i for user convenience):
+#
+# column 1: Type of initial value
+#           = -2: special case: for continuing simulation (column 2 = value)
+#           = -1: fixed value (column 2 = fixed value)
+#           =  0: free value, i.e., no restriction (column 2 = initial value)
+#           >  0: desired value (column 1 = weight for optimization
+#                                column 2 = desired value)
+#                 use weight=1, since automatic scaling usually
+#                 leads to equally weighted terms
+# column 2: fixed, free or desired value according to column 1.
+# column 3: Minimum value (ignored, if Minimum >= Maximum).
+# column 4: Maximum value (ignored, if Minimum >= Maximum).
+#           Minimum and maximum restrict the search range in initial
+#           value calculation. They might also be used for scaling.
+# column 5: Category of variable.
+#           = 1: parameter.
+#           = 2: state.
+#           = 3: state derivative.
+#           = 4: output.
+#           = 5: input.
+#           = 6: auxiliary variable.
+# column 6: Data type of variable and flags according to dsBaseType
+#  <value>&3= 0: real.
+#  <value>&3= 1: boolean.
+#  <value>&3= 2: integer.
+#
+# Initial values are calculated according to the following procedure:
+#
+# - If parameters, states and inputs are FIXED, and other variables
+#   are FREE, no special action takes place (default setting).
+#
+# - If there are only FIXED and FREE variables and the number of
+#   FREE parameters, states and inputs is IDENTICAL to the number of
+#   FIXED state derivatives, outputs and auxiliary variables, a non-linear
+#   equation is solved to determine a consistent set of initial conditions.
+#
+# - In all other cases the following optimization problem is solved:
+#      min( sum( weight(i)*( (value(i) - DESIRED(i))/scale(i) )^2 ) )
+#   under the constraint that the differential equation is fulfilled
+#   at the initial time. In most cases weight(i)=1 is sufficient, due
+#   to the automatic scaling (if DESIRED(i) is not close to zero,
+#   scale(i) = DESIRED(i). Otherwise, the scaling is based on the
+#   nominal value (and maybe minimum and maximum values given in 
+#   column 3 and 4). If these values are zero, scale(i)=1 is used).
+#
+char initialDescription(211,148)
+Type of Sampled blocks [:#(type=Modelica_LinearSystems2.Controller.Types.BlockType)]
+Discretization method for discrete blocks [:#(type=Modelica_LinearSystems2.Utilities.Types.Method)]
+Base sample time for discrete blocks [s]
+Type of initialization of Sampled blocks [:#(type=Modelica_LinearSystems2.Controller.Types.Init)]
+Trigger that is true at every sampleTime [:#(type=Boolean)]
+
+
+
+
+
+Height of step
+Connector of Real output signal
+Offset of output signal y
+Output y = offset for time < startTime [s]
+Dimension of input signal connector 1 [:#(type=Integer)]
+Dimension of input signal connector 2 [:#(type=Integer)]
+Dimension of input signal connector 3 [:#(type=Integer)]
+Connector of Real input signals 2
+Connector of Real input signals 3
+Connector of Real output signals
+Connector of Real output signals
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[:#(type=Boolean)]
+Type of block [:#(type=Modelica_LinearSystems2.Controller.Types.BlockTypeWithGlobalDefault)]
+True, if continuous block, otherwise discrete block [:#(type=Boolean)]
+Type of discretization if discrete block [:#(type=Modelica_LinearSystems2.Controller.Types.MethodWithGlobalDefault)]
+Type of initialization (no init/steady state/initial state/initial output) [:#(type=Modelica_LinearSystems2.Controller.Types.Init)]
+Sample factor (Ts = sampleFactor * sampleClock.sampleTime) [:#(type=Integer)]
+Type of initialization (no init/steady state/initial state/initial output) [:#(type=Modelica_LinearSystems2.Controller.Types.InitWithGlobalDefault)]
+Initial or guess values of states
+Initial or guess values of states
+Initial or guess values of states
+Initial or guess values of states
+Initial or guess values of states
+Initial or guess values of states
+Initial values of outputs (remaining states are in steady state if possible)
+Initial values of outputs (remaining states are in steady state if possible)
+Initial values of outputs (remaining states are in steady state if possible)
+Initial values of outputs (remaining states are in steady state if possible)
+Initial values of outputs (remaining states are in steady state if possible)
+Continuous or discrete input signals of block
+Continuous or discrete input signals of block
+Continuous or discrete output signals of block
+Continuous or discrete output signals of block
+Continuous or discrete output signals of block
+Continuous or discrete output signals of block
+Continuous or discrete output signals of block
+State vector of continuous system
+der(State vector of continuous system)
+State vector of continuous system
+der(State vector of continuous system)
+State vector of continuous system
+der(State vector of continuous system)
+State vector of continuous system
+der(State vector of continuous system)
+State vector of continuous system
+der(State vector of continuous system)
+State vector of continuous system
+der(State vector of continuous system)
+Number of states x [:#(type=Integer)]
+Number of outputs y [:#(type=Integer)]
+True, if a unit delay should be considered [:#(type=Boolean)]
+Dimension of output signal connector 1 [:#(type=Integer)]
+Dimension of output signal connector 2 [:#(type=Integer)]
+Dimension of output signal connector 3 [:#(type=Integer)]
+Dimension of output signal connector 4 [:#(type=Integer)]
+Dimension of output signal connector 5 [:#(type=Integer)]
+Connector of Real input signal 2
+Gain of input signal 1
+Gain of input signal 2
+Connector of Real input signal 2
+Gain of input signal 1
+Gain of input signal 2
+Connector of Real input signal 2
+Gain of input signal 1
+Gain of input signal 2
+Connector of Real input signal 2
+Gain of input signal 1
+Gain of input signal 2
+Connector of Real input signal 2
+Gain of input signal 1
+Gain of input signal 2
+Constant output value
+Connector of Real output signal
+Dimension of input signal connector 1 [:#(type=Integer)]
+Dimension of input signal connector 2 [:#(type=Integer)]
+Dimension of input signal connector 3 [:#(type=Integer)]
+Dimension of input signal connector 4 [:#(type=Integer)]
+Dimension of input signal connector 5 [:#(type=Integer)]
+Connector of Real input signals 1
+Connector of Real input signals 2
+Connector of Real input signals 3
+Connector of Real input signals 4
+Connector of Real input signals 5
+Connector of Real output signals
+Connector of Real output signals
+Connector of Real output signals
+Connector of Real output signals
+Connector of Real output signals
+Constant output value
+Connector of Real output signal
+Constant output value
+Connector of Real output signal
+Constant output value
+Connector of Real output signal
+Constant output value
+Connector of Real output signal
+Constant output value
+Connector of Real output signal
+Constant output value
+Connector of Real output signal
+[s]
+
+

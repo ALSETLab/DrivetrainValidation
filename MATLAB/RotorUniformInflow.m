@@ -159,10 +159,18 @@ function Start(block)
 %%
 function Outputs(block)
 
+
+
+
+
 Omega = block.InputPort(1).Data;
 V = block.InputPort(2).Data;
 w = block.InputPort(3).Data;
 R = block.InputPort(4).Data; 
+
+if Omega == 0
+    Omega = 1;
+end
 
 [FM] = BladeElementTheory(Omega,V,w,R,block.InputPort(5).Data);
 
