@@ -13,8 +13,8 @@ model Drive_45_FMU_control
             {14,14}},
         rotation=0,
         origin={104,62})));
-  Modelica.Blocks.Sources.RealExpression speedInput(y=PID.y/drive.machine.data.w_nom)
-    annotation (Placement(transformation(extent={{-4,12},{12,28}})));
+  Modelica.Blocks.Sources.RealExpression speedInput(y=omega/drive.machine.data.w_nom)
+    annotation (Placement(transformation(extent={{-36,32},{-20,48}})));
   Modelica.Blocks.Interfaces.BooleanInput rotationCW
     annotation (Placement(transformation(extent={{-80,-32},{-40,8}})));
   Modelica.Blocks.Interfaces.RealInput omega
@@ -32,19 +32,6 @@ model Drive_45_FMU_control
     annotation (Placement(transformation(extent={{88,16},{96,24}})));
   RealExtend realExtend1
     annotation (Placement(transformation(extent={{88,-4},{96,4}})));
-  Modelica.Blocks.Math.Gain gain(k=-1/drive.machine.data.w_nom) annotation (
-      Placement(transformation(
-        extent={{-4,-4},{4,4}},
-        rotation=90,
-        origin={-8,38})));
-  Modelica.Blocks.Math.Feedback feedback
-    annotation (Placement(transformation(extent={{-14,54},{-2,66}})));
-  Modelica.Blocks.Continuous.PID PID(
-    k=0.1,
-    Ti=0.25,
-    Td=0.25,
-    initType=Modelica.Blocks.Types.InitPID.SteadyState)
-    annotation (Placement(transformation(extent={{2,54},{14,66}})));
 equation
   connect(drive.pin_p, batteryPack.p) annotation (Line(points={{32,24},{32,62},{
           90,62}},           color={0,0,255}));
@@ -62,16 +49,8 @@ equation
           {78,8},{52,8},{52,11}}, color={0,0,127}));
   connect(realExtend.y[3], tau_out) annotation (Line(points={{96.4,20.2667},{
           118,20.2667},{118,24},{136,24},{136,58},{150,58}}, color={0,0,127}));
-  connect(feedback.u2, gain.y)
-    annotation (Line(points={{-8,55.2},{-8,42.4}}, color={0,0,127}));
-  connect(feedback.y, PID.u)
-    annotation (Line(points={{-2.6,60},{0.8,60}}, color={0,0,127}));
-  connect(gain.u, realExtend1.u)
-    annotation (Line(points={{-8,33.2},{-8,0},{87.2,0}}, color={0,0,127}));
-  connect(drive.dutyCycleIn, speedInput.y) annotation (Line(points={{24,18.6},{
-          18,18.6},{18,20},{12.8,20}}, color={0,0,127}));
-  connect(feedback.u1, omega)
-    annotation (Line(points={{-12.8,60},{-60,60}}, color={0,0,127}));
+  connect(speedInput.y, drive.dutyCycleIn) annotation (Line(points={{-19.2,40},
+          {2,40},{2,18.6},{24,18.6}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-40,-20},{140,80}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,

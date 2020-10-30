@@ -6,7 +6,7 @@ model Drive_25_FMU_2
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
     N_serialCells=15,
-    N_parallelCells=5,
+    N_parallelCells=50,
     N_verticalElements=5,
     redeclare Battery.Cells.Variants.DemoCell3dDAF cell)
                                                  annotation (Placement(transformation(extent={{-14,-14},
