@@ -1,8 +1,7 @@
 within DrivetrainValidation.FMU;
 model Drive_25_FMU_control
 
-  Examples.Drive_25_varyingload_2
-                    drive(inertia(w(fixed=false)))
+  Machines.Drive_25_Outputs drive(inertia(w(fixed=false)))
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage
                                            batteryPack(V=60)

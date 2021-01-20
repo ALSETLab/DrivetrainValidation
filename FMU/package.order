@@ -5,3 +5,6 @@ Drive_25_FMU_2
 Drive_45_FMU_2
 Drive_25_FMU_control
 Drive_45_FMU_control
+AveragedSwitched
+SimplifiedDrive_fmu
+SimplifiedDrive_Battery_fmu

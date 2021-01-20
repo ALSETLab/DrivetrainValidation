@@ -2,8 +2,7 @@ within DrivetrainValidation.FMU;
 model Drive_25_FMU
 
 
-  Examples.Drive_25_varyingload_2
-                    drive
+  Machines.Drive_25_Outputs drive
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Modelica.Blocks.Sources.RealExpression speedInput(y=speed/drive.machine.data.w_nom)
     annotation (Placement(transformation(extent={{-26,30},{-6,50}})));

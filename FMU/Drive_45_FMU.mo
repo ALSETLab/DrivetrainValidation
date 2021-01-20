@@ -1,8 +1,7 @@
 within DrivetrainValidation.FMU;
 model Drive_45_FMU
 
-  Examples.Drive_45_varyingload_2
-                    drive
+  Machines.Drive_45_Outputs drive
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
     N_serialCells=15,

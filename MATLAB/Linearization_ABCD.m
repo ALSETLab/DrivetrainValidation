@@ -3,8 +3,7 @@ clear all
 % Linearization at t = 0
 load ./dslin.mat
 nu = size(ABCD,2) - nx;
-ny = size(ABCD,1) - nx;
-A = ABCD(1:nx,1:nx);
+ny = siz
 B = ABCD(1:nx,nx+1:nx+nu);
 C = ABCD(nx+1:nx+ny,1:nx);
 D = ABCD(nx+1:nx+ny,nx+1:nx+nu);

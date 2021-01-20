@@ -8,7 +8,7 @@ record Hacker_Q150_45_4 "(BLDCD) Trap: Hacker Q-150-45-4, 12 kWatt"
     k_tau=13.42e-2 "torque constant",
     k_speed=71 "speed constant",
     useLt=true,
-    Lt=170e-3 "estimated value based on 5kW from paper",
+    Lt=17e-6 "estimated value based on 5kW from paper",
     L =  Modelica.Constants.eps "to supress missing start-value warnings",
     M= Modelica.Constants.eps "to supress missing start-value warnings",
     Jr= Modelica.Constants.eps,
@@ -18,6 +18,7 @@ record Hacker_Q150_45_4 "(BLDCD) Trap: Hacker Q-150-45-4, 12 kWatt"
     w_nom=Modelica.SIunits.Conversions.from_rpm(3365),
     I_0=9.8 "no load currenet",
     w_0=3550 "no load speed");
+             //0.0155,
   annotation (Documentation(info="<html>
 <p>The parameter <code>maxEMF_start</code> is chosen in a way to compare well to the MSL&apos;s PSM.</p>
 </html>"));
