@@ -1,7 +1,7 @@
 within DrivetrainValidation.FMU;
 model Drive_45_FMU_control
 
-  Machines.Drive_45_Outputs drive
+  Machines.BrushlessDCDrivetrain.Drive_45_Outputs drive
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
     N_serialCells=15,
@@ -14,7 +14,7 @@ model Drive_45_FMU_control
         origin={104,62})));
   Modelica.Blocks.Interfaces.BooleanInput rotationCW
     annotation (Placement(transformation(extent={{-80,-32},{-40,8}})));
-  Modelica.Blocks.Interfaces.RealInput dutyCycle
+  Modelica.Blocks.Interfaces.RealInput speed
     annotation (Placement(transformation(extent={{-80,40},{-40,80}})));
   Modelica.Blocks.Interfaces.RealInput tau
     "Accelerating torque acting at flange (= -flange.tau)"
@@ -41,11 +41,8 @@ model Drive_45_FMU_control
     annotation (Placement(transformation(extent={{140,-20},{160,0}})));
   Battery.Packs.Adapters.FromBus.MeanSOC meanSOC
     annotation (Placement(transformation(extent={{114,-20},{134,0}})));
-  Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
-    annotation (Placement(transformation(extent={{52,52},{72,72}})));
-  Modelica.Blocks.Interfaces.RealOutput i2
-    "Current in the branch from p to n as output signal"
-    annotation (Placement(transformation(extent={{78,-30},{98,-10}})));
+  Modelica.Blocks.Sources.RealExpression speedInput(y=speed/drive.machine.data.w_nom)
+    annotation (Placement(transformation(extent={{-18,36},{2,56}})));
 equation
   connect(drive.pin_n, batteryPack.n) annotation (Line(points={{49.8,24},{49.8,42},
           {132,42},{132,62},{118,62}},          color={0,0,255}));
@@ -62,8 +59,6 @@ equation
           {78,8},{52,8},{52,11}}, color={0,0,127}));
   connect(realExtend.y[3], tau_out) annotation (Line(points={{96.4,20.2667},{
           118,20.2667},{118,24},{136,24},{136,60},{150,60}}, color={0,0,127}));
-  connect(dutyCycle, drive.dutyCycleIn) annotation (Line(points={{-60,60},{-18,
-          60},{-18,18.6},{24,18.6}}, color={0,0,127}));
   connect(drive.pin_p, potentialSensor.p)
     annotation (Line(points={{32,24},{32,-12},{50,-12}}, color={0,0,255}));
   connect(potentialSensor.phi, phi1) annotation (Line(points={{71,-12},{108,-12},
@@ -76,12 +71,10 @@ equation
       thickness=0.5));
   connect(drive.i1, i1) annotation (Line(points={{43,11},{94.5,11},{94.5,22},{
           150,22}}, color={0,0,127}));
-  connect(batteryPack.p, currentSensor.n)
-    annotation (Line(points={{90,62},{72,62}}, color={0,0,255}));
-  connect(currentSensor.p, drive.pin_p)
-    annotation (Line(points={{52,62},{32,62},{32,24}}, color={0,0,255}));
-  connect(currentSensor.i, i2) annotation (Line(points={{62,51},{76,51},{76,-20},
-          {88,-20}}, color={0,0,127}));
+  connect(drive.dutyCycleIn, speedInput.y) annotation (Line(points={{24,18.6},{
+          16,18.6},{16,46},{3,46}}, color={0,0,127}));
+  connect(batteryPack.p, drive.pin_p)
+    annotation (Line(points={{90,62},{32,62},{32,24}}, color={0,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-40,-20},{140,80}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,

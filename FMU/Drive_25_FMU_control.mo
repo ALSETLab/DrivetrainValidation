@@ -1,7 +1,7 @@
 within DrivetrainValidation.FMU;
 model Drive_25_FMU_control
 
-  Machines.Drive_25_Outputs drive(inertia(w(fixed=false)))
+  Machines.BrushlessDCDrivetrain.Drive_25_Outputs drive(inertia(w(fixed=false)))
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage
                                            batteryPack(V=60)

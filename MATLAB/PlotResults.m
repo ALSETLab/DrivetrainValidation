@@ -8,9 +8,12 @@ w = out.w.data;
 time = out.w.time;
 ref = out.ref.data;
 time_ref = out.ref.time;
-plot(time,w,time_ref,ref); xlim([5,5.5]); 
+plot(time_ref,ref,time,w);xlim([9.5,11]);  %xlim([5,5.5]);
 legend('Reference','Ideal DC motor','DC motor with added inductance');
 xlabel('Time(s)'); ylabel('Speed (rad/sec)');
+
+%%
+
 
 %%
 w = out.w.data;

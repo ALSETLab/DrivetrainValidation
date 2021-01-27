@@ -7,7 +7,7 @@ model AveragedSwitched_Drive45
     annotation (Placement(transformation(extent={{-118,4},{-98,24}})));
   Modelica.Blocks.Sources.Constant dutyCycle(k=0.9) annotation (Placement(transformation(extent={{-120,40},
             {-100,60}})));
-  Machines.Drive_25_Outputs drive
+  Machines.BrushlessDCDrivetrain.Drive_25_Outputs drive
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Modelica.Blocks.Sources.RealExpression speedInput(y=speed.y/drive.machine.data.w_nom)
     annotation (Placement(transformation(extent={{-120,62},{-100,82}})));
@@ -25,7 +25,7 @@ model AveragedSwitched_Drive45
             {14,14}},
         rotation=0,
         origin={94,66})));
-  Machines.Drive_45_Outputs drive1
+  Machines.BrushlessDCDrivetrain.Drive_45_Outputs drive1
     annotation (Placement(transformation(extent={{82,-36},{112,-24}})));
   Battery.Packs.Scaled.ScaledPackCylindric batteryPack1(
     N_serialCells=15,

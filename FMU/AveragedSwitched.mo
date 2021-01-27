@@ -1,8 +1,7 @@
 within DrivetrainValidation.FMU;
 model AveragedSwitched
 
-  Machines.AveragedSwitched_Drive_45
-                            drive
+  Machines.BrushlessDCDrivetrain.AveragedSwitched_Drive_45 drive
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
     N_serialCells=15,
@@ -40,7 +39,7 @@ model AveragedSwitched
   Battery.Packs.Adapters.FromBus.MeanSOC meanSOC
     annotation (Placement(transformation(extent={{114,-20},{134,0}})));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
-    annotation (Placement(transformation(extent={{52,52},{72,72}})));
+    annotation (Placement(transformation(extent={{42,52},{62,72}})));
   Modelica.Blocks.Interfaces.RealOutput i
     "Current in the branch from p to n as output signal"
     annotation (Placement(transformation(extent={{140,10},{160,30}})));
@@ -73,10 +72,10 @@ equation
       color={83,189,255},
       thickness=0.5));
   connect(batteryPack.p, currentSensor.n)
-    annotation (Line(points={{90,62},{72,62}}, color={0,0,255}));
+    annotation (Line(points={{90,62},{62,62}}, color={0,0,255}));
   connect(currentSensor.p, drive.pin_p)
-    annotation (Line(points={{52,62},{32,62},{32,24}}, color={0,0,255}));
-  connect(currentSensor.i, i) annotation (Line(points={{62,51},{76,51},{76,20},
+    annotation (Line(points={{42,62},{32,62},{32,24}}, color={0,0,255}));
+  connect(currentSensor.i, i) annotation (Line(points={{52,51},{76,51},{76,20},
           {150,20}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-40,-20},{140,80}},

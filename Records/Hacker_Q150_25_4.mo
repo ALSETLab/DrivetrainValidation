@@ -15,7 +15,7 @@ record Hacker_Q150_25_4 "(BLDCD) Trap: Hacker Q-150-25-4, 12 kWatt"
     u_s_nom=50,
     i_s_nom=192.45,
     tau_nom=14.67,
-    w_nom=Modelica.SIunits.Conversions.from_rpm(5941),
+    w_nom=Modelica.Units.Conversions.from_rpm(5941),
     I_0=12 "not available",
     w_0=6250);
              //0.0135,

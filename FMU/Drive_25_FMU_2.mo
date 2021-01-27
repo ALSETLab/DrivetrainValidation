@@ -1,14 +1,14 @@
 within DrivetrainValidation.FMU;
 model Drive_25_FMU_2
 
-  Machines.Drive_25_Outputs drive
+  Machines.BrushlessDCDrivetrain.Drive_25_Outputs drive
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
     N_serialCells=15,
     N_parallelCells=50,
     N_verticalElements=5,
-    redeclare Battery.Cells.Variants.DemoCell3dDAF cell)
-                                                 annotation (Placement(transformation(extent={{-14,-14},
+    redeclare Battery.Cells.Variants.DemoCell3dDAF cell,
+    SOC_init=1)                                  annotation (Placement(transformation(extent={{-14,-14},
             {14,14}},
         rotation=0,
         origin={104,62})));
