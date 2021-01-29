@@ -4,30 +4,35 @@ model SharedBattery_45_4Motor
   extends DymolaModels.Icons.Basic.Example;
 
   Modelica.Blocks.Sources.BooleanStep rotateCW(startTime=1000,                 startValue=true)
-    annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
-  Modelica.Blocks.Sources.Constant dutyCycle(k=0.9) annotation (Placement(transformation(extent={{-120,30},{-100,50}})));
-  Modelica.Blocks.Sources.Step     speed(
-    height=100,
-    offset=0,
-    startTime=1)
-    annotation (Placement(transformation(extent={{-54,64},{-34,84}})));
-  Modelica.Blocks.Sources.Constant speed1(k=300)
-    annotation (Placement(transformation(extent={{-118,-76},{-98,-56}})));
+    annotation (Placement(transformation(extent={{-100,-40},{-80,-20}})));
+  Modelica.Blocks.Sources.Constant dutyCycle(k=0.9) annotation (Placement(transformation(extent={{-100,0},
+            {-80,20}})));
   Modelica.Blocks.Sources.Constant tau(k=-0.0296)
-    annotation (Placement(transformation(extent={{-120,-40},{-100,-20}})));
-  FMU.Drive_45_FMU_2       drive_45_FMU_2_1(    batteryPack(N_parallelCells=500))
-    annotation (Placement(transformation(extent={{24,-38},{82,-6}})));
-  Modelica.Blocks.Continuous.FirstOrder firstOrder(T=0.1)
-    annotation (Placement(transformation(extent={{-14,34},{6,54}})));
+    annotation (Placement(transformation(extent={{122,-10},{102,10}})));
+  Machines.BrushlessDCDrivetrain.Drive_45_Outputs
+                           drive_45_Outputs
+    annotation (Placement(transformation(extent={{-14,-10},{36,10}})));
+  Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
+    N_serialCells=15,
+    N_parallelCells=5,
+    N_verticalElements=5,
+    redeclare Battery.Cells.Variants.DemoCell3dDAF cell,
+    SOC_init=1)                                  annotation (Placement(transformation(extent={{-14,-14},
+            {14,14}},
+        rotation=0,
+        origin={14,46})));
 equation
-  connect(drive_45_FMU_2_1.rotationCW, rotateCW.y) annotation (Line(points={{
-          17.5556,-35.44},{0,-35.44},{0,0},{-99,0}}, color={255,0,255}));
-  connect(drive_45_FMU_2_1.tau, tau.y) annotation (Line(points={{17.5556,-22.64},
-          {-99,-22.64},{-99,-30}}, color={0,0,127}));
-  connect(speed.y, firstOrder.u) annotation (Line(points={{-33,74},{-22,74},{
-          -22,44},{-16,44}}, color={0,0,127}));
-  connect(firstOrder.y, drive_45_FMU_2_1.speed) annotation (Line(points={{7,44},
-          {16,44},{16,-8},{17.5556,-8},{17.5556,-12.4}}, color={0,0,127}));
+  connect(drive_45_Outputs.tau, tau.y) annotation (Line(points={{39.3333,0},{
+          101,0}},                 color={0,0,127}));
+  connect(rotateCW.y, drive_45_Outputs.rotateCW_In) annotation (Line(points={{
+          -79,-30},{-26,-30},{-26,-6.66667},{-17.3333,-6.66667}}, color={255,0,
+          255}));
+  connect(drive_45_Outputs.dutyCycleIn, dutyCycle.y) annotation (Line(points={{
+          -17.3333,1},{-74,1},{-74,10},{-79,10}}, color={0,0,127}));
+  connect(batteryPack.p, drive_45_Outputs.pin_p)
+    annotation (Line(points={{0,46},{-4,46},{-4,10}}, color={0,0,255}));
+  connect(batteryPack.n, drive_45_Outputs.pin_n) annotation (Line(points={{28,
+          46},{34,46},{34,20},{25.6667,20},{25.6667,10}}, color={0,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-100,-100},{100,100}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,

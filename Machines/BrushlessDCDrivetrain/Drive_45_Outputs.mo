@@ -13,7 +13,7 @@ model Drive_45_Outputs
                            annotation (Placement(transformation(extent={{156,-10},
             {136,10}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia(
-    phi(fixed=true, start=0), J=0.067)
+    phi(fixed=true, start=0), J=6.29e-3)
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   Modelica.Mechanics.Rotational.Sensors.MultiSensor multiSensorLoad
     annotation (Placement(transformation(

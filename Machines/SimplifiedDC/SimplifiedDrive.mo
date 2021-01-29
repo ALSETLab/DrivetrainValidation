@@ -37,7 +37,7 @@ model SimplifiedDrive
   Modelica.Electrical.Analog.Basic.Ground ground2
     annotation (Placement(transformation(extent={{34,40},{44,50}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia(phi(fixed=true,
-        start=0), J=3e-3)
+        start=0), J=6.29e-2)
     annotation (Placement(transformation(extent={{94,20},{114,40}})));
   Modelica.Electrical.Analog.Sensors.PotentialSensor potentialSensor
     annotation (Placement(transformation(extent={{130,-10},{150,10}})));

@@ -9,7 +9,7 @@ model SimplifiedDrive_L
     annotation (Placement(transformation(extent={{180,30},{200,50}})));
   Templates.SimpleMotor_EMF simpleMotor_EMF(
     R_trs=0.0155,
-    X_s=50e-6,
+    X_s=500e-6,
     R_hyst=1000,
     k=0.1365) annotation (Placement(transformation(extent={{40,20},{60,40}})));
   Modelica.Mechanics.Rotational.Sources.Torque                     speedDependentTorque

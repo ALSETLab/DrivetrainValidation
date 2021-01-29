@@ -9,7 +9,7 @@ model SimplifiedDrive_L_Battery
     annotation (Placement(transformation(extent={{180,30},{200,50}})));
   Templates.SimpleMotor_EMF simpleMotor_EMF(
     R_trs=0.0155,
-    X_s=50e-6,
+    X_s=100e-6,
     R_hyst=1000,
     k=0.1365) annotation (Placement(transformation(extent={{40,20},{60,40}})));
   Modelica.Mechanics.Rotational.Sources.Torque                     speedDependentTorque
@@ -37,7 +37,7 @@ model SimplifiedDrive_L_Battery
   Modelica.Electrical.Analog.Basic.Ground ground2
     annotation (Placement(transformation(extent={{34,40},{44,50}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia(phi(fixed=true,
-        start=0), J=3e-3)
+        start=0), J=6.29e-2)
     annotation (Placement(transformation(extent={{94,20},{114,40}})));
   Modelica.Electrical.Analog.Sensors.PotentialSensor potentialSensor
     annotation (Placement(transformation(extent={{130,-10},{150,10}})));

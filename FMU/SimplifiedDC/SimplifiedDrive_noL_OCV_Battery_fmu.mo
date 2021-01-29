@@ -28,7 +28,7 @@ model SimplifiedDrive_noL_OCV_Battery_fmu
     annotation (Placement(transformation(extent={{140,-10},{160,10}})));
   Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
     N_serialCells=15,
-    N_parallelCells=100,
+    N_parallelCells=1000,
     N_verticalElements=5,
     redeclare Battery.Cells.Variants.DemoCell3dDAF cell,
     SOC_init=1)                                  annotation (Placement(transformation(extent={{-14,-14},

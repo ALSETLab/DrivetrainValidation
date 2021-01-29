@@ -38,7 +38,7 @@ model Drive_25_FMU_control
   Modelica.Blocks.Continuous.PID PID(
     Ti=0.2,
     Td=0.2,
-    initType=Modelica.Blocks.Types.InitPID.NoInit)
+    initType=Modelica.Blocks.Types.Init.NoInit)
     annotation (Placement(transformation(extent={{10,54},{22,66}})));
 equation
   connect(drive.pin_p, batteryPack.p) annotation (Line(points={{32,24},{32,62},{

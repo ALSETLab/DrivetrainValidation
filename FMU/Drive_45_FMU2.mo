@@ -13,8 +13,6 @@ model Drive_45_FMU2
             {14,14}},
         rotation=0,
         origin={104,62})));
-  Modelica.Blocks.Sources.RealExpression speedInput(y=speed/drive.machine.data.w_nom)
-    annotation (Placement(transformation(extent={{-26,30},{-6,50}})));
   Modelica.Blocks.Interfaces.BooleanInput rotateCW_In1
     annotation (Placement(transformation(extent={{-80,10},{-40,50}})));
   Modelica.Blocks.Interfaces.RealInput speed
@@ -34,8 +32,6 @@ equation
           90,62}},           color={0,0,255}));
   connect(drive.pin_n, batteryPack.n) annotation (Line(points={{49.8,24},{49.8,42},
           {132,42},{132,62},{118,62}},          color={0,0,255}));
-  connect(speedInput.y, drive.dutyCycleIn) annotation (Line(points={{-5,40},{10,
-          40},{10,18.6},{24,18.6}},    color={0,0,127}));
   connect(drive.rotateCW_In, rotateCW_In1)
     annotation (Line(points={{24,14},{-20,14},{-20,30},{-60,30}},
                                                 color={255,0,255}));
@@ -48,6 +44,8 @@ equation
                                                        color={0,0,127}));
   connect(drive.tau1, tau_out) annotation (Line(points={{52,11},{114,11},{114,
           34},{150,34}}, color={0,0,127}));
+  connect(drive.dutyCycleIn, speed) annotation (Line(points={{24,18.6},{-6,18.6},
+          {-6,64},{-60,64},{-60,64}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-40,-20},{140,80}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,
