@@ -7,10 +7,11 @@ model SimplifiedDrive_Battery
   Modelica.Blocks.Interfaces.RealOutput omega_out
     "Absolute angular velocity of flange_a as output signal"
     annotation (Placement(transformation(extent={{180,30},{200,50}})));
-  Templates.SimpleMotor_EMF simpleMotor_EMF(
-    R_trs=0.0155,
-    X_s=0,
-    R_hyst=1000,
+  Templates.SimpleMotor     simpleMotor_EMF(
+    R=0.0155,
+    L=4e-6,
+    Jr=1e-15,
+    b=0.0003,
     k=0.1365) annotation (Placement(transformation(extent={{40,20},{60,40}})));
   Modelica.Mechanics.Rotational.Sources.Torque                     speedDependentTorque
                            annotation (Placement(transformation(extent={{160,20},
@@ -37,7 +38,7 @@ model SimplifiedDrive_Battery
   Modelica.Electrical.Analog.Basic.Ground ground2
     annotation (Placement(transformation(extent={{34,40},{44,50}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia(phi(fixed=true,
-        start=0), J=3e-3)
+        start=0), J=6.29e-2)
     annotation (Placement(transformation(extent={{94,20},{114,40}})));
   Modelica.Electrical.Analog.Sensors.PotentialSensor potentialSensor
     annotation (Placement(transformation(extent={{130,-10},{150,10}})));
@@ -52,8 +53,6 @@ model SimplifiedDrive_Battery
   Modelica.Electrical.Analog.Interfaces.NegativePin pin_n1
     annotation (Placement(transformation(extent={{130,70},{150,90}})));
 equation
-  connect(multiSensorLoad.flange_a, simpleMotor_EMF.flange1)
-    annotation (Line(points={{72,30},{60.4,30}}, color={0,0,0}));
   connect(multiSensorLoad.tau, tau_out) annotation (Line(points={{78,23.4},{78,
           14},{122,14},{122,60},{190,60}}, color={0,0,127}));
   connect(multiSensorLoad.w, omega_out) annotation (Line(points={{81.6,23.4},{
@@ -61,8 +60,6 @@ equation
                                         color={0,0,127}));
   connect(speedDependentTorque.tau, tau_in)
     annotation (Line(points={{162,30},{162,54},{-20,54}}, color={0,0,127}));
-  connect(simpleMotor_EMF.n, averaged.pin_n_Out)
-    annotation (Line(points={{40,24},{32,24}}, color={0,0,255}));
   connect(averaged.dutyCycleIn, dutyCycleIn1) annotation (Line(points={{10,36},
           {0,36},{0,20},{-20,20}}, color={0,0,127}));
   connect(averaged.rotateCW, rotateCW1) annotation (Line(points={{10,30},{6,30},
@@ -73,10 +70,6 @@ equation
     annotation (Line(points={{94,30},{84,30}}, color={0,0,0}));
   connect(potentialSensor.phi, phi1) annotation (Line(points={{151,0},{160,0},{
           160,20},{190,20}}, color={0,0,127}));
-  connect(simpleMotor_EMF.p, averaged.pin_p_Out)
-    annotation (Line(points={{40,36},{31.8,36}}, color={0,0,255}));
-  connect(simpleMotor_EMF.i1, i1) annotation (Line(points={{61,36},{124,36},{
-          124,-12},{190,-12}}, color={0,0,127}));
   connect(ground2.p, averaged.pin_n) annotation (Line(points={{39,50},{34,50},{
           34,40},{28,40}}, color={0,0,255}));
   connect(potentialSensor.p, averaged.pin_p)
@@ -85,6 +78,14 @@ equation
           80},{40,80}}, color={0,0,255}));
   connect(averaged.pin_n, pin_n1) annotation (Line(points={{28,40},{64,40},{64,
           80},{140,80}}, color={0,0,255}));
+  connect(simpleMotor_EMF.pin_p, averaged.pin_p_Out)
+    annotation (Line(points={{40,36},{31.8,36}}, color={0,0,255}));
+  connect(simpleMotor_EMF.pin_n, averaged.pin_n_Out)
+    annotation (Line(points={{40,24},{32,24}}, color={0,0,255}));
+  connect(multiSensorLoad.flange_a, simpleMotor_EMF.flange)
+    annotation (Line(points={{72,30},{60,30}}, color={0,0,0}));
+  connect(simpleMotor_EMF.i, i1) annotation (Line(points={{61,23.6},{68,23.6},{
+          68,-16},{174,-16},{174,-12},{190,-12}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{0,-20},{180,80}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,

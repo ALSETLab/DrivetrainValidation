@@ -13,7 +13,7 @@ model Drive_45_Outputs
                            annotation (Placement(transformation(extent={{156,-10},
             {136,10}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia(
-    phi(fixed=true, start=0), J=6.29e-3)
+    phi(fixed=true, start=0), J=6.29e-2)
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   Modelica.Mechanics.Rotational.Sensors.MultiSensor multiSensorLoad
     annotation (Placement(transformation(
@@ -29,9 +29,6 @@ model Drive_45_Outputs
     annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin pin_n
     annotation (Placement(transformation(extent={{88,50},{108,70}})));
-  BrushlessDCDrives.Common.MachineEnergyAnalyser
-                               machineAnalyser(useBusConnector=true)
-    annotation (Placement(transformation(extent={{32,-50},{52,-30}})));
   Modelica.Blocks.Interfaces.RealInput tau
     "Accelerating torque acting at flange (= -flange.tau)"
     annotation (Placement(transformation(extent={{200,-20},{160,20}})));
@@ -74,10 +71,6 @@ equation
     annotation (Line(points={{4,10},{4,60},{-80,60}}, color={0,0,255}));
   connect(inverter.pin_n, pin_n)
     annotation (Line(points={{16,10},{16,60},{98,60}}, color={0,0,255}));
-  connect(machineAnalyser.bldcBus, inverter.bldcBus) annotation (Line(
-      points={{42,-50},{42,-54},{10,-54},{10,-10}},
-      color={0,100,120},
-      thickness=0.5));
   connect(speedDependentTorque.tau, tau)
     annotation (Line(points={{158,0},{180,0}}, color={0,0,127}));
   connect(multiSensorMotor.w, w1) annotation (Line(points={{70.4,-6.6},{70.4,

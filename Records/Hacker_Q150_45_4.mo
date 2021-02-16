@@ -8,7 +8,7 @@ record Hacker_Q150_45_4 "(BLDCD) Trap: Hacker Q-150-45-4, 12 kWatt"
     k_tau=13.42e-2 "torque constant",
     k_speed=71 "speed constant",
     useLt=true,
-    Lt=0.17 "estimated value based on 5kW from paper",
+    Lt=4e-6 "estimated value based on 5kW from paper",
     L =  Modelica.Constants.eps "to supress missing start-value warnings",
     M= Modelica.Constants.eps "to supress missing start-value warnings",
     Jr= Modelica.Constants.eps,
