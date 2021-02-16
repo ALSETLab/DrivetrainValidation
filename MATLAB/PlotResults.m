@@ -4,7 +4,7 @@ w = out.w.data;
 time = out.w.time;
 ref = out.ref.data;
 time_ref = out.ref.time;
-plot(time_ref,ref,time,w);xlim([5,15.5]);
+plot(time_ref,ref,time,w);xlim([0,0.5]);
 legend('Reference','Brushless DC motor','DC motor with added inductance');
 xlabel('Time(s)'); ylabel('Speed (rad/sec)');
 

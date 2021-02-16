@@ -87,6 +87,8 @@ equation
           24},{42,24},{46,24},{32,24}}, color={0,0,255}));
   connect(simpleMotor.flange, multiSensorLoad.flange_a)
     annotation (Line(points={{62,30},{72,30}}, color={0,0,0}));
+  connect(simpleMotor.i, i1) annotation (Line(points={{63,23.6},{68,23.6},{68,
+          -16},{174,-16},{174,-12},{190,-12}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{0,-20},{180,80}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,
