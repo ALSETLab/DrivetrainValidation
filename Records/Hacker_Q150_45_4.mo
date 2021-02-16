@@ -11,7 +11,7 @@ record Hacker_Q150_45_4 "(BLDCD) Trap: Hacker Q-150-45-4, 12 kWatt"
     Lt=4e-6 "estimated value based on 5kW from paper",
     L =  Modelica.Constants.eps "to supress missing start-value warnings",
     M= Modelica.Constants.eps "to supress missing start-value warnings",
-    Jr= Modelica.Constants.eps,
+    Jr= 6.29e-4,
     u_s_nom=50,
     i_s_nom=177.8 "based on the current at the maximum efficiency 0.89",
     tau_nom=23.853,

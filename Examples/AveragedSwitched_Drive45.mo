@@ -1,83 +1,56 @@
 within DrivetrainValidation.Examples;
 model AveragedSwitched_Drive45
 
-  extends DymolaModels.Icons.Basic.Example;
+
 
   Modelica.Blocks.Sources.BooleanStep rotateCW(startTime=10000,                startValue=true)
     annotation (Placement(transformation(extent={{-118,4},{-98,24}})));
-  Modelica.Blocks.Sources.Constant dutyCycle(k=0.9) annotation (Placement(transformation(extent={{-120,40},
-            {-100,60}})));
-  Machines.BrushlessDCDrivetrain.Drive_25_Outputs drive
+  Machines.BrushlessDCDrivetrain.Trapezoidal_Drive_45
+                                                  drive
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
-  Modelica.Blocks.Sources.RealExpression speedInput(y=speed.y/drive.machine.data.w_nom)
-    annotation (Placement(transformation(extent={{-120,62},{-100,82}})));
-  Modelica.Blocks.Sources.Constant speed(k=400)
-    annotation (Placement(transformation(extent={{-120,-70},{-100,-50}})));
-  Modelica.Blocks.Sources.Constant tau(k=3.8964)
-    annotation (Placement(transformation(extent={{-118,-28},{-98,-8}})));
-  FMU.Drive_25_FMU_control drive_fmu   annotation (Placement(transformation(extent={{26,-72},{58,-56}})));
-  Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
-    N_serialCells=15,
-    N_parallelCells=50,
-    N_verticalElements=5,
-    redeclare Battery.Cells.Variants.DemoCell3dDAF cell)
-                                                 annotation (Placement(transformation(extent={{-14,-14},
-            {14,14}},
-        rotation=0,
-        origin={94,66})));
-  Machines.BrushlessDCDrivetrain.Drive_45_Outputs drive1
-    annotation (Placement(transformation(extent={{82,-36},{112,-24}})));
-  Battery.Packs.Scaled.ScaledPackCylindric batteryPack1(
-    N_serialCells=15,
-    N_parallelCells=500,
-    N_verticalElements=5,
-    redeclare Battery.Cells.Variants.DemoCell3dDAF cell,
-    SOC_init=1)                                  annotation (Placement(transformation(extent={{-14,-14},
-            {14,14}},
-        rotation=0,
-        origin={104,0})));
-  Modelica.Blocks.Sources.Constant tau1(k=5.12)
-    annotation (Placement(transformation(extent={{4,-14},{24,6}})));
+  Modelica.Blocks.Sources.Step     dutyCycle(
+    height=0.9,
+    offset=0,
+    startTime=5)                                    annotation (Placement(transformation(extent={{-118,34},
+            {-98,54}})));
+  Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=60)
+    annotation (Placement(transformation(extent={{38,50},{58,70}})));
+  Modelica.Blocks.Sources.Constant dutyCycle1(k=-5.139)
+                                                    annotation (Placement(transformation(extent={{96,8},{
+            76,28}})));
+  FMU.Trapezoidal trapezoidal
+    annotation (Placement(transformation(extent={{32,-30},{50,-20}})));
+  Modelica.Blocks.Continuous.FirstOrder firstOrder(T=0.08, initType=Modelica.Blocks.Types.Init.SteadyState)
+    annotation (Placement(transformation(extent={{-68,34},{-48,54}})));
 equation
   connect(drive.rotateCW_In, rotateCW.y) annotation (Line(points={{24,14},{-97,
           14}},                 color={255,0,255}));
-  connect(speedInput.y, drive.dutyCycleIn) annotation (Line(points={{-99,72},{
-          10,72},{10,18.6},{24,18.6}}, color={0,0,127}));
-  connect(tau.y, drive.tau) annotation (Line(points={{-97,-18},{70,-18},{70,18},
-          {58,18}}, color={0,0,127}));
-  connect(drive_fmu.omega, speed.y) annotation (Line(points={{22.4444,-59.2},{
-          -99,-59.2},{-99,-60}},
-                             color={0,0,127}));
-  connect(drive_fmu.tau, drive.tau) annotation (Line(points={{22.4444,-64.32},{
-          -22,-64.32},{-22,-18},{70,-18},{70,18},{58,18}},
-                                                       color={0,0,127}));
-  connect(drive_fmu.rotationCW, rotateCW.y) annotation (Line(points={{22.4444,
-          -70.72},{-74,-70.72},{-74,14},{-97,14}},
-                                           color={255,0,255}));
-  connect(batteryPack.p, drive.pin_p)
-    annotation (Line(points={{80,66},{32,66},{32,24}}, color={0,0,255}));
-  connect(batteryPack.n, drive.pin_n) annotation (Line(points={{108,66},{118,66},
-          {118,34},{49.8,34},{49.8,24}}, color={0,0,255}));
-  connect(batteryPack1.p, drive1.pin_p) annotation (Line(points={{90,
-          1.77636e-15},{88,1.77636e-15},{88,-24},{88,-24}}, color={0,0,255}));
-  connect(batteryPack1.n, drive1.pin_n) annotation (Line(points={{118,
-          1.77636e-15},{120,1.77636e-15},{120,0},{124,0},{124,-16},{105.8,-16},
-          {105.8,-24}}, color={0,0,255}));
-  connect(drive1.rotateCW_In, rotateCW.y) annotation (Line(points={{80,-34},{
-          -10,-34},{-10,14},{-97,14}}, color={255,0,255}));
-  connect(drive1.tau, drive.tau) annotation (Line(points={{114,-30},{132,-30},{
-          132,18},{58,18}}, color={0,0,127}));
-  connect(drive1.dutyCycleIn, tau1.y) annotation (Line(points={{80,-29.4},{52,
-          -29.4},{52,-4},{25,-4}}, color={0,0,127}));
+  connect(constantVoltage.p, drive.pin_p)
+    annotation (Line(points={{38,60},{32,60},{32,24}}, color={0,0,255}));
+  connect(constantVoltage.n, drive.pin_n) annotation (Line(points={{58,60},{58,36},
+          {49.8,36},{49.8,24}}, color={0,0,255}));
+  connect(drive.tau, dutyCycle1.y)
+    annotation (Line(points={{58,18},{75,18}}, color={0,0,127}));
+  connect(trapezoidal.dutyCycle, drive.dutyCycleIn) annotation (Line(points={{
+          30,-22},{4,-22},{4,44},{18,44},{18,18.6},{24,18.6}}, color={0,0,127}));
+  connect(dutyCycle1.y, trapezoidal.tau) annotation (Line(points={{75,18},{66,
+          18},{66,-6},{10,-6},{10,-25.2},{30,-25.2}}, color={0,0,127}));
+  connect(trapezoidal.rotationCW, rotateCW.y) annotation (Line(points={{30,
+          -29.2},{-12,-29.2},{-12,14},{-97,14}}, color={255,0,255}));
+  connect(dutyCycle.y, firstOrder.u)
+    annotation (Line(points={{-97,44},{-70,44}}, color={0,0,127}));
+  connect(firstOrder.y, drive.dutyCycleIn) annotation (Line(points={{-47,44},{
+          18,44},{18,18.6},{24,18.6}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-100,-100},{100,100}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,
         extent={{-160,-100},{160,100}},
         initialScale=0.1)),
     experiment(
-      StopTime=150,
+      StopTime=10,
       __Dymola_NumberOfIntervals=1000,
-      __Dymola_Algorithm="Dassl"),
+      __Dymola_fixedstepsize=1e-05,
+      __Dymola_Algorithm="Rkfix4"),
     __Dymola_Commands(file="modelica://BrushlessDCDrives/Resources/Scripts/ExamplesLevelOfDetail.mos" "plot"),
     Documentation(info="<html>
 <p>See <a href=\"BrushlessDCDrives.Examples.LevelOfDetail.ReadMe\">Read me</a> for a description.</p>

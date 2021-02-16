@@ -6,10 +6,10 @@ model CompareMotor
   Modelica.Blocks.Sources.BooleanStep rotateCW(startTime=1000,                 startValue=true)
     annotation (Placement(transformation(extent={{-156,20},{-136,40}})));
   Modelica.Blocks.Sources.Step     dutyCycle(
-    height=0.1,
+    height=0.9,
     offset=0,
-    startTime=5)                                    annotation (Placement(transformation(extent={{-156,50},
-            {-136,70}})));
+    startTime=5)                                    annotation (Placement(transformation(extent={{-158,52},
+            {-138,72}})));
   Machines.BrushlessDCDrivetrain.Drive_45_Outputs drive_45_Outputs
     annotation (Placement(transformation(extent={{-80,28},{-50,40}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=60)
@@ -32,8 +32,8 @@ model CompareMotor
 equation
   connect(drive_45_Outputs.rotateCW_In, rotateCW.y)
     annotation (Line(points={{-82,30},{-135,30}}, color={255,0,255}));
-  connect(drive_45_Outputs.dutyCycleIn, dutyCycle.y) annotation (Line(points={{
-          -82,34.6},{-114,34.6},{-114,60},{-135,60}}, color={0,0,127}));
+  connect(drive_45_Outputs.dutyCycleIn, dutyCycle.y) annotation (Line(points={{-82,
+          34.6},{-126,34.6},{-126,62},{-137,62}},     color={0,0,127}));
   connect(constantVoltage.p, drive_45_Outputs.pin_p) annotation (Line(points={{
           -86,70},{-90,70},{-90,46},{-74,46},{-74,40}}, color={0,0,255}));
   connect(constantVoltage.n, drive_45_Outputs.pin_n) annotation (Line(points={{
