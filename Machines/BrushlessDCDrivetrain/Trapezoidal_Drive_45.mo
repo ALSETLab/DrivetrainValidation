@@ -17,7 +17,7 @@ model Trapezoidal_Drive_45
                            annotation (Placement(transformation(extent={{156,-10},
             {136,10}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia(J=6.29e-2)
-    annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+    annotation (Placement(transformation(extent={{90,-8},{106,8}})));
   Modelica.Mechanics.Rotational.Sensors.MultiSensor multiSensorLoad
     annotation (Placement(transformation(
         extent={{-6,-6},{6,6}},
@@ -48,10 +48,10 @@ model Trapezoidal_Drive_45
         rotation=270,
         origin={120,-70})));
 equation
-  connect(multiSensorLoad.flange_a, inertia.flange_b) annotation (Line(points={{120,0},{115,0},{110,0}},       color={0,0,0}));
+  connect(multiSensorLoad.flange_a, inertia.flange_b) annotation (Line(points={{120,0},
+          {106,0}},                                                                                            color={0,0,0}));
   connect(multiSensorLoad.flange_b, speedDependentTorque.flange)
     annotation (Line(points={{132,0},{136,0}},               color={0,0,0}));
-  connect(multiSensorMotor.flange_a, inertia.flange_a) annotation (Line(points={{80,0},{90,0}},              color={0,0,0}));
   connect(controller.dutyCycleOut, modulation.dutyCycleIn) annotation (Line(points={{-59,6},{-50.5,6},{-42,6}}, color={0,0,127}));
   connect(controller.rotateCW_In, rotateCW_In) annotation (Line(points={{-82,0},
           {-124,0},{-124,-40},{-160,-40}}, color={255,0,255}));
@@ -75,6 +75,8 @@ equation
     annotation (Line(points={{-82,6},{-160,6}}, color={0,0,127}));
   connect(inverter.dutyCycleIn, modulation.dutyCycleOut)
     annotation (Line(points={{-2,6},{-19,6}}, color={0,0,127}));
+  connect(inertia.flange_a, multiSensorMotor.flange_a)
+    annotation (Line(points={{90,0},{80,0}}, color={0,0,0}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-140,-60},{160,60}},
         initialScale=0.1), graphics={Rectangle(extent={{-140,60},{160,-60}},

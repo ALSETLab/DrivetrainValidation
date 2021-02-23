@@ -4,7 +4,7 @@ model Drive_45_noBattery_FMU
   Machines.BrushlessDCDrivetrain.Drive_45_Outputs drive
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage
-                                           batteryPack(V=65)
+                                           batteryPack(V=60)
                                                  annotation (Placement(transformation(extent={{-14,-14},
             {14,14}},
         rotation=0,

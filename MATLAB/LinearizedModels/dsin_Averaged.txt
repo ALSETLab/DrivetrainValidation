@@ -1,0 +1,1015 @@
+#1
+char Aclass(3,24)
+Adymosim
+1.4
+Modelica experiment file
+
+
+#    Experiment parameters
+double experiment(7,1)
+       0                   # StartTime    Time at which integration starts
+                           #              (and linearization and trimming time)
+       0                   # StopTime     Time at which integration stops
+       0                   # Increment    Communication step size, if > 0
+     100                   # nInterval    Number of communication intervals, if > 0
+  1.0000000000000000E-04   # Tolerance    Relative precision of signals for
+                           #              simulation, linearization and trimming
+       0                   # MaxFixedStep Maximum step size of fixed step size
+                           #              integrators, if > 0.0
+       4                   # Algorithm    Integration algorithm as integer (1...28)
+                           #
+                           #             | model|       |        | dense | state |
+                           # Algorithm   | typ  | stiff | order  | output| event |
+                           # ------------+------+-------+--------+-------+-------+
+                           #  1 | deabm  |  ode |   no  |  1-12  |  yes  |   no  |
+                           #  2 | lsode1 |  ode |   no  |  1-12  |  yes  |   no  |
+                           #  3 | lsode2 |  ode |  yes  |  1-5   |  yes  |   no  |
+                           #  4 | lsodar |  ode |  both |1-12,1-5|  yes  |  yes  |
+                           #  5 | dopri5 |  ode |   no  |   5    |   no  |   no  |
+                           #  6 | dopri8 |  ode |   no  |   8    |   no  |   no  |
+                           #  7 | grk4t  |  ode |  yes  |   4    |   no  |   no  |
+                           #  8 | dassl  |  dae |  yes  |  1-5   |  yes  |  yes  |
+                           #  9 | odassl | hdae |  yes  |  1-5   |  yes  |  yes  |
+                           # 10 | mexx   | hdae |   no  |  2-24  |   no  |   no  |
+                           # 11 | euler  |  ode |   no  |   1    |   no  |  yes  |
+                           # 12 | rkfix2 |  ode |   no  |   2    |   no  |  yes  |
+                           # 13 | rkfix3 |  ode |   no  |   3    |   no  |  yes  |
+                           # 14 | rkfix4 |  ode |   no  |   4    |   no  |  yes  |
+                           #>=14| others |  ode |yes/no |  2-5   |   yes |  yes  |
+                           # ---+--------+------+-------+--------+-------+-------+
+                           # euler and rkfix have fixed stepsize.
+
+
+#    Method tuning parameters
+double method(27,1)
+       1                   # grid     type of communication time grid, defined by
+                           #          = 1: equidistant points ("Increment/nInterval")
+                           #          = 2: vector of grid points ("tgrid")
+                           #          = 3: variable step integrator (automatically)
+                           #          = 4: model (call of "increment" in Dymola, e.g.
+                           #                      incr=Time > 2 then 0 else 0.1
+                           #                      dummy=increment(incr))
+                           #          grid = 1,3 is stopped by "StopTime"
+                           #          grid = 2   is stopped by "tgrid(last)"
+                           #          grid = 4   runs forever (stopped by model)
+       1                   # nt       Use every NT time instant, if grid = 3
+       3                   # dense    1/2/3 restart/step/interpolate GRID points
+       1                   # evgrid   0/1 do not/save event points in comm. time grid
+       1                   # evu      0/1 U-discontinuity does not/trigger events
+       0                   # evuord       U-discontinuity order to consider (0,1,...)
+       0                   # error    0/1/2 One message/warning/error messages
+       0                   # jac      0/1 Compute jacobian numerically/by BLOCKJ
+       0                   # xd0c     0/1 Compute/set XD0
+       0                   # f3       0/1 Ignore/use F3 of HDAE (= index 1)
+       0                   # f4       0/1 Ignore/use F4 of HDAE (= index 2)
+       0                   # f5       0/1 Ignore/use F5 of HDAE (= invar.)
+       0                   # debug    flags for debug information (1<<0 uses pdebug) 
+     100                   # pdebug       priority of debug information (1...100)
+       0                   # fmax     Maximum number of evaluations of BLOCKF, if > 0
+       0                   # ordmax   Maximum allowed integration order, if > 0
+       0                   # hmax     Maximum absolute stepsize, if > 0
+       0                   # hmin     Minimum absolute stepsize, if > 0 (use with care!)
+       0                   # h0       Stepsize to be attempted on first step, if > 0
+  9.9999999999999998E-13   # teps     Bound to check, if 2 equal time instants
+  1.0000000000000000E-10   # eveps    Hysteresis epsilon at event points
+      20                   # eviter   Maximum number of event iterations
+       0                   # delaym   Minimum time increment in delay buffers
+       1                   # fexcep   0/1 floating exception crashes/stops dymosim
+       1                   # tscale   clock-time = tscale*simulation-time, if grid = 5
+                           #          > 1: simulation too slow
+                           #          = 1: simulation-time = real-time
+                           #          < 1: simulation too fast
+       1                   # shared   (not used)
+    2473                   # memkey   (not used)
+
+
+#    Output parameters
+int settings(13,1)
+ 0                         # lprec    0/1 do not/store result data in double
+ 1                         # lx       0/1 do not/store x  (state variables)
+ 1                         # lxd      0/1 do not/store xd (derivative of states)
+ 1                         # lu       0/1 do not/store u  (input     signals)
+ 1                         # ly       0/1 do not/store y  (output    signals)
+ 0                         # lz       0/1 do not/store z  (indicator signals)
+ 1                         # lw       0/1 do not/store w  (auxiliary signals)
+ 1                         # la       0/1 do not/store a  (alias     signals)
+ 0                         # lperf    0/1 do not/store performance indicators
+ 0                         # levent   0/1 do not/store event point
+ 1                         # lres     0/1 do not/store results on result file
+ 0                         # lshare   0/1 do not/store info data for shared memory on dsshare.txt
+ 1                         # lform    0/1 ASCII/Matlab-binary storage format of results
+                           #              (for simulation/linearization; not for trimming)
+
+
+#    Names of initial variables
+char initialName(214,66)
+drive.controller.m
+drive.controller.useDirectionInput
+drive.controller.rotateCW
+drive.modulation.m
+drive.inverter.pin_p.v
+drive.inverter.pin_n.v
+drive.inverter.data.bidirectional
+drive.inverter.pin_p_Out.v
+drive.inverter.pin_n_Out.v
+drive.inverter.coreElement.bidirectional
+drive.inverter.coreElement.uniOrBidirectional.y
+drive.inverter.coreElement.uniOrBidirectional.u1
+drive.inverter.coreElement.uniOrBidirectional.u2
+drive.inverter.coreElement.uniOrBidirectional.y1
+drive.inverter.coreElement.uniOrBidirectional.y2
+drive.inverter.coreElement.uniOrBidirectional.k
+drive.inverter.coreElement.uniOrBidirectional.y0
+drive.inverter.coreElement.uniOrBidirectional.gradient.k
+drive.inverter.coreElement.uniOrBidirectional.add.u1
+drive.inverter.coreElement.uniOrBidirectional.add.k1
+drive.inverter.coreElement.uniOrBidirectional.add.k2
+drive.inverter.coreElement.uniOrBidirectional.offset.k
+drive.inverter.coreElement.uniOrBidirectional.offset.y
+drive.inverter.coreElement.uniOrBidirectional.limiter.uMax
+drive.inverter.coreElement.uniOrBidirectional.limiter.uMin
+drive.inverter.coreElement.uniOrBidirectional.limiter.strict
+drive.inverter.coreElement.uniOrBidirectional.limiter.homotopyType
+drive.inverter.coreElement.idealBuckConverter.v1
+drive.inverter.coreElement.idealBuckConverter.p1.v
+drive.inverter.coreElement.idealBuckConverter.n1.v
+drive.inverter.coreElement.idealBuckConverter.n2.v
+drive.inverter.coreElement.idealBuckConverter.dutyCycle
+drive.inverter.coreElement.pin_p_supply.v
+drive.inverter.coreElement.pin_n_supply.v
+drive.inverter.coreElement.pin_n.v
+drive.inverter.coreElement.signChanger.y
+drive.inverter.ground.p.v
+drive.inverter.ground.p.i
+drive.inverter.currentSensorDC.p.v
+drive.inverter.currentSensorDC.n.v
+drive.inverter.currentAC_Averaged.u
+drive.inverter.voltageChanger.y
+drive.inverter.voltageSensorDC.p.v
+drive.inverter.voltageSensorDC.p.i
+drive.inverter.voltageSensorDC.n.v
+drive.inverter.voltageSensorDC.n.i
+drive.inverter.voltageSensorDC.v
+drive.inverter.voltageDC.u
+drive.multiSensorMotor.power
+drive.machine.data.m
+drive.machine.data.Rt
+drive.machine.data.p
+drive.machine.data.useL
+drive.machine.data.useLt
+drive.machine.data.Lt
+drive.machine.data.L
+drive.machine.data.M
+drive.machine.data.Ls_sigma
+drive.machine.data.fluxSource
+drive.machine.data.k_tau
+drive.machine.data.k_speed
+drive.machine.data.Jr
+drive.machine.data.Js
+drive.machine.data.I_0
+drive.machine.data.w_0
+drive.machine.data.u_s_nom
+drive.machine.data.i_s_nom
+drive.machine.data.tau_nom
+drive.machine.data.w_nom
+drive.machine.data.P_nom
+drive.machine.data.kDC
+drive.machine.data.b
+drive.machine.data.Rs
+drive.machine.data.Ls
+drive.machine.data.maxEMF_constant
+drive.machine.data.maxEMF_start[1]
+drive.machine.data.maxEMF_start[2]
+drive.machine.data.maxEMF_start[3]
+drive.machine.useSupport
+drive.machine.useThermalPort
+drive.machine.pin_n.v
+drive.machine.powerBalance.electricMachinePower
+drive.machine.powerBalance.innerMachinePower
+drive.machine.powerBalance.statorInertiaPower
+drive.machine.powerBalance.rotorInertiaPower
+drive.machine.powerBalance.totalLossPower
+drive.machine.powerBalance.statorWindingLossPower
+drive.machine.powerBalance.frictionLossPower
+drive.machine.coreElement.R
+drive.machine.coreElement.useL
+drive.machine.coreElement.L
+drive.machine.coreElement.Jr
+drive.machine.coreElement.Js
+drive.machine.coreElement.b
+drive.machine.coreElement.useSupport
+drive.machine.coreElement.useThermalPort
+drive.machine.coreElement.k
+drive.machine.coreElement.pin_n.v
+drive.machine.coreElement.resistor.R
+drive.machine.coreElement.resistor.T_ref
+drive.machine.coreElement.resistor.alpha
+drive.machine.coreElement.resistor.v
+drive.machine.coreElement.resistor.n.v
+drive.machine.coreElement.resistor.useHeatPort
+drive.machine.coreElement.resistor.T
+drive.machine.coreElement.resistor.T_heatPort
+drive.machine.coreElement.resistor.R_actual
+drive.machine.coreElement.backEMF.useSupport
+drive.machine.coreElement.backEMF.k
+drive.machine.coreElement.backEMF.v
+drive.machine.coreElement.backEMF.n.v
+drive.machine.coreElement.backEMF.support.phi
+drive.machine.coreElement.backEMF.internalSupport.phi
+drive.machine.coreElement.backEMF.internalSupport.flange.phi
+drive.machine.coreElement.inertiaRotor.flange_b.tau
+drive.machine.coreElement.inertiaRotor.J
+drive.machine.coreElement.inertiaRotor.stateSelect
+drive.machine.coreElement.damper.phi_rel
+drive.machine.coreElement.damper.der(phi_rel)
+drive.machine.coreElement.damper.w_rel
+drive.machine.coreElement.damper.der(w_rel)
+drive.machine.coreElement.damper.tau
+drive.machine.coreElement.damper.flange_b.phi
+drive.machine.coreElement.damper.phi_nominal
+drive.machine.coreElement.damper.stateSelect
+drive.machine.coreElement.damper.d
+drive.machine.coreElement.damper.useHeatPort
+drive.machine.coreElement.inertiaStator.flange_a.phi
+drive.machine.coreElement.inertiaStator.flange_a.tau
+drive.machine.coreElement.inertiaStator.flange_b.phi
+drive.machine.coreElement.inertiaStator.flange_b.tau
+drive.machine.coreElement.inertiaStator.J
+drive.machine.coreElement.inertiaStator.stateSelect
+drive.machine.coreElement.inertiaStator.phi
+drive.machine.coreElement.inertiaStator.der(phi)
+drive.machine.coreElement.inertiaStator.w
+drive.machine.coreElement.inertiaStator.der(w)
+drive.machine.coreElement.inertiaStator.a
+drive.machine.coreElement.fixed.phi0
+drive.machine.coreElement.fixed.flange.phi
+drive.machine.coreElement.fixed.flange.tau
+drive.machine.coreElement.innerTorque
+drive.machine.coreElement.airgapTorque
+drive.machine.coreElement.overallInductance.v
+drive.machine.coreElement.overallInductance.i
+drive.machine.coreElement.overallInductance.der(i)
+drive.machine.coreElement.overallInductance.L
+drive.machine.coreElement.internalSupport.phi
+drive.machine.coreElement.internalSupport.tau
+drive.machine.signChange.k
+drive.machine.powerSensor.pv.i
+drive.machine.powerSensor.nv.v
+drive.machine.powerSensor.nv.i
+drive.machine.powerSensor.voltageSensor.p.i
+drive.machine.powerSensor.voltageSensor.n.v
+drive.machine.powerSensor.voltageSensor.n.i
+drive.machine.angleSensorIdeal.flange_a.phi
+drive.machine.angleSensorIdeal.flange_a.tau
+drive.machine.angleSensorIdeal.flange_b.tau
+drive.machine.speedSensor.flange_a.phi
+drive.machine.speedSensor.flange_a.tau
+drive.machine.speedSensor.flange_b.tau
+drive.machine.fixed.phi0
+drive.machine.fixed.flange.phi
+drive.machine.fixed.flange.tau
+drive.machine.internalSupport.phi
+drive.machine.internalSupport.tau
+drive.ground.p.v
+drive.ground.p.i
+drive.speedDependentTorque.useSupport
+drive.speedDependentTorque.phi_support
+drive.inertia.J
+drive.inertia.stateSelect
+drive.inertia.phi
+drive.multiSensorLoad.power
+drive.pin_p.v
+drive.pin_p.i
+drive.pin_n.v
+drive.tau1
+batteryPack.V
+batteryPack.v
+batteryPack.p.v
+batteryPack.n.v
+rotateCW_In1
+speed
+tau
+realExtend1.y[1]
+realExtend1.y[2]
+w
+tau_out
+realExtend2.y[1]
+realExtend2.y[2]
+i1
+potentialSensor.p.v
+potentialSensor.p.i
+potentialSensor.phi
+V
+drive.inverter.voltageDC.bldcBus.voltageDC
+drive.controller.bldcBus.voltageDC
+drive.inverter.bldcBus.voltageDC
+drive.inverter.currentAC_Averaged.bldcBus.voltageDC
+drive.inverter.currentDC.bldcBus.voltageDC
+drive.machine.airGapTorque.bldcBus.voltageDC
+drive.machine.bldcBus.voltageDC
+drive.machine.electricMachinePower.bldcBus.voltageDC
+drive.machine.innerMachinePower.bldcBus.voltageDC
+drive.machine.innerTorque.bldcBus.voltageDC
+drive.machine.machineAngle.bldcBus.voltageDC
+drive.machine.machineSpeed.bldcBus.voltageDC
+drive.modulation.bldcBus.voltageDC
+DymolaConvertInputToReal0
+DymolaConvertInputToREAL0
+CPUtime
+EventCounter
+
+double initialValue(214,6)
+  0       3                       0                       0                
+  6   258   # drive.controller.m
+  0       1                       0                       0                
+  6   257   # drive.controller.useDirectionInput
+  0       0                       0                       0                
+  6   257   # drive.controller.rotateCW
+  0       3                       0                       0                
+  6   258   # drive.modulation.m
+  0      65                       0                       0                
+  6   260   # drive.inverter.pin_p.v
+  0       0                       0                       0                
+  6   260   # drive.inverter.pin_n.v
+  0       0                       0                       0                
+  6   257   # drive.inverter.data.bidirectional
+  0       0                       0                       0                
+  6   260   # drive.inverter.pin_p_Out.v
+  0       0                       0                       0                
+  6   260   # drive.inverter.pin_n_Out.v
+  0       0                       0                       0                
+  6   257   # drive.inverter.coreElement.bidirectional
+  0       0                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.y
+  0       0                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.u1
+  0       1                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.u2
+  0       0                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.y1
+  0       1                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.y2
+  0       1                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.k
+  0       0                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.y0
+  0       1                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.gradient.k
+  0       0                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.add.u1
+  0       1                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.add.k1
+  0       1                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.add.k2
+  0       0                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.offset.k
+  0       0                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.offset.y
+  0       1                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.limiter.uMax
+  0       0                       0                       0                
+  6   256   # drive.inverter.coreElement.uniOrBidirectional.limiter.uMin
+  0       0                       0                       0                
+  6   257   # drive.inverter.coreElement.uniOrBidirectional.limiter.strict
+  0       2                       1                       4                
+  6   258   # drive.inverter.coreElement.uniOrBidirectional.limiter.homotopyType
+  0      65                       0                       0                
+  6   256   # drive.inverter.coreElement.idealBuckConverter.v1
+  0      65                       0                       0                
+  6   260   # drive.inverter.coreElement.idealBuckConverter.p1.v
+  0       0                       0                       0                
+  6   260   # drive.inverter.coreElement.idealBuckConverter.n1.v
+  0       0                       0                       0                
+  6   260   # drive.inverter.coreElement.idealBuckConverter.n2.v
+  0       0                       0                       1                
+  6   256   # drive.inverter.coreElement.idealBuckConverter.dutyCycle
+  0      65                       0                       0                
+  6   260   # drive.inverter.coreElement.pin_p_supply.v
+  0       0                       0                       0                
+  6   260   # drive.inverter.coreElement.pin_n_supply.v
+  0       0                       0                       0                
+  6   260   # drive.inverter.coreElement.pin_n.v
+  0       0                       0                       0                
+  6   320   # drive.inverter.coreElement.signChanger.y
+  0       0                       0                       0                
+  6   260   # drive.inverter.ground.p.v
+  0       0                       0                       0                
+  6   388   # drive.inverter.ground.p.i
+  0      65                       0                       0                
+  6   260   # drive.inverter.currentSensorDC.p.v
+  0      65                       0                       0                
+  6   260   # drive.inverter.currentSensorDC.n.v
+  0       0                       0                       0                
+  6   256   # drive.inverter.currentAC_Averaged.u
+  0       0                       0                       0                
+  6   320   # drive.inverter.voltageChanger.y
+  0      65                       0                       0                
+  6   260   # drive.inverter.voltageSensorDC.p.v
+  0       0                       0                       0                
+  6   388   # drive.inverter.voltageSensorDC.p.i
+  0       0                       0                       0                
+  6   260   # drive.inverter.voltageSensorDC.n.v
+  0       0                       0                       0                
+  6   388   # drive.inverter.voltageSensorDC.n.i
+  0      65                       0                       0                
+  6   256   # drive.inverter.voltageSensorDC.v
+  0      65                       0                       0                
+  6   256   # drive.inverter.voltageDC.u
+  0       0                       0                       0                
+  6   256   # drive.multiSensorMotor.power
+  0       3                       0                       0                
+  6   258   # drive.machine.data.m
+  0  1.5500000000000000E-02       0                       0                
+  6   256   # drive.machine.data.Rt
+  0      21                       0                       0                
+  6   258   # drive.machine.data.p
+  0       1                       0                       0                
+  6   257   # drive.machine.data.useL
+  0       1                       0                       0                
+  6   257   # drive.machine.data.useLt
+  0  3.9999999999999998E-06       0                       0                
+  6   256   # drive.machine.data.Lt
+  0  1.0000000000000001E-15       0                       0                
+  6   256   # drive.machine.data.L
+  0  1.0000000000000001E-15       0                       0                
+  6   256   # drive.machine.data.M
+  0       0                       0                       0                
+  6   256   # drive.machine.data.Ls_sigma
+  0       1                       1                       2                
+  6   258   # drive.machine.data.fluxSource
+  0  1.3420000000000001E-01       0                       0                
+  6   256   # drive.machine.data.k_tau
+  0      71                       0                       0                
+  6   256   # drive.machine.data.k_speed
+  0  1.0000000000000001E-15       0                       0                
+  6   256   # drive.machine.data.Jr
+  0  1.0000000000000001E-15       0                       0                
+  6   256   # drive.machine.data.Js
+  0  9.8000000000000007E+00       0                 1.0000000000000000E+100
+  6   256   # drive.machine.data.I_0
+  0    3550                  9.9999999999999997E-61 1.0000000000000000E+100
+  6   256   # drive.machine.data.w_0
+  0      50                       0                       0                
+  6   256   # drive.machine.data.u_s_nom
+  0  1.7780000000000001E+02       0                       0                
+  6   256   # drive.machine.data.i_s_nom
+  0  2.3853000000000002E+01       0                       0                
+  6   256   # drive.machine.data.tau_nom
+  0  3.5238197597765509E+02       0                       0                
+  6   256   # drive.machine.data.w_nom
+  0  8.4053672729950067E+03       0                       0                
+  6   256   # drive.machine.data.P_nom
+  0  1.3420000000000001E-01       0                       0                
+  6   256   # drive.machine.data.kDC
+  0  3.7046760563380290E-04       0                       0                
+  6   256   # drive.machine.data.b
+  0  7.7499999999999999E-03       0                       0                
+  6   256   # drive.machine.data.Rs
+  0  1.9999999999999999E-06       0                       0                
+  6   256   # drive.machine.data.Ls
+  0  2.0943951023931953E+00  9.9999999999999997E-61  3.1415926535897931E+00
+  6   256   # drive.machine.data.maxEMF_constant
+  0  3.6651914291880918E+00       0                       0                
+  6   256   # drive.machine.data.maxEMF_start[1]
+  0  5.7595865315812880E+00       0                       0                
+  6   256   # drive.machine.data.maxEMF_start[2]
+  0  7.8539816339744828E+00       0                       0                
+  6   256   # drive.machine.data.maxEMF_start[3]
+  0       0                       0                       0                
+  6   257   # drive.machine.useSupport
+  0       0                       0                       0                
+  6   257   # drive.machine.useThermalPort
+  0       0                       0                       0                
+  6   260   # drive.machine.pin_n.v
+  0       0                       0                       0                
+  6   256   # drive.machine.powerBalance.electricMachinePower
+  0       0                       0                       0                
+  6   256   # drive.machine.powerBalance.innerMachinePower
+  0       0                       0                       0                
+  6   256   # drive.machine.powerBalance.statorInertiaPower
+  0       0                       0                       0                
+  6   256   # drive.machine.powerBalance.rotorInertiaPower
+  0       0                       0                       0                
+  6   256   # drive.machine.powerBalance.totalLossPower
+  0       0                       0                       0                
+  6   256   # drive.machine.powerBalance.statorWindingLossPower
+  0       0                       0                       0                
+  6   256   # drive.machine.powerBalance.frictionLossPower
+  0  1.5500000000000000E-02       0                       0                
+  6   256   # drive.machine.coreElement.R
+  0       1                       0                       0                
+  6   257   # drive.machine.coreElement.useL
+  0  3.9999999999999998E-06       0                       0                
+  6   256   # drive.machine.coreElement.L
+  0  1.0000000000000001E-15       0                       0                
+  6   256   # drive.machine.coreElement.Jr
+  0  1.0000000000000001E-15       0                       0                
+  6   256   # drive.machine.coreElement.Js
+  0  3.7046760563380290E-04       0                       0                
+  6   256   # drive.machine.coreElement.b
+  0       0                       0                       0                
+  6   257   # drive.machine.coreElement.useSupport
+  0       0                       0                       0                
+  6   257   # drive.machine.coreElement.useThermalPort
+  0  1.3420000000000001E-01       0                       0                
+  6   256   # drive.machine.coreElement.k
+  0       0                       0                       0                
+  6   260   # drive.machine.coreElement.pin_n.v
+  0  1.5500000000000000E-02       0                       0                
+  6   256   # drive.machine.coreElement.resistor.R
+  0  2.9314999999999998E+02       0                 1.0000000000000000E+100
+  6   256   # drive.machine.coreElement.resistor.T_ref
+  0  3.9699999999999996E-03       0                       0                
+  6   256   # drive.machine.coreElement.resistor.alpha
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.resistor.v
+  0       0                       0                       0                
+  6   260   # drive.machine.coreElement.resistor.n.v
+  0       0                       0                       0                
+  6   769   # drive.machine.coreElement.resistor.useHeatPort
+  0  2.9314999999999998E+02       0                 1.0000000000000000E+100
+  6   256   # drive.machine.coreElement.resistor.T
+  0  2.9314999999999998E+02       0                 1.0000000000000000E+100
+  6   256   # drive.machine.coreElement.resistor.T_heatPort
+  0  1.5500000000000000E-02       0                       0                
+  6   256   # drive.machine.coreElement.resistor.R_actual
+  0       1                       0                       0                
+  6   769   # drive.machine.coreElement.backEMF.useSupport
+  0  1.3420000000000001E-01       0                       0                
+  6   256   # drive.machine.coreElement.backEMF.k
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.backEMF.v
+  0       0                       0                       0                
+  6   260   # drive.machine.coreElement.backEMF.n.v
+  0       0                       0                       0                
+  6   260   # drive.machine.coreElement.backEMF.support.phi
+  0       0                       0                       0                
+  6  1280   # drive.machine.coreElement.backEMF.internalSupport.phi
+  0       0                       0                       0                
+  6  1284   # drive.machine.coreElement.backEMF.internalSupport.flange.phi
+  0       0                       0                       0                
+  6   388   # drive.machine.coreElement.inertiaRotor.flange_b.tau
+  0  1.0000000000000001E-15       0                 1.0000000000000000E+100
+  6   256   # drive.machine.coreElement.inertiaRotor.J
+  0       3                       1                       5                
+  6   770   # drive.machine.coreElement.inertiaRotor.stateSelect
+ -1       0                       0                       0                
+  2   272   # drive.machine.coreElement.damper.phi_rel
+  0       0                       0                       0                
+  3   256   # drive.machine.coreElement.damper.der(phi_rel)
+ -1       0                       0                       0                
+  2   280   # drive.machine.coreElement.damper.w_rel
+  0       0                       0                       0                
+  3   256   # drive.machine.coreElement.damper.der(w_rel)
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.damper.tau
+  0       0                       0                       0                
+  6   260   # drive.machine.coreElement.damper.flange_b.phi
+  0  1.0000000000000000E-04       0                 1.0000000000000000E+100
+  6   256   # drive.machine.coreElement.damper.phi_nominal
+  0       4                       1                       5                
+  6   770   # drive.machine.coreElement.damper.stateSelect
+  0  3.7046760563380290E-04       0                 1.0000000000000000E+100
+  6   256   # drive.machine.coreElement.damper.d
+  0       0                       0                       0                
+  6   769   # drive.machine.coreElement.damper.useHeatPort
+  0       0                       0                       0                
+  6   260   # drive.machine.coreElement.inertiaStator.flange_a.phi
+  0       0                       0                       0                
+  6   388   # drive.machine.coreElement.inertiaStator.flange_a.tau
+  0       0                       0                       0                
+  6   260   # drive.machine.coreElement.inertiaStator.flange_b.phi
+  0       0                       0                       0                
+  6   388   # drive.machine.coreElement.inertiaStator.flange_b.tau
+  0  1.0000000000000001E-15       0                 1.0000000000000000E+100
+  6   256   # drive.machine.coreElement.inertiaStator.J
+  0       3                       1                       5                
+  6   770   # drive.machine.coreElement.inertiaStator.stateSelect
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.inertiaStator.phi
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.inertiaStator.der(phi)
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.inertiaStator.w
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.inertiaStator.der(w)
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.inertiaStator.a
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.fixed.phi0
+  0       0                       0                       0                
+  6   260   # drive.machine.coreElement.fixed.flange.phi
+  0       0                       0                       0                
+  6   388   # drive.machine.coreElement.fixed.flange.tau
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.innerTorque
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.airgapTorque
+  0       0                       0                       0                
+  6   256   # drive.machine.coreElement.overallInductance.v
+ -1       0                       0                       0                
+  2   280   # drive.machine.coreElement.overallInductance.i
+  0       0                       0                       0                
+  3   256   # drive.machine.coreElement.overallInductance.der(i)
+  0  3.9999999999999998E-06       0                       0                
+  6   256   # drive.machine.coreElement.overallInductance.L
+  0       0                       0                       0                
+  6  1284   # drive.machine.coreElement.internalSupport.phi
+  0       0                       0                       0                
+  6  1412   # drive.machine.coreElement.internalSupport.tau
+  0      -1                       0                       0                
+  6   256   # drive.machine.signChange.k
+  0       0                       0                       0                
+  6   388   # drive.machine.powerSensor.pv.i
+  0       0                       0                       0                
+  6   260   # drive.machine.powerSensor.nv.v
+  0       0                       0                       0                
+  6   388   # drive.machine.powerSensor.nv.i
+  0       0                       0                       0                
+  6   388   # drive.machine.powerSensor.voltageSensor.p.i
+  0       0                       0                       0                
+  6   260   # drive.machine.powerSensor.voltageSensor.n.v
+  0       0                       0                       0                
+  6   388   # drive.machine.powerSensor.voltageSensor.n.i
+  0       0                       0                       0                
+  6   260   # drive.machine.angleSensorIdeal.flange_a.phi
+  0       0                       0                       0                
+  6   388   # drive.machine.angleSensorIdeal.flange_a.tau
+  0       0                       0                       0                
+  6   388   # drive.machine.angleSensorIdeal.flange_b.tau
+  0       0                       0                       0                
+  6   260   # drive.machine.speedSensor.flange_a.phi
+  0       0                       0                       0                
+  6   388   # drive.machine.speedSensor.flange_a.tau
+  0       0                       0                       0                
+  6   388   # drive.machine.speedSensor.flange_b.tau
+  0       0                       0                       0                
+  6   256   # drive.machine.fixed.phi0
+  0       0                       0                       0                
+  6   260   # drive.machine.fixed.flange.phi
+  0       0                       0                       0                
+  6   388   # drive.machine.fixed.flange.tau
+  0       0                       0                       0                
+  6  1284   # drive.machine.internalSupport.phi
+  0       0                       0                       0                
+  6  1412   # drive.machine.internalSupport.tau
+  0       0                       0                       0                
+  6   260   # drive.ground.p.v
+  0       0                       0                       0                
+  6   388   # drive.ground.p.i
+  0       0                       0                       0                
+  6   769   # drive.speedDependentTorque.useSupport
+  0       0                       0                       0                
+  6  1280   # drive.speedDependentTorque.phi_support
+  0  6.2899999999999998E-02       0                 1.0000000000000000E+100
+  6   256   # drive.inertia.J
+  0       3                       1                       5                
+  6   770   # drive.inertia.stateSelect
+  0       0                       0                       0                
+  6   264   # drive.inertia.phi
+  0       0                       0                       0                
+  6   256   # drive.multiSensorLoad.power
+  0      65                       0                       0                
+  6   260   # drive.pin_p.v
+  0       0                       0                       0                
+  6   388   # drive.pin_p.i
+  0       0                       0                       0                
+  6   260   # drive.pin_n.v
+  0       0                       0                       0                
+  6   256   # drive.tau1
+  0      65                       0                       0                
+  6   256   # batteryPack.V
+  0      65                       0                       0                
+  6   256   # batteryPack.v
+  0      65                       0                       0                
+  6   260   # batteryPack.p.v
+  0       0                       0                       0                
+  6   260   # batteryPack.n.v
+ -1       0                       0                       0                
+  5   321   # rotateCW_In1
+ -1       0                       0                       0                
+  5   256   # speed
+ -1       0                       0                       0                
+  5   256   # tau
+  0       0                       0                       0                
+  6   256   # realExtend1.y[1]
+  0       0                       0                       0                
+  6   256   # realExtend1.y[2]
+  0       0                       0                       0                
+  4   256   # w
+  0       0                       0                       0                
+  4   256   # tau_out
+  0       0                       0                       0                
+  6   256   # realExtend2.y[1]
+  0       0                       0                       0                
+  6   256   # realExtend2.y[2]
+  0       0                       0                       0                
+  4   256   # i1
+  0      65                       0                       0                
+  6   260   # potentialSensor.p.v
+  0       0                       0                       0                
+  6   388   # potentialSensor.p.i
+  0      65                       0                       0                
+  6   256   # potentialSensor.phi
+  0      65                       0                       0                
+  4   256   # V
+  0      65                       0                       0                
+  6   260   # drive.inverter.voltageDC.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.controller.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.inverter.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.inverter.currentAC_Averaged.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.inverter.currentDC.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.machine.airGapTorque.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.machine.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.machine.electricMachinePower.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.machine.innerMachinePower.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.machine.innerTorque.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.machine.machineAngle.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.machine.machineSpeed.bldcBus.voltageDC
+  0      65                       0                       0                
+  6   260   # drive.modulation.bldcBus.voltageDC
+  0       0                       0                       0                
+  6   832   # DymolaConvertInputToReal0
+  0       0                       0                       0                
+  6   833   # DymolaConvertInputToREAL0
+  0       0                       0                       0                
+  4   256   # CPUtime
+  0       0                       0                       0                
+  4   256   # EventCounter
+
+
+# Matrix with 6 columns defining the initial value calculation
+# (columns 5 and 6 are not utilized for the calculation but are
+#  reported by dymosim via dymosim -i for user convenience):
+#
+# column 1: Type of initial value
+#           = -2: special case: for continuing simulation (column 2 = value)
+#           = -1: fixed value (column 2 = fixed value)
+#           =  0: free value, i.e., no restriction (column 2 = initial value)
+#           >  0: desired value (column 1 = weight for optimization
+#                                column 2 = desired value)
+#                 use weight=1, since automatic scaling usually
+#                 leads to equally weighted terms
+# column 2: fixed, free or desired value according to column 1.
+# column 3: Minimum value (ignored, if Minimum >= Maximum).
+# column 4: Maximum value (ignored, if Minimum >= Maximum).
+#           Minimum and maximum restrict the search range in initial
+#           value calculation. They might also be used for scaling.
+# column 5: Category of variable.
+#           = 1: parameter.
+#           = 2: state.
+#           = 3: state derivative.
+#           = 4: output.
+#           = 5: input.
+#           = 6: auxiliary variable.
+# column 6: Data type of variable and flags according to dsBaseType
+#  <value>&3= 0: real.
+#  <value>&3= 1: boolean.
+#  <value>&3= 2: integer.
+#
+# Initial values are calculated according to the following procedure:
+#
+# - If parameters, states and inputs are FIXED, and other variables
+#   are FREE, no special action takes place (default setting).
+#
+# - If there are only FIXED and FREE variables and the number of
+#   FREE parameters, states and inputs is IDENTICAL to the number of
+#   FIXED state derivatives, outputs and auxiliary variables, a non-linear
+#   equation is solved to determine a consistent set of initial conditions.
+#
+# - In all other cases the following optimization problem is solved:
+#      min( sum( weight(i)*( (value(i) - DESIRED(i))/scale(i) )^2 ) )
+#   under the constraint that the differential equation is fulfilled
+#   at the initial time. In most cases weight(i)=1 is sufficient, due
+#   to the automatic scaling (if DESIRED(i) is not close to zero,
+#   scale(i) = DESIRED(i). Otherwise, the scaling is based on the
+#   nominal value (and maybe minimum and maximum values given in 
+#   column 3 and 4). If these values are zero, scale(i)=1 is used).
+#
+char initialDescription(214,120)
+Number of phases [:#(type=Integer)]
+[:#(type=Boolean)]
+[:#(type=Boolean)]
+Number of phases [:#(type=Integer)]
+Potential at the pin [V]
+Potential at the pin [V]
+Inverter acts like it is controlled by a bidirectional modulation method [:#(type=Boolean)]
+Potential at the pin [V]
+Potential at the pin [V]
+Inverter acts like it is controlled by a bidirectional modulation method [:#(type=Boolean)]
+Connector of Real output signal
+Lower boundary of input u, switching from constant value y1 to linear interpolation
+Upper boundary of input u, switching from linear interpolation to constant value y2
+Minimum value for y
+Maximum value for y
+Slope of the resulting line equation [1]
+Offset of the resulting line equation
+Gain value multiplied with input signal [1]
+Connector of Real input signal 1
+Gain of input signal 1
+Gain of input signal 2
+Constant output value
+Connector of Real output signal
+Upper limits of input signals
+Lower limits of input signals
+= true, if strict limits with noEvent(..) [:#(type=Boolean)]
+Simplified model for homotopy-based initialization [:#(type=Modelica.Blocks.Types.LimiterHomotopy)]
+Voltage drop of port 1 (= p1.v - n1.v) [V]
+Potential at the pin [V]
+Potential at the pin [V]
+Potential at the pin [V]
+[1]
+Potential at the pin [V]
+Potential at the pin [V]
+Potential at the pin [V]
+Value of Real output
+Potential at the pin [V]
+Current flowing into the pin [A]
+Potential at the pin [V]
+Potential at the pin [V]
+DC current of the inverter [A]
+Value of Real output [1]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Voltage between pin p and n (= p.v - n.v) as output signal [V]
+DC current of the inverter [V]
+Power in flange flange_a as output signal [W]
+Number of phases [:#(type=Integer)]
+Terminal resistances [Ohm]
+Number of pole pairs [:#(type=Integer)]
+Internal inductance shall be used [:#(type=Boolean)]
+if true Lt is used in the main diagonal otherwise L on the main d. and M for the other elements [:#(type=Boolean)]
+Terminal inductance = 2*(L-M) [H]
+Stator self inductance [H]
+Stator mututal inductance [H]
+Leakage inductance at the terminals [H]
+Selection which variable shall be used to compute the Back-EMF [:#(type=BrushlessDCDrives.Common.Types.FluxSource)]
+Torque constant [N.m/A]
+Speed constant in rpm/V [rev.min-1/V]
+Rotor's moment of inertia [kg.m2]
+Stator's moment of inertia (only has effect if stator not fixed (useSupport = false)) [kg.m2]
+No load current, used to compute a linear friction element [A]
+No load speed to compute a linear friction element [rad/s]
+Nominal voltage [V]
+Nominal current [A]
+Nominal torque [N.m]
+Nominal mechanical speed [rad/s]
+Nominal mechanical power [W]
+Torque constant for BLDC Model [N.m/A]
+Damping coefficient from no-load current [N.m.s/rad]
+Resistance of a single stator winding [Ohm]
+Overall stator winding inductance [H]
+Angle over which the Back-EMF is constant [rad|deg]
+Angle at which the respective phases (frist element = first phase etc.) have reached their postive maximum EMF [rad|deg]
+Angle at which the respective phases (frist element = first phase etc.) have reached their postive maximum EMF [rad|deg]
+Angle at which the respective phases (frist element = first phase etc.) have reached their postive maximum EMF [rad|deg]
+True: stator is able to rotate, false: stator is fixed internally [:#(type=Boolean)]
+True: thermal connector is provided, false: temperature is fixed to 20degC internally [:#(type=Boolean)]
+Potential at the pin [V]
+Electrical power (stator) [W]
+Mechanical power [W]
+Stator inertia power [W]
+Rotor inertia power [W]
+Total loss power [W]
+Stator copper losses [W]
+Friction losses [W]
+Phase Resistances R_ref at 20degC [Ohm]
+Activate the internal inductance (electric dynamics) [:#(type=Boolean)]
+Self inductance [H]
+Rotor's moment of inertia [kg.m2]
+Stator's moment of inertia (only has effect if stator not fixed (useSupport = false)) [kg.m2]
+Damping coefficient [N.m.s/rad]
+False: Stator is fixed internally, false: it can rotate [:#(type=Boolean)]
+True: thermal connector is provided, false: temperature is fixed internally [:#(type=Boolean)]
+Transformation coefficient [N.m/A]
+Potential at the pin [V]
+Resistance at temperature T_ref [Ohm]
+Reference temperature [K|degC]
+Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref)) [1/K]
+Voltage drop of the two pins (= p.v - n.v) [V]
+Potential at the pin [V]
+= true, if heatPort is enabled [:#(type=Boolean)]
+Fixed device temperature if useHeatPort = false [K|degC]
+Temperature of heatPort [K|degC]
+Actual resistance = R*(1 + alpha*(T_heatPort - T_ref)) [Ohm]
+= true, if support flange enabled, otherwise implicitly grounded [:#(type=Boolean)]
+Transformation coefficient [N.m/A]
+Voltage drop between the two pins [V]
+Potential at the pin [V]
+Absolute rotation angle of flange [rad|deg]
+External support angle (= flange.phi) [rad|deg]
+Absolute rotation angle of flange [rad|deg]
+Cut torque in the flange [N.m]
+Moment of inertia [kg.m2]
+Priority to use phi and w as states [:#(type=StateSelect)]
+Relative rotation angle (= flange_b.phi - flange_a.phi) [rad|deg]
+der(Relative rotation angle (= flange_b.phi - flange_a.phi)) [rad/s]
+Relative angular velocity (= der(phi_rel)) [rad/s]
+der(Relative angular velocity (= der(phi_rel))) [rad/s2]
+Torque between flanges (= flange_b.tau) [N.m]
+Absolute rotation angle of flange [rad|deg]
+Nominal value of phi_rel (used for scaling) [rad|rad]
+Priority to use phi_rel and w_rel as states [:#(type=StateSelect)]
+Damping constant [N.m.s/rad]
+= true, if heatPort is enabled [:#(type=Boolean)]
+Absolute rotation angle of flange [rad|deg]
+Cut torque in the flange [N.m]
+Absolute rotation angle of flange [rad|deg]
+Cut torque in the flange [N.m]
+Moment of inertia [kg.m2]
+Priority to use phi and w as states [:#(type=StateSelect)]
+Absolute rotation angle of component [rad|deg]
+der(Absolute rotation angle of component) [rad/s]
+Absolute angular velocity of component (= der(phi)) [rad/s]
+der(Absolute angular velocity of component (= der(phi))) [rad/s2]
+Absolute angular acceleration of component (= der(w)) [rad/s2]
+Fixed offset angle of housing [rad|deg]
+Absolute rotation angle of flange [rad|deg]
+Cut torque in the flange [N.m]
+Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal [N.m]
+Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal [N.m]
+Voltage drop of the two pins (= p.v - n.v) [V]
+Current flowing from pin p to pin n [A]
+der(Current flowing from pin p to pin n) [A/s]
+Inductance [H]
+Absolute rotation angle of flange [rad|deg]
+Cut torque in the flange [N.m]
+Gain value multiplied with input signal [1]
+Current flowing into the pin [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Current flowing into the pin [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Absolute rotation angle of flange [rad|deg]
+Cut torque in the flange [N.m]
+Cut torque in the flange [N.m]
+Absolute rotation angle of flange [rad|deg]
+Cut torque in the flange [N.m]
+Cut torque in the flange [N.m]
+Fixed offset angle of housing [rad|deg]
+Absolute rotation angle of flange [rad|deg]
+Cut torque in the flange [N.m]
+Absolute rotation angle of flange [rad|deg]
+Cut torque in the flange [N.m]
+Potential at the pin [V]
+Current flowing into the pin [A]
+= true, if support flange enabled, otherwise implicitly grounded [:#(type=Boolean)]
+Absolute angle of support flange [rad|deg]
+Moment of inertia [kg.m2]
+Priority to use phi and w as states [:#(type=StateSelect)]
+Absolute rotation angle of component [rad|deg]
+Power in flange flange_a as output signal [W]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Potential at the pin [V]
+Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal [N.m]
+Value of constant voltage [V]
+Voltage drop of the two pins (= p.v - n.v) [V]
+Potential at the pin [V]
+Potential at the pin [V]
+[:#(prefix=input):#(type=Boolean)]
+[1:#(prefix=input)]
+Accelerating torque acting at flange (= -flange.tau) [N.m:#(prefix=input)]
+
+
+Absolute angular velocity of flange_a as output signal
+
+
+
+Current in the branch from p to n as output signal [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Absolute voltage potential as output signal [V]
+Absolute voltage potential as output signal [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+DC current of the inverter [V]
+
+[:#(type=Boolean)]
+[s]
+
+

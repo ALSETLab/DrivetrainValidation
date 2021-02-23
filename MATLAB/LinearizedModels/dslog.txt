@@ -1,7 +1,0 @@
-Log-file of program .\dymosim.exe
-(generated: Wed Jan 20 00:02:01 2021)
-
-dymosim.exe started
-Model: DrivetrainValidation.FMU.SimplifiedDrive_Battery_fmu
-... "dsu.txt" loading (input signals u)
-... "dsin.txt" creating (dymosim input file).

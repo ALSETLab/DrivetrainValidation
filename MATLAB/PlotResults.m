@@ -2,8 +2,8 @@
 %% plot speed vs reference (first step)
 w = out.w.data;
 time = out.w.time;
-ref = out.ref.data;
-time_ref = out.ref.time;
+ref = out.ref1.data;
+time_ref = out.ref1.time;
 plot(time_ref,ref,time,w);xlim([0,0.5]);
 legend('Reference','Brushless DC motor','DC motor with added inductance');
 xlabel('Time(s)'); ylabel('Speed (rad/sec)');
@@ -107,31 +107,35 @@ xlabel('Time(s)'); ylabel('Current (A)');
 
 %% first order
 
-load('Simple_L_secondorder.mat','out')
+load('Simple_L_firstorder.mat','out')
 i_Bs = out.current.data;
 time_Bs = out.current.time;
 w_Bs = out.w.data;
 w_ref1 = out.ref.data;
 time_ref1 = out.ref.time;
-load('Brushless_secondorder.mat','out')
+load('Brushless_firstorder.mat','out')
 i_Bf = out.current.data;
 time_Bf = out.current.time;
 w_Bf = out.w.data;
 w_ref = out.ref1.data;
 time_ref = out.ref1.time;
-load('Simple_noL_secondorder.mat')
+load('Simple_noL_firstorder.mat')
 i_noL = out.current.data;
 time_noL = out.current.time;
 w_noL = out.w.data;
+load('Trapezoidal_firstorder.mat')
+i_Trap = out.current.data;
+time_Trap = out.current.time;
+w_Trap = out.w.data;
 
 
-plot(time_ref,w_ref,time_noL, w_noL,time_Bf,w_Bf,'--', time_Bs,w_Bs,':','LineWidth',2);xlim([5,5.5]);
-legend('Second order reference','Simple DC motor','Simple DC motor with inductance','Brushless DC motor');
+plot(time_ref1,w_ref1,time_noL, w_noL,time_Bf,w_Bf,'--', time_Bs,w_Bs,':',time_Trap,w_Trap,'-.','LineWidth',2);xlim([5,5.05]);
+legend('First order reference','Simple DC motor','Simple DC motor with inductance','Brushless DC motor','Trapezoidal DC motor');
 xlabel('Time(s)'); ylabel('Speed (rad/sec)');
 figure;
 
-plot(time_ref1,w_ref1,time_ref,w_ref,time_Bf,w_Bf,time_Bs,w_Bs,'LineWidth',2);xlim([5,5.5]);
-legend('First order reference','Second order reference','Brushless DC motor first order response','Brushless DC motor second order response');
+plot(time_ref1,w_ref1,time_ref,w_ref,'--',time_Bf,w_Bf,time_Bs,w_Bs,':',time_Trap,w_Trap,'-.','LineWidth',2);xlim([5,5.5]);
+legend('First order reference','Brushless DC motor first order response','Brushless DC motor second order response','Trapezoidal DC motor');
 xlabel('Time(s)'); ylabel('Speed (rad/sec)');
 figure;
 plot(time_Bf,i_Bf,time_Bs,i_Bs,'--','LineWidth',2);xlim([5.1,5.15]);
@@ -154,10 +158,16 @@ time_Bf = out.current.time;
 w_Bf = out.w.data;
 w_ref = out.ref1.data;
 time_ref = out.ref1.time;
+load('Trapezoidal_secondorder.mat','out')
+i_Trap = out.current.data;
+time_Trap = out.current.time;
+w_Trap = out.w.data;
+w_ref = out.ref1.data;
+time_ref = out.ref1.time;
 
 
-plot(time_ref,w_ref,time_Bf,w_Bf,'--', time_Bs,w_Bs,':','LineWidth',2);xlim([5,5.5]);
-legend('Second order reference','Simple DC motor','Brushless DC motor');
+plot(time_ref,w_ref,time_Bf,w_Bf,'--', time_Bs,w_Bs,':',time_Trap,w_Trap,'-.','LineWidth',2);xlim([5,5.05]);
+legend('Second order reference','Simple DC motor','Brushless DC motor','Trapezoidal DC motor');
 xlabel('Time(s)'); ylabel('Speed (rad/sec)');
 figure;
 
@@ -165,8 +175,8 @@ plot(time_ref1,w_ref1,time_ref,w_ref,time_Bf,w_Bf,time_Bs,w_Bs,'LineWidth',2);xl
 legend('First order reference','Second order reference','Brushless DC motor first order response','Brushless DC motor second order response');
 xlabel('Time(s)'); ylabel('Speed (rad/sec)');
 figure;
-plot(time_Bf,i_Bf,time_Bs,i_Bs,'LineWidth',2);xlim([5,5.5]);
-legend('Brushless DC motor first order response','Brushless DC motor second order response');
+plot(time_Bf,i_Bf,time_Bs,i_Bs,time_Trap,-i_Trap,'LineWidth',2);xlim([5,5.5]);
+legend('Simple DC motor current','Brushless DC motor current','Trapezoidal motor current');
 xlabel('Time(s)'); ylabel('Current (A)');
 
 %% Plot battery current and voltage compared

@@ -4,7 +4,7 @@ model Trapezoidal
   Machines.BrushlessDCDrivetrain.Trapezoidal_Drive_45      drive
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage
-                                           batteryPack(V=60)
+                                           batteryPack(V=65)
                                                  annotation (Placement(transformation(extent={{-14,-14},
             {14,14}},
         rotation=0,

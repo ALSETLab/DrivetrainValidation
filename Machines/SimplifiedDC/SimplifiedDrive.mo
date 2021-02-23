@@ -49,7 +49,7 @@ model SimplifiedDrive
     "Current in the branch from p to n as output signal"
     annotation (Placement(transformation(extent={{180,-22},{200,-2}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage
-                                           batteryPack(V=65)
+                                           batteryPack(V=60)
                                                  annotation (Placement(transformation(extent={{-7,-7},
             {7,7}},
         rotation=0,

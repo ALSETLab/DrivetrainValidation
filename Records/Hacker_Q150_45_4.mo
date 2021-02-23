@@ -2,7 +2,7 @@ within DrivetrainValidation.Records;
 record Hacker_Q150_45_4 "(BLDCD) Trap: Hacker Q-150-45-4, 12 kWatt"
   import Modelica.Constants.pi;
   extends BrushlessDCDrives.Machines.Records.Base.Trapezoidal(
-    p=21 "pole pairs",
+    p=2 "pole pairs",
     Rt=0.0155,
     fluxSource=BrushlessDCDrives.Common.Types.FluxSource.TorqueConst,
     k_tau=13.42e-2 "torque constant",
@@ -11,7 +11,7 @@ record Hacker_Q150_45_4 "(BLDCD) Trap: Hacker Q-150-45-4, 12 kWatt"
     Lt=4e-6 "estimated value based on 5kW from paper",
     L =  Modelica.Constants.eps "to supress missing start-value warnings",
     M= Modelica.Constants.eps "to supress missing start-value warnings",
-    Jr= 6.29e-4,
+    Jr= 1e-15,
     u_s_nom=50,
     i_s_nom=177.8 "based on the current at the maximum efficiency 0.89",
     tau_nom=23.853,

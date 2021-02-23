@@ -6,8 +6,8 @@ model CompareMotor
   Modelica.Blocks.Sources.BooleanStep rotateCW(startTime=1000,                 startValue=true)
     annotation (Placement(transformation(extent={{-156,20},{-136,40}})));
   Modelica.Blocks.Sources.Step     dutyCycle(
-    height=0.9,
-    offset=0,
+    height=0.5,
+    offset=0.3,
     startTime=5)                                    annotation (Placement(transformation(extent={{-158,52},
             {-138,72}})));
   Machines.BrushlessDCDrivetrain.Drive_45_Outputs drive_45_Outputs
@@ -19,8 +19,8 @@ model CompareMotor
   Modelica.Blocks.Sources.BooleanStep rotateCW1(startTime=1000, startValue=true)
     annotation (Placement(transformation(extent={{-156,-86},{-136,-66}})));
   Modelica.Blocks.Sources.Step     dutyCycle1(
-    height=0.1,
-    offset=0,
+    height=0.5,
+    offset=0.3,
     startTime=5)                                    annotation (Placement(transformation(extent={{-156,
             -54},{-136,-34}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage1(V=60)

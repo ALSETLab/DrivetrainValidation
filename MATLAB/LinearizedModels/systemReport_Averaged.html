@@ -1,0 +1,310 @@
+<html>
+<head>
+  <title>Analysis of a state space system from Modelica LinearSystems2</title>
+</head>
+<style type="text/css">
+* { font-size: 10pt; font-family: Arial,sans-serif; }
+</style>
+<h1>System report</h1>
+
+<h2>General information</h2>
+
+<h3>Matrices</h3>
+<p>
+The system described in the state space representation
+</p>
+<table style="font-size:10pt; font-family:Arial; border-collapse:collapse; margin: 20px 0 20px 20px" cellpadding="3" border="0"> 
+<tr><td>der(x) </td> <td>=</td> <td> Ax</td> <td> +</td><td> Bu</td></tr>
+         <tr><td> y </td>     <td>=</td> <td> Cx</td> <td> + </td><td>Du</td></tr>
+</table>
+<p>
+is defined by
+</p>
+<table border="0">
+<tr>
+  <td valign="middle">&nbsp;&nbsp;&nbsp;uNames</td>
+  <td valign="middle">=</td>
+  <td>
+    <table style="background-color:rgb(100, 100, 100);" cellpadding="3" border="0" cellspacing="1">
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">1</td>
+      <td align="left">rotateCW_In1</td>
+    </tr>
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">2</td>
+      <td align="left">speed</td>
+    </tr>
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">3</td>
+      <td align="left">tau</td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<table border="0">
+<tr>
+  <td valign="middle">&nbsp;&nbsp;&nbsp;yNames</td>
+  <td valign="middle">=</td>
+  <td>
+    <table style="background-color:rgb(100, 100, 100);" cellpadding="3" border="0" cellspacing="1">
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">1</td>
+      <td align="left">w</td>
+    </tr>
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">2</td>
+      <td align="left">tau_out</td>
+    </tr>
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">3</td>
+      <td align="left">i1</td>
+    </tr>
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">4</td>
+      <td align="left">V</td>
+    </tr>
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">5</td>
+      <td align="left">CPUtime</td>
+    </tr>
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">6</td>
+      <td align="left">EventCounter</td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<table border="0">
+<tr>
+  <td valign="middle">&nbsp;&nbsp;&nbsp;xNames</td>
+  <td valign="middle">=</td>
+  <td>
+    <table style="background-color:rgb(100, 100, 100);" cellpadding="3" border="0" cellspacing="1">
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">1</td>
+      <td align="left">drive.machine.coreElement.damper.phi_rel</td>
+    </tr>
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">2</td>
+      <td align="left">drive.machine.coreElement.damper.w_rel</td>
+    </tr>
+    <tr style="background-color:white">
+      <td align="right" style="background-color:rgb(230, 230, 230);">3</td>
+      <td align="left">drive.machine.coreElement.overallInductance.i</td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<table border="0">
+<tr>
+  <td valign="middle">&nbsp;&nbsp;&nbsp;A</td>
+  <td valign="middle">=</td>
+  <td>
+    <table style="background-color:rgb(100, 100, 100);" cellpadding="3" border="0" cellspacing="1">
+
+    <tr style="background-color:rgb(230, 230, 230); text-align:center;">
+      <td> </td>
+      <td align="center">1</td>
+      <td align="center">2</td>
+      <td align="center">3</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">1</td>
+      <td align="right">0</td>
+      <td align="right">1</td>
+      <td align="right">0</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">2</td>
+      <td align="right">0</td>
+      <td align="right">-0.00588979</td>
+      <td align="right">-2.13355</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">3</td>
+      <td align="right">0</td>
+      <td align="right">33550</td>
+      <td align="right">-3875</td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<table border="0">
+<tr>
+  <td valign="middle">&nbsp;&nbsp;&nbsp;B</td>
+  <td valign="middle">=</td>
+  <td>
+    <table style="background-color:rgb(100, 100, 100);" cellpadding="3" border="0" cellspacing="1">
+
+    <tr style="background-color:rgb(230, 230, 230); text-align:center;">
+      <td> </td>
+      <td align="center">1</td>
+      <td align="center">2</td>
+      <td align="center">3</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">1</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">2</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">-15.8983</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">3</td>
+      <td align="right">0</td>
+      <td align="right">8.125e+06</td>
+      <td align="right">0</td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<table border="0">
+<tr>
+  <td valign="middle">&nbsp;&nbsp;&nbsp;C</td>
+  <td valign="middle">=</td>
+  <td>
+    <table style="background-color:rgb(100, 100, 100);" cellpadding="3" border="0" cellspacing="1">
+
+    <tr style="background-color:rgb(230, 230, 230); text-align:center;">
+      <td> </td>
+      <td align="center">1</td>
+      <td align="center">2</td>
+      <td align="center">3</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">1</td>
+      <td align="right">0</td>
+      <td align="right">-1</td>
+      <td align="right">0</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">2</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">3</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">1</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">4</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">5</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">6</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<table border="0">
+<tr>
+  <td valign="middle">&nbsp;&nbsp;&nbsp;D</td>
+  <td valign="middle">=</td>
+  <td>
+    <table style="background-color:rgb(100, 100, 100);" cellpadding="3" border="0" cellspacing="1">
+
+    <tr style="background-color:rgb(230, 230, 230); text-align:center;">
+      <td> </td>
+      <td align="center">1</td>
+      <td align="center">2</td>
+      <td align="center">3</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">1</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">2</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">3</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">4</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">5</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+    </tr>
+    <tr style="background-color:white">
+
+      <td align="right" style="background-color:rgb(230, 230, 230);">6</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+      <td align="right">0</td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+
+<h2>Characteristics</h2>
+<p>
+The system
+</p>
+<p> is 
+<b>not</b> stable
+<br>but it is controllable
+<br> and therefore it is stabilizable.
+<br> The system is <b>not</b> observable
+<br>and is <b>not</b> detectable.
+<br>
+</p>
+<p>
+<img src="systemReportStep.png">
+</p>
