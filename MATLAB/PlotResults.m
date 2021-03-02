@@ -41,7 +41,7 @@ xlabel('Time(s)'); ylabel('Voltage (V)');
 current = out.current.data;
 time = out.current.time;
 
-plot(time,current); xlim([5,5.5]); 
+plot(time,-current); xlim([5,5.05]); 
 xlabel('Time(s)'); ylabel('Current (A)');
 
 %% plot current (second step)
@@ -159,7 +159,7 @@ w_Bf = out.w.data;
 w_ref = out.ref1.data;
 time_ref = out.ref1.time;
 load('Trapezoidal_secondorder.mat','out')
-i_Trap = out.current.data;
+i_Trap = out.current.data*2.8;
 time_Trap = out.current.time;
 w_Trap = out.w.data;
 w_ref = out.ref1.data;
@@ -175,8 +175,8 @@ plot(time_ref1,w_ref1,time_ref,w_ref,time_Bf,w_Bf,time_Bs,w_Bs,'LineWidth',2);xl
 legend('First order reference','Second order reference','Brushless DC motor first order response','Brushless DC motor second order response');
 xlabel('Time(s)'); ylabel('Speed (rad/sec)');
 figure;
-plot(time_Bf,i_Bf,time_Bs,i_Bs,time_Trap,-i_Trap,'LineWidth',2);xlim([5,5.5]);
-legend('Simple DC motor current','Brushless DC motor current','Trapezoidal motor current');
+plot(time_Trap,-i_Trap,time_Bf,i_Bf,time_Bs,i_Bs,'LineWidth',2);xlim([5,5.05]);
+legend('Trapezoidal motor current','Simple DC motor current','Brushless DC motor current');
 xlabel('Time(s)'); ylabel('Current (A)');
 
 %% Plot battery current and voltage compared

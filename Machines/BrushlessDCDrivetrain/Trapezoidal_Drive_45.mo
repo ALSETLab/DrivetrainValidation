@@ -3,7 +3,8 @@ model Trapezoidal_Drive_45
   extends DrivetrainValidation.Templates.Basic(
     redeclare BrushlessDCDrives.Machines.Trapezoidal
                                                   machine(redeclare
-        Records.Hacker_Q150_45_4 data, redeclare
+        Records.Hacker_Q150_45_4 data,
+      useThermalPort=false,            redeclare
         BrushlessDCDrives.Sensors.HalfRotationHall angleSensor),
     redeclare BrushlessDCDrives.Controller.SixStep      controller(
         useDirectionInput=true, redeclare
@@ -47,6 +48,14 @@ model Trapezoidal_Drive_45
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={120,-70})));
+  BrushlessDCDrives.Common.Interfaces.Adapters.FromBus.CurrentDC currentDC
+    annotation (Placement(transformation(extent={{50,-50},{62,-38}})));
+  DymolaModels.Blocks.Interfaces.ElectricCurrentOutput i1
+                                                         "Output signal connector"
+    annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={46,-70})));
 equation
   connect(multiSensorLoad.flange_a, inertia.flange_b) annotation (Line(points={{120,0},
           {106,0}},                                                                                            color={0,0,0}));
@@ -77,6 +86,12 @@ equation
     annotation (Line(points={{-2,6},{-19,6}}, color={0,0,127}));
   connect(inertia.flange_a, multiSensorMotor.flange_a)
     annotation (Line(points={{90,0},{80,0}}, color={0,0,0}));
+  connect(currentDC.bldcBus, machine.bldcBus) annotation (Line(
+      points={{50,-44},{44,-44},{44,-20},{50,-20},{50,-10}},
+      color={0,100,120},
+      thickness=0.5));
+  connect(currentDC.y, i1) annotation (Line(points={{62.6,-44},{66,-44},{66,-56},
+          {46,-56},{46,-70}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-140,-60},{160,60}},
         initialScale=0.1), graphics={Rectangle(extent={{-140,60},{160,-60}},

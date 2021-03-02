@@ -1,64 +1,34 @@
-Building FMU (Visual C++) 
-64-bit mode activated. 
-Compiling the model (Visual C++) with FMI. 
- 
-fmiFunctions.c
-dsmodel.c
-C:/Program Files/Dymola 2021x\source\matrixop.h(265): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-C:/Program Files/Dymola 2021x\source\matrixop.h(1181): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(172): warning C4090: 'function': different 'const' qualifiers
-c:\program files\dymola 2021x\source\matrixop.c(4010): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(4477): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(4525): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(4535): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(4544): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(4553): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(4565): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(4575): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(4585): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(4692): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(4706): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-C:/Program Files/Dymola 2021x\source\ModelicaInternal.c(637): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:/Program Files/Dymola 2021x\source\ModelicaInternal.c(608): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-Generating Code...
-   Creating library ~FMUOutput\binaries\win64\Sinusoidal.lib and object ~FMUOutput\binaries\win64\Sinusoidal.exp
-Compiling the model (Visual C++) with FMI. 
- 
-fmiFunctions.c
-dsmodel.c
-c:\program files\dymola 2021x\source\matrixop.c(172): warning C4090: 'function': different 'const' qualifiers
-Generating Code...
-   Creating library ~FMUOutput\binaries\win32\Sinusoidal.lib and object ~FMUOutput\binaries\win32\Sinusoidal.exp
-Adding [modelDescription.xml] ... OK
-Adding [binaries\win32\Sinusoidal.dll] ... OK
-Adding [binaries\win64\Sinusoidal.dll] ... OK
-Adding [documentation\index.html] ... OK
-Adding [documentation\LICENSE_CVODE.txt] ... OK
-Adding [documentation\LICENSE_f2c.txt] ... OK
-Adding [documentation\LICENSE_FMI.txt] ... OK
-Adding [documentation\LICENSE_HDF5.txt] ... OK
-Adding [documentation\LICENSE_LAPACK.txt] ... OK
-Adding [documentation\LICENSE_ModelicaFFT.txt] ... OK
-Adding [documentation\LICENSE_ModelicaInternal.txt] ... OK
-Adding [documentation\LICENSE_ModelicaIO.txt] ... OK
-Adding [documentation\LICENSE_ModelicaMatIO.txt] ... OK
-Adding [documentation\LICENSE_ModelicaRandom.txt] ... OK
-Adding [documentation\LICENSE_ModelicaStandardTables.txt] ... OK
-Adding [documentation\LICENSE_ModelicaStandardTablesUsertab.txt] ... OK
-Adding [documentation\LICENSE_ModelicaStrings.txt] ... OK
-Adding [documentation\LICENSE_ModelicaUtilities.txt] ... OK
-Adding [documentation\LICENSE_MSL.txt] ... OK
-Adding [documentation\LICENSE_snprintf.txt] ... OK
-Adding [documentation\LICENSE_stdint_msvc.txt] ... OK
-Adding [documentation\LICENSE_SUNDIALS.txt] ... OK
-Adding [documentation\LICENSE_SuperLU_MT.txt] ... OK
-Adding [documentation\LICENSE_TPL.txt] ... OK
-Adding [documentation\LICENSE_uthash.txt] ... OK
-Adding [documentation\LICENSE_win32_dirent.txt] ... OK
-Adding [documentation\LICENSE_ZLIB.txt] ... OK
-Adding [documentation\_main.html] ... OK
-Adding [documentation\_opensource.html] ... OK
-Adding [model.png] ... OK
- 
-Successful creation of Sinusoidal.fmu. 
- 
+Log-file of program ./dymosim
+(generated: Wed Feb 24 15:16:48 2021)
+
+dymosim started
+... "DroneSimulation.Examples.DroneWithIdealPower.TestSystem" simulating
+... "dsin.txt" loading (dymosim input file)
+... "TestSystem.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 10
+  WARNING: You have many time events. This is probably due to fast sampling.
+  Enable logging of event in Simulation/Setup/Debug/Events during simulation
+   CPU-time for integration                : 3.44 seconds
+   CPU-time for one grid interval          : 6.89 milliseconds
+   CPU-time for initialization             : 0.31 seconds
+   Number of result points                 : 4001
+   Number of grid points                   : 501
+   Number of accepted steps                : 20086
+   Number of f-evaluations (dynamics)      : 20660
+   Number of crossing function evaluations : 22086
+   Number of Jacobian-evaluations          : 18001
+   Number of model time events             : 2000
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 3.96e-009
+   Maximum integration stepsize            : 0.00245
+   Maximum integration order               : 4
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of DroneSimulation.Examples.DroneWithIdealPower.TestSystem

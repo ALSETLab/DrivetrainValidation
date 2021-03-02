@@ -62,8 +62,8 @@ equation
     annotation (Line(points={{90,62},{62,62}}, color={0,0,255}));
   connect(currentSensor.p, drive.pin_p)
     annotation (Line(points={{42,62},{32,62},{32,24}}, color={0,0,255}));
-  connect(currentSensor.i, i) annotation (Line(points={{52,51},{76,51},{76,20},
-          {150,20}}, color={0,0,127}));
+  connect(drive.i1, i) annotation (Line(points={{44.6,11},{44.6,8},{48,8},{48,6},
+          {84,6},{84,8},{134,8},{134,20},{150,20}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-40,-20},{140,80}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,

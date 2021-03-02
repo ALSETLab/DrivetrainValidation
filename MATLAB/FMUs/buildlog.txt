@@ -1,12 +1,10 @@
-Building FMU (Visual C++) 
-64-bit mode activated. 
-Compiling the model (Visual C++) with FMI. 
  
-fmiFunctions.c
+Compiling and linking the model (Visual C++). 
+ 
+64-bit mode activated. 
 dsmodel.c
 C:/Program Files/Dymola 2021x\source\matrixop.h(265): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
 C:/Program Files/Dymola 2021x\source\matrixop.h(1181): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
-c:\program files\dymola 2021x\source\matrixop.c(172): warning C4090: 'function': different 'const' qualifiers
 c:\program files\dymola 2021x\source\matrixop.c(4010): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
 c:\program files\dymola 2021x\source\matrixop.c(4477): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 c:\program files\dymola 2021x\source\matrixop.c(4525): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
@@ -20,45 +18,20 @@ c:\program files\dymola 2021x\source\matrixop.c(4692): warning C4267: 'function'
 c:\program files\dymola 2021x\source\matrixop.c(4706): warning C4267: 'function': conversion from 'size_t' to 'SizeType', possible loss of data
 C:/Program Files/Dymola 2021x\source\ModelicaInternal.c(637): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 C:/Program Files/Dymola 2021x\source\ModelicaInternal.c(608): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+dsmodel.c(10806): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+dsmodel.c(15528): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+dsmodel.c(20301): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+dsmodel.c(25303): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+dsmodel.c(30269): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+dsmodelext1.c
+dsmodelext1.c(3108): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
 Generating Code...
-   Creating library ~FMUOutput\binaries\win64\Sinusoidal.lib and object ~FMUOutput\binaries\win64\Sinusoidal.exp
-Compiling the model (Visual C++) with FMI. 
+Microsoft (R) Incremental Linker Version 14.16.27032.1
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/stack:0x500000 /MACHINE:X64 /NODEFAULTLIB:LIBC /NODEFAULTLIB:LIBCD /OPT:NOREF libdsdll.lib ModelicaExternalC.lib legacy_stdio_definitions.lib 
+   Creating library dymosim.lib and object dymosim.exp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
  
-fmiFunctions.c
-dsmodel.c
-c:\program files\dymola 2021x\source\matrixop.c(172): warning C4090: 'function': different 'const' qualifiers
-Generating Code...
-   Creating library ~FMUOutput\binaries\win32\Sinusoidal.lib and object ~FMUOutput\binaries\win32\Sinusoidal.exp
-Adding [modelDescription.xml] ... OK
-Adding [binaries\win32\Sinusoidal.dll] ... OK
-Adding [binaries\win64\Sinusoidal.dll] ... OK
-Adding [documentation\index.html] ... OK
-Adding [documentation\LICENSE_CVODE.txt] ... OK
-Adding [documentation\LICENSE_f2c.txt] ... OK
-Adding [documentation\LICENSE_FMI.txt] ... OK
-Adding [documentation\LICENSE_HDF5.txt] ... OK
-Adding [documentation\LICENSE_LAPACK.txt] ... OK
-Adding [documentation\LICENSE_ModelicaFFT.txt] ... OK
-Adding [documentation\LICENSE_ModelicaInternal.txt] ... OK
-Adding [documentation\LICENSE_ModelicaIO.txt] ... OK
-Adding [documentation\LICENSE_ModelicaMatIO.txt] ... OK
-Adding [documentation\LICENSE_ModelicaRandom.txt] ... OK
-Adding [documentation\LICENSE_ModelicaStandardTables.txt] ... OK
-Adding [documentation\LICENSE_ModelicaStandardTablesUsertab.txt] ... OK
-Adding [documentation\LICENSE_ModelicaStrings.txt] ... OK
-Adding [documentation\LICENSE_ModelicaUtilities.txt] ... OK
-Adding [documentation\LICENSE_MSL.txt] ... OK
-Adding [documentation\LICENSE_snprintf.txt] ... OK
-Adding [documentation\LICENSE_stdint_msvc.txt] ... OK
-Adding [documentation\LICENSE_SUNDIALS.txt] ... OK
-Adding [documentation\LICENSE_SuperLU_MT.txt] ... OK
-Adding [documentation\LICENSE_TPL.txt] ... OK
-Adding [documentation\LICENSE_uthash.txt] ... OK
-Adding [documentation\LICENSE_win32_dirent.txt] ... OK
-Adding [documentation\LICENSE_ZLIB.txt] ... OK
-Adding [documentation\_main.html] ... OK
-Adding [documentation\_opensource.html] ... OK
-Adding [model.png] ... OK
- 
-Successful creation of Sinusoidal.fmu. 
+Successful generation of Dymosim with DDE. 
  

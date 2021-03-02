@@ -3,7 +3,7 @@ model AveragedSwitched_Drive_45
   extends DrivetrainValidation.Templates.Basic(
     redeclare BrushlessDCDrives.Machines.Trapezoidal
                                                   machine(redeclare
-        Records.Hacker_Q150_45_4 data),
+        Records.Hacker_Q150_45_4 data, useThermalPort=false),
     redeclare BrushlessDCDrives.Controller.SixStepCurrent
                                                         controller(
         useDirectionInput=true),

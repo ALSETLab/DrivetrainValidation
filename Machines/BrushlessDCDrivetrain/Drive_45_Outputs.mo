@@ -2,7 +2,7 @@ within DrivetrainValidation.Machines.BrushlessDCDrivetrain;
 model Drive_45_Outputs
   extends DrivetrainValidation.Templates.Basic(
     redeclare BrushlessDCDrives.Machines.Averaged machine(redeclare
-        Records.Hacker_Q150_45_4 data),
+        Records.Hacker_Q150_45_4 data, useThermalPort=false),
     redeclare BrushlessDCDrives.Controller.NoController controller(
         useDirectionInput=true),
     redeclare BrushlessDCDrives.Modulation.NoModulation modulation,

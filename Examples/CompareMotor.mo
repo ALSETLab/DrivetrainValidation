@@ -32,8 +32,8 @@ model CompareMotor
 equation
   connect(drive_45_Outputs.rotateCW_In, rotateCW.y)
     annotation (Line(points={{-82,30},{-135,30}}, color={255,0,255}));
-  connect(drive_45_Outputs.dutyCycleIn, dutyCycle.y) annotation (Line(points={{-82,
-          34.6},{-126,34.6},{-126,62},{-137,62}},     color={0,0,127}));
+  connect(drive_45_Outputs.dutyCycleIn, dutyCycle.y) annotation (Line(points={{
+          -82,34.6},{-126,34.6},{-126,62},{-137,62}}, color={0,0,127}));
   connect(constantVoltage.p, drive_45_Outputs.pin_p) annotation (Line(points={{
           -86,70},{-90,70},{-90,46},{-74,46},{-74,40}}, color={0,0,255}));
   connect(constantVoltage.n, drive_45_Outputs.pin_n) annotation (Line(points={{
