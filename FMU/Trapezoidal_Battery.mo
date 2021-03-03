@@ -5,7 +5,7 @@ model Trapezoidal_Battery
     annotation (Placement(transformation(extent={{26,12},{56,24}})));
   Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
     N_serialCells=15,
-    N_parallelCells=5,
+    N_parallelCells=10,
     N_verticalElements=5,
     redeclare Battery.Cells.Variants.DemoCell3dDAF cell,
     SOC_init=1)                                  annotation (Placement(transformation(extent={{-14,-14},
@@ -43,6 +43,11 @@ model Trapezoidal_Battery
   Modelica.Blocks.Interfaces.RealOutput i
     "Current in the branch from p to n as output signal"
     annotation (Placement(transformation(extent={{140,10},{160,30}})));
+  Battery.Packs.Adapters.FromBus.LossPower lossPower
+    annotation (Placement(transformation(extent={{108,-40},{128,-20}})));
+  DymolaModels.Blocks.Interfaces.PowerOutput Ploss annotation (Placement(
+        transformation(extent={{140,-42},{160,-22}}), iconTransformation(extent=
+           {{140,-60},{160,-40}})));
 equation
   connect(drive.pin_n, batteryPack.n) annotation (Line(points={{49.8,24},{49.8,42},
           {132,42},{132,62},{118,62}},          color={0,0,255}));
@@ -77,6 +82,12 @@ equation
     annotation (Line(points={{42,62},{32,62},{32,24}}, color={0,0,255}));
   connect(currentSensor.i, i) annotation (Line(points={{52,51},{76,51},{76,20},
           {150,20}}, color={0,0,127}));
+  connect(lossPower.y,Ploss)  annotation (Line(points={{129,-30},{140,-30},{140,
+          -32},{150,-32}}, color={0,0,127}));
+  connect(lossPower.packBus, batteryPack.packBus) annotation (Line(
+      points={{108,-30},{104,-30},{104,48}},
+      color={83,189,255},
+      thickness=0.5));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-40,-20},{140,80}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,

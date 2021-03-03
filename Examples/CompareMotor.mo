@@ -14,7 +14,7 @@ model CompareMotor
     annotation (Placement(transformation(extent={{-80,28},{-50,40}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=60)
     annotation (Placement(transformation(extent={{-86,60},{-66,80}})));
-  Modelica.Blocks.Sources.Constant const(k=-5.139)
+  Modelica.Blocks.Sources.Constant const(k=3.139)
     annotation (Placement(transformation(extent={{-14,24},{-34,44}})));
   Modelica.Blocks.Sources.BooleanStep rotateCW1(startTime=1000, startValue=true)
     annotation (Placement(transformation(extent={{-156,-86},{-136,-66}})));
@@ -25,7 +25,7 @@ model CompareMotor
             -54},{-136,-34}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage1(V=60)
     annotation (Placement(transformation(extent={{-76,-22},{-56,-2}})));
-  Modelica.Blocks.Sources.Constant const1(k=-5.139)
+  Modelica.Blocks.Sources.Constant const1(k=3.139)
     annotation (Placement(transformation(extent={{-156,-24},{-136,-4}})));
   Machines.SimplifiedDC.SimplifiedDrive_L_Battery simplifiedDrive_L_Battery
     annotation (Placement(transformation(extent={{-82,-48},{-64,-38}})));

@@ -110,8 +110,8 @@ equation
     annotation (Line(points={{130,-78},{102.063,-78},{102.063,82.05}},                                  color={191,0,0}));
   connect(dutyCycle2.y, secondOrder1.u) annotation (Line(points={{-75,-28},{-68,
           -28},{-68,-42},{-62,-42}}, color={0,0,127}));
-  connect(drive_45_Outputs.dutyCycleIn, secondOrder1.y) annotation (Line(points
-        ={{-20,-55.4},{-32,-55.4},{-32,-42},{-39,-42}}, color={0,0,127}));
+  connect(drive_45_Outputs.dutyCycleIn, secondOrder1.y) annotation (Line(points=
+         {{-20,-55.4},{-32,-55.4},{-32,-42},{-39,-42}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-100,-100},{100,100}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,

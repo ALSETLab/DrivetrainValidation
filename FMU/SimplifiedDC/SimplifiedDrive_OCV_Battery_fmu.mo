@@ -40,6 +40,11 @@ model SimplifiedDrive_OCV_Battery_fmu
     annotation (Placement(transformation(extent={{68,-24},{88,-4}})));
   Battery.Common.Interfaces.StateOfChargeOutput SOC
     annotation (Placement(transformation(extent={{140,-24},{160,-4}})));
+  Battery.Packs.Adapters.FromBus.LossPower lossPower
+    annotation (Placement(transformation(extent={{68,-46},{88,-26}})));
+  DymolaModels.Blocks.Interfaces.PowerOutput Ploss annotation (Placement(
+        transformation(extent={{140,-46},{160,-26}}), iconTransformation(extent={{140,-40},
+            {160,-20}})));
 equation
   connect(realExtend1.y[3], omega_out) annotation (Line(points={{98.4,50.2667},
           {126,50.2667},{126,42},{150,42}},color={0,0,127}));
@@ -70,6 +75,12 @@ equation
       thickness=0.5));
   connect(meanSOC.y, SOC)
     annotation (Line(points={{89,-14},{150,-14}}, color={0,127,0}));
+  connect(lossPower.y,Ploss)  annotation (Line(points={{89,-36},{150,-36}},
+                           color={0,0,127}));
+  connect(batteryPack.packBus, lossPower.packBus) annotation (Line(
+      points={{44,44},{44,-36},{68,-36}},
+      color={83,189,255},
+      thickness=0.5));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-40,-20},{140,80}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,
