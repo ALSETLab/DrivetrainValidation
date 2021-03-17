@@ -1,5 +1,6 @@
 %% load
 load start
+load ProcessedWithOmegaDot
 startup = start_w;
 startup_act = start_act;
 startup_tau = start_tau;
