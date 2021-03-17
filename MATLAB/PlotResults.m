@@ -34,7 +34,7 @@ xlabel('Time(s)'); ylabel('Torque (N*m)');
 v = out.V.data;
 time = out.V.time;
 
-plot(time,v);
+plot(time,v);xlim([4,6]);
 xlabel('Time(s)'); ylabel('Voltage (V)');
 
 %% plot current (first step)
