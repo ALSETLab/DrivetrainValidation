@@ -8,7 +8,8 @@ package DrivetrainValidation
     BrushlessDCDrives(version="1.1.2"),
     ModelicaServices(version="4.0.0"),
     ElectrifiedPowertrains(version="1.3.3"),
-    Modelica(version="4.0.0")),
+    Modelica(version="4.0.0"),
+    Modelon(version="3.6")),
   version="2",
   conversion(noneFromVersion=""));
 end DrivetrainValidation;

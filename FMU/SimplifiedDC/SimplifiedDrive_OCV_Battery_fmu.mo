@@ -30,21 +30,15 @@ model SimplifiedDrive_OCV_Battery_fmu
   Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
     N_serialCells=15,
     N_parallelCells=5,
-    N_verticalElements=5,
     redeclare Battery.Cells.Variants.DemoCell3dDAF cell,
     SOC_init=1)                                  annotation (Placement(transformation(extent={{-14,-14},
             {14,14}},
         rotation=0,
-        origin={44,58})));
+        origin={34,54})));
   Battery.Packs.Adapters.FromBus.MeanSOC meanSOC
-    annotation (Placement(transformation(extent={{68,-24},{88,-4}})));
+    annotation (Placement(transformation(extent={{70,-24},{90,-4}})));
   Battery.Common.Interfaces.StateOfChargeOutput SOC
     annotation (Placement(transformation(extent={{140,-24},{160,-4}})));
-  Battery.Packs.Adapters.FromBus.LossPower lossPower
-    annotation (Placement(transformation(extent={{68,-46},{88,-26}})));
-  DymolaModels.Blocks.Interfaces.PowerOutput Ploss annotation (Placement(
-        transformation(extent={{140,-46},{160,-26}}), iconTransformation(extent={{140,-40},
-            {160,-20}})));
 equation
   connect(realExtend1.y[3], omega_out) annotation (Line(points={{98.4,50.2667},
           {126,50.2667},{126,42},{150,42}},color={0,0,127}));
@@ -65,20 +59,14 @@ equation
           122,20},{150,20}},  color={0,0,127}));
   connect(drive.i1, i1) annotation (Line(points={{51.2222,2.96},{80,2.96},{80,2},
           {102,2},{102,0},{150,0}}, color={0,0,127}));
-  connect(batteryPack.p, drive.pin_p1) annotation (Line(points={{30,58},{24,58},
-          {24,26},{32,26},{32,14},{32.8889,14}}, color={0,0,255}));
-  connect(batteryPack.n, drive.pin_n1) annotation (Line(points={{58,58},{66,58},
-          {66,18},{44,18},{44,14},{45.1111,14}}, color={0,0,255}));
+  connect(batteryPack.p, drive.pin_p1) annotation (Line(points={{20,54},{12,54},
+          {12,26},{32.8889,26},{32.8889,14}}, color={0,0,255}));
+  connect(batteryPack.n, drive.pin_n1) annotation (Line(points={{48,54},{52,54},
+          {52,24},{45.1111,24},{45.1111,14}}, color={0,0,255}));
+  connect(meanSOC.y,SOC)
+    annotation (Line(points={{91,-14},{150,-14}}, color={0,127,0}));
   connect(meanSOC.packBus, batteryPack.packBus) annotation (Line(
-      points={{68,-14},{44,-14},{44,44}},
-      color={83,189,255},
-      thickness=0.5));
-  connect(meanSOC.y, SOC)
-    annotation (Line(points={{89,-14},{150,-14}}, color={0,127,0}));
-  connect(lossPower.y,Ploss)  annotation (Line(points={{89,-36},{150,-36}},
-                           color={0,0,127}));
-  connect(batteryPack.packBus, lossPower.packBus) annotation (Line(
-      points={{44,44},{44,-36},{68,-36}},
+      points={{70,-14},{62,-14},{62,18},{34,18},{34,40}},
       color={83,189,255},
       thickness=0.5));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,

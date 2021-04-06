@@ -1,7 +1,7 @@
 within DrivetrainValidation.FMU.SimplifiedDC;
 model SimplifiedDrive_noL_OCV_Battery_fmu
 
-  Machines.SimplifiedDC.SimplifiedDrive_Battery drive
+  Machines.SimplifiedDC.SimplifiedDrive_Battery drive(simpleMotor_EMF(L=0))
     annotation (Placement(transformation(extent={{28,2},{50,14}})));
   Modelica.Blocks.Interfaces.BooleanInput rotationCW
     annotation (Placement(transformation(extent={{-80,-32},{-40,8}})));
@@ -28,7 +28,7 @@ model SimplifiedDrive_noL_OCV_Battery_fmu
     annotation (Placement(transformation(extent={{140,-10},{160,10}})));
   Battery.Packs.Scaled.ScaledPackCylindric batteryPack(
     N_serialCells=15,
-    N_parallelCells=1000,
+    N_parallelCells=5,
     N_verticalElements=5,
     redeclare Battery.Cells.Variants.DemoCell3dDAF cell,
     SOC_init=1)                                  annotation (Placement(transformation(extent={{-14,-14},
@@ -36,7 +36,7 @@ model SimplifiedDrive_noL_OCV_Battery_fmu
         rotation=0,
         origin={44,58})));
   Battery.Packs.Adapters.FromBus.MeanSOC meanSOC
-    annotation (Placement(transformation(extent={{68,-24},{88,-4}})));
+    annotation (Placement(transformation(extent={{70,-24},{90,-4}})));
   Battery.Common.Interfaces.StateOfChargeOutput SOC
     annotation (Placement(transformation(extent={{140,-24},{160,-4}})));
 equation
@@ -64,11 +64,11 @@ equation
   connect(batteryPack.n, drive.pin_n1) annotation (Line(points={{58,58},{66,58},
           {66,18},{44,18},{44,14},{45.1111,14}}, color={0,0,255}));
   connect(meanSOC.packBus, batteryPack.packBus) annotation (Line(
-      points={{68,-14},{44,-14},{44,44}},
+      points={{70,-14},{44,-14},{44,44}},
       color={83,189,255},
       thickness=0.5));
   connect(meanSOC.y, SOC)
-    annotation (Line(points={{89,-14},{150,-14}}, color={0,127,0}));
+    annotation (Line(points={{91,-14},{150,-14}}, color={0,127,0}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{-40,-20},{140,80}},
         initialScale=0.1)),                                      Diagram(coordinateSystem(preserveAspectRatio=false,

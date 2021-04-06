@@ -8,7 +8,7 @@ model Drive_45_FMU
     N_parallelCells=5,
     N_verticalElements=5,
     redeclare Battery.Cells.Variants.DemoCell3dDAF cell,
-    SOC_init=1)                                  annotation (Placement(transformation(extent={{-14,-14},
+    SOC_init=0.4)                                annotation (Placement(transformation(extent={{-14,-14},
             {14,14}},
         rotation=0,
         origin={104,62})));

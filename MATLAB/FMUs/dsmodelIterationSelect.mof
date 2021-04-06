@@ -1,0 +1,15 @@
+model dsmodelIterationSelect
+  extends DrivetrainValidation.Examples.SimplifiedMotor;
+  annotation(__Dymola_SimulationIterationVariables={"trapezoidal.drive.inverter.coreElement.upperDiode.idealDiode[2].s",
+   "trapezoidal.drive.inverter.coreElement.lowerSwitch.idealClosingSwitch[2].s",
+   "trapezoidal.drive.inverter.coreElement.upperSwitch.idealClosingSwitch[2].s",
+   "trapezoidal.drive.inverter.coreElement.lowerDiode.idealDiode[2].s", 
+  "trapezoidal.drive.inverter.coreElement.upperDiode.idealDiode[1].s", 
+  "trapezoidal.drive.inverter.coreElement.lowerSwitch.idealClosingSwitch[1].s", 
+  "trapezoidal.drive.inverter.coreElement.upperSwitch.idealClosingSwitch[1].s", 
+  "trapezoidal.drive.inverter.coreElement.upperDiode.idealDiode[3].s", 
+  "trapezoidal.drive.inverter.coreElement.lowerDiode.idealDiode[3].s", 
+  "trapezoidal.drive.inverter.coreElement.upperSwitch.idealClosingSwitch[3].s", 
+  "trapezoidal.drive.inverter.coreElement.lowerSwitch.idealClosingSwitch[3].s", 
+  "trapezoidal.drive.inverter.coreElement.lowerDiode.idealDiode[1].s"});
+end dsmodelIterationSelect;
