@@ -58,8 +58,9 @@ equation
                                                        color={0,0,127}));
   connect(drive.tau1, realExtend2.u) annotation (Line(points={{52,11},{52,6},{
           68,6},{68,12},{73.2,12}}, color={0,0,127}));
-  connect(realExtend2.y[1], tau_out) annotation (Line(points={{82.4,11.7333},{
-          136,11.7333},{136,70},{150,70}}, color={0,0,127}));
+  connect(realExtend2.y[1], tau_out) annotation (Line(points={{82.4,
+          11.7333},{136,11.7333},{136,70},{150,70}},
+                                           color={0,0,127}));
   connect(i1, drive.i1) annotation (Line(points={{150,6},{86,6},{86,4},{43,4},{
           43,11}}, color={0,0,127}));
   connect(meanSOC.packBus, batteryPack.packBus) annotation (Line(

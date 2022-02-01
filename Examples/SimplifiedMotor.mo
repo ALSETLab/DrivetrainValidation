@@ -56,8 +56,8 @@ equation
           {98,32},{98,62},{120,62},{120,61.75}}, color={0,0,127}));
   connect(realExpression.y, simplifiedDrive_L_fmu.tau) annotation (Line(points=
           {{27,20},{104,20},{104,13.68},{120,13.68}}, color={0,0,127}));
-  connect(drive_45_FMU1.tau, simplifiedDrive_L_fmu.tau) annotation (Line(points
-        ={{120,32},{98,32},{98,20},{104,20},{104,13.68},{120,13.68}}, color={0,
+  connect(drive_45_FMU1.tau, simplifiedDrive_L_fmu.tau) annotation (Line(points=
+         {{120,32},{98,32},{98,20},{104,20},{104,13.68},{120,13.68}}, color={0,
           0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false,
         extent={{0,0},{160,100}},

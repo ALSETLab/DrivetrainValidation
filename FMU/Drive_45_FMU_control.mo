@@ -57,8 +57,9 @@ equation
                                            color={0,0,127}));
   connect(realExtend.u, drive.tau1) annotation (Line(points={{87.2,20},{78,20},
           {78,8},{52,8},{52,11}}, color={0,0,127}));
-  connect(realExtend.y[3], tau_out) annotation (Line(points={{96.4,20.2667},{
-          118,20.2667},{118,24},{136,24},{136,60},{150,60}}, color={0,0,127}));
+  connect(realExtend.y[3], tau_out) annotation (Line(points={{96.4,
+          20.2667},{118,20.2667},{118,24},{136,24},{136,60},{150,60}},
+                                                             color={0,0,127}));
   connect(drive.pin_p, potentialSensor.p)
     annotation (Line(points={{32,24},{32,-12},{50,-12}}, color={0,0,255}));
   connect(potentialSensor.phi, phi1) annotation (Line(points={{71,-12},{108,-12},
