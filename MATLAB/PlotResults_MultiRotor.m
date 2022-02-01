@@ -163,7 +163,7 @@ tiledlayout(2,1)
 %front right rotor
 nexttile
 plot(t,i2,'LineWidth',2);xlim([6,30]);
-title('Left','FontSize',16)
+title('Front','FontSize',16)
 %legend('Reference','DC motor with added inductance');
 xlabel('Time(s)','FontSize',16); ylabel('Current (A)','FontSize',16);
 %front left rotor
@@ -181,15 +181,15 @@ xlabel('Time(s)','FontSize',16); ylabel('Current (A)','FontSize',16);
 % %back right
 nexttile
 plot(t,i4,'LineWidth',2);xlim([6,30]);
-title('Right','FontSize',16)
+title('Rear','FontSize',16)
 %legend('Reference','DC motor with added inductance');
 xlabel('Time(s)','FontSize',16); ylabel('Current (A)','FontSize',16);
 
 %% plot voltage
 
 t = out.V1.time;
-v1 = out.V1.data;
-v2 = out.V3.data;
+v1 = out.V3.data;
+v2 = out.V1.data;
 
 plot(t,v1,'--',t,v2,':','LineWidth',2);xlim([6,30]);
 legend('Front motors','Back motors','FontSize',16);
@@ -198,12 +198,21 @@ xlabel('Time(s)','FontSize',16); ylabel('Voltage (V)','FontSize',16);
 
 %% plot current
 t = out.V1.time;
-v1 = out.current4.data;
-v2 = out.current1.data;
+v1 = out.current2.data;
+v2 = out.current3.data;
 
 plot(t,v1,'--',t,v2,':','LineWidth',2);xlim([6,30]);
 legend('Front motors','Back motors','FontSize',16);
 xlabel('Time(s)','FontSize',16); ylabel('Current (A)','FontSize',16);
+
+%% plot speed
+t = out.V1.time;
+v1 = out.w4.data;
+v2 = out.w1.data;
+
+plot(time,speedCmd(:,1),t,v1,'--',t,v2,':','LineWidth',2);xlim([6,6.5]);
+legend('Reference','Front motors','Back motors','FontSize',16);
+xlabel('Time(s)','FontSize',16); ylabel('Speed (rad/sec)','FontSize',16);
 %% plot state of charge
 t = out.SOC.time;
 v1 = out.SOC.data;

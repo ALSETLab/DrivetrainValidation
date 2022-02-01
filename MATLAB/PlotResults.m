@@ -201,26 +201,26 @@ w_noL = out.w.data;
 tau_noL = out.tau.data;
 
 
-plot(time_ref,w_ref,time_noL,w_noL,time_Bf,w_Bf,'--', time_Bs,w_Bs,':',time_Trap,w_Trap,'-.','LineWidth',2);xlim([5,5.5]);
+plot(time_ref,w_ref,time_noL,w_noL,time_Bf,w_Bf,'--', time_Bs,w_Bs,':',time_Trap,w_Trap,'-.','LineWidth',2);xlim([5,5.05]);
 legend('Second order reference','Simple DC motor','Simple DC motor with inductance','Brushless DC motor','Trapezoidal DC motor','FontSize', 14);
-xlabel('Time(s)','FontSize', 20); ylabel('Speed (rad/sec)','FontSize', 20);
+xlabel('Time(s)','FontSize', 20); ylabel('Speed (rad/sec)','FontSize', 20);set(gca,'FontSize',16)
 figure;
 
 plot(time_ref1,w_ref1,time_ref,w_ref,time_Bf,w_Bf,time_Bs,w_Bs,'LineWidth',2);xlim([5,5.5]);
 legend('First order reference','Second order reference','Brushless DC motor first order response','Brushless DC motor second order response');
-xlabel('Time(s)'); ylabel('Speed (rad/sec)');
+xlabel('Time(s)'); ylabel('Speed (rad/sec)');set(gca,'FontSize',16)
 figure;
 plot(time_Trap,-i_Trap,'-.',time_noL,i_noL,time_Bf,i_Bf,'--', time_Bs,i_Bs,':','LineWidth',2);xlim([5,5.5]);ylim([0,90]);
 legend('Trapezoidal DC motor','Simple DC motor','Simple DC motor with inductance','Brushless DC motor','FontSize', 14);
-xlabel('Time(s)','FontSize', 20); ylabel('Current (A)','FontSize', 20);
+xlabel('Time(s)','FontSize', 20); ylabel('Current (A)','FontSize', 20);set(gca,'FontSize',16)
 
 plot(time_noL,i_noL,time_Bf,i_Bf,'--', time_Bs,i_Bs,':','LineWidth',2);xlim([5,5.5]);
 legend('Simple DC motor','Simple DC motor with inductance','Brushless DC motor','Trapezoidal DC motor','FontSize', 14);
-xlabel('Time(s)','FontSize', 20); ylabel('Current (A)','FontSize', 20);
+xlabel('Time(s)','FontSize', 20); ylabel('Current (A)','FontSize', 20);set(gca,'FontSize',16)
 figure;
-plot(time_Trap,-tau_Trap,'-.',time_noL,tau_noL,time_Bf,tau_Bf,'--', time_Bs,tau_Bs,':','LineWidth',2);xlim([5.02,5.03]);
+plot(time_Trap,-tau_Trap,'-.',time_noL,tau_noL,time_Bf,tau_Bf,'--', time_Bs,tau_Bs,':','LineWidth',2);xlim([5.0,5.05]);ylim([0,10]);
 legend('Trapezoidal DC motor','Simple DC motor','Simple DC motor with inductance','Brushless DC motor','Trapezoidal DC motor','FontSize', 14);
-xlabel('Time(s)','FontSize', 20); ylabel('Torque (N)','FontSize', 20);
+xlabel('Time(s)','FontSize', 20); ylabel('Torque (N)','FontSize', 20);set(gca,'FontSize',16)
 
 %% Plot battery current and voltage compared
 load('Brushless_battery_current.mat','out')
@@ -259,11 +259,11 @@ legend('Ideal DC motor','DC motor with added inductance');
 xlabel('Time(s)'); ylabel('Current (A)');
 
 %% edit colors
-newcolors=[
+newcolors=[ 
     0.8500    0.3250    0.0980
     0.9290    0.6940    0.1250
     0.4940    0.1840    0.5560
-    0.4660    0.6740    0.1880   
+     0.4660    0.6740    0.1880 
     0.3010    0.7450    0.9330
     0.6350    0.0780    0.1840];
 colororder(newcolors);

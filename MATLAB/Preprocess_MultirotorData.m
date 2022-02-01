@@ -11,7 +11,7 @@ t = (0:0.01:t_ramp)';
 t_hold = 3;
 t2 = t_start+(0:0.01:t_hold);
 
-Axis = 'Roll';
+Axis = 'Pitch';
 %% Preprocess
 init1 = [linspace(0,Data.(Axis).Rotor(1).SpeedCmd(1),length(t))';repmat(Data.(Axis).Rotor(1).SpeedCmd(1),length(t2),1)];
 init2 = [linspace(0,Data.(Axis).Rotor(2).SpeedCmd(1),length(t))';repmat(Data.(Axis).Rotor(2).SpeedCmd(1),length(t2),1)];
@@ -63,3 +63,18 @@ time1 = Data.(Axis).T+t_ramp+t_hold;
 tau1 = [Data.(Axis).Rotor(1).AeroTorque,Data.(Axis).Rotor(2).AeroTorque,Data.(Axis).Rotor(3).AeroTorque,Data.(Axis).Rotor(4).AeroTorque];
 time_tau =[t;t2';time1];
 tau = [init;tau1];
+
+%% vehicle cmd
+
+init = [linspace(0,Data.(Axis).VehicleCmd(1),length(t))';repmat(Data.(Axis).VehicleCmd(1),length(t2),1)];
+init_response = [linspace(0,Data.(Axis).VehicleResponse(1),length(t))';repmat(Data.(Axis).VehicleResponse(1),length(t2),1)];
+
+time1 = Data.(Axis).T+t_ramp+t_hold;
+
+time = [t;t2';time1];
+cmd = [init;Data.(Axis).VehicleCmd]*180/pi;
+response = [init_response;Data.(Axis).VehicleResponse]*180/pi;
+
+plot(time, cmd, time, response,'--','LineWidth',2);xlim([6,25]);
+xlabel('Time (s)','FontSize',16); ylabel('Pitch (deg)','FontSize',16);%set(gca, 'YDir','reverse');
+legend('Commanded','Actual','FontSize',16);set(gca,'FontSize',14)

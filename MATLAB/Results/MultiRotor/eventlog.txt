@@ -1,0 +1,19 @@
+Event iteration details;;;;Event summary;;;Triggering expression;;Bifurcation warning
+Iteration;Event type;Expression;Result;Time;Type(s) logged in dslog;Minor/Failed;Expression;Crossing;Expression;Crossing;Residual
+
+0;4;PWM1 > 1.0;false
+0;4;PWM1 < 0.0;false
+0;4;PWM2 > 1.0;false
+0;4;PWM2 < 0.0;false
+0;4;PWM3 > 1.0;false
+0;4;PWM3 < 0.0;false
+0;4;PWM4 > 1.0;false
+0;4;PWM4 < 0.0;false
+0;4;DymolaConvertInputToReal0 > 1;false
+0;4;DymolaConvertInputToReal1 > 1;false
+0;4;DymolaConvertInputToReal2 > 1;false
+0;4;DymolaConvertInputToReal3 > 1;false
+0;4;PWM4 > 1.0;true
+0;4;PWM4 > 1.0;false
+0;4;PWM4 < 0.0;true
+0;4;PWM4 < 0.0;false

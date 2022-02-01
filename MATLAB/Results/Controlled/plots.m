@@ -30,7 +30,7 @@ p_low = v_low.*i_low;
 figure(1);
 plot(time_ref,ref1,t_ideal,w1_ideal,t,w1,':',t_low,w1_low,'--','LineWidth',2);xlim([5,5.5]);
 legend('Reference','Ideal Power','Battery at 100% charge','Battery at 30% charge','FontSize',14);
-xlabel('Time(s)','FontSize',20); ylabel('Speed (rad/sec)','FontSize',20);
+xlabel('Time(s)','FontSize',20); ylabel('Speed (rad/sec)','FontSize',20);set(gca,'FontSize',16)
 
 
 figure(2);
