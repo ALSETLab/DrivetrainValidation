@@ -85,10 +85,10 @@ xlabel('Time(s)'); ylabel('Speed (rad/sec)');
 %% plot tau vs reference 
 
 t = out.tau1.time;
-tau1 = out.tau1.data;
-tau2 = out.tau2.data;
-tau3 = out.tau3.data;
-tau4 = out.tau4.data;
+tau1 = -out.tau1.data;
+tau2 = -out.tau2.data;
+tau3 = -out.tau3.data;
+tau4 = -out.tau4.data;
 
 time_ref = time;
 ref1 = tau(:,1);
@@ -98,22 +98,22 @@ ref4 = tau(:,4);
 tiledlayout(2,2)
 %front right rotor
 nexttile
-plot(time_ref,ref2,t,tau2);xlim([3,5]);
+plot(time_ref,ref2,t,tau2);xlim([3,500]);
 %legend('Reference','DC motor with added inductance');
 xlabel('Time(s)'); ylabel('Torque (N)');
 %front left rotor
 nexttile
-plot(time_ref,ref1,t,tau1);xlim([3,5]);
+plot(time_ref,ref1,t,tau1);xlim([3,500]);
 %legend('Reference','DC motor with added inductance');
 xlabel('Time(s)'); ylabel('Torque (N)');
 %back left
 nexttile
-plot(time_ref,ref3,t,tau3);xlim([3,5]);
+plot(time_ref,ref3,t,tau3);xlim([3,500]);
 %legend('Reference','DC motor with added inductance');
 xlabel('Time(s)'); ylabel('Torque (N)');
 %back right
 nexttile
-plot(time_ref,ref4,t,tau4);xlim([3,5]);
+plot(time_ref,ref4,t,tau4);xlim([3,500]);
 %legend('Reference','DC motor with added inductance');
 xlabel('Time(s)'); ylabel('Torque (N)');
 
@@ -224,5 +224,29 @@ xlabel('Time(s)'); ylabel('State of Charge');
 
 
 
-%%
+%% plot battery current
+t = out.current.time;
+v1 = out.current.data;
 
+
+plot(t,v1,'LineWidth',2);xlim([6,30]);
+%legend('Reference','DC motor with added inductance');
+xlabel('Time(s)'); ylabel('Current (A)');
+
+%% plot battery voltage
+t = out.V.time;
+v1 = out.V.data;
+
+
+plot(t,v1,'LineWidth',2);xlim([6,600]);
+%legend('Reference','DC motor with added inductance');
+xlabel('Time(s)'); ylabel('Voltage (V)');
+
+%% plot battery temperature
+t = out.BatteryTemp.time;
+v1 = out.BatteryTemp.data;
+
+
+plot(t,v1,'LineWidth',2);xlim([6,600]);
+%legend('Reference','DC motor with added inductance');
+xlabel('Time(s)'); ylabel('Battery Cell Temperature (K)');

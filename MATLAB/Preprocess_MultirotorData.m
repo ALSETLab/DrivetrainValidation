@@ -5,13 +5,15 @@ load ProcessedWithNewHeave
 % startup_act = start_act;
 % startup_tau = start_tau;
 %%
-t_start = 3;
-t_ramp=3;
+t1 = 3
+
+t_start = t1;
+t_ramp=t1;
 t = (0:0.01:t_ramp)';
-t_hold = 3;
+t_hold = t1;
 t2 = t_start+(0:0.01:t_hold);
 
-Axis = 'Pitch';
+Axis = 'Cruise20ms';
 %% Preprocess
 init1 = [linspace(0,Data.(Axis).Rotor(1).SpeedCmd(1),length(t))';repmat(Data.(Axis).Rotor(1).SpeedCmd(1),length(t2),1)];
 init2 = [linspace(0,Data.(Axis).Rotor(2).SpeedCmd(1),length(t))';repmat(Data.(Axis).Rotor(2).SpeedCmd(1),length(t2),1)];
@@ -40,10 +42,14 @@ speedAct = [init;spd];
 %% Acceleration
 
 
-init1 = [repmat(Data.(Axis).Rotor(1).SpeedActual(1)/t_ramp,length(t),1);zeros(length(t),1)];
-init2 = [repmat(Data.(Axis).Rotor(2).SpeedActual(1)/t_ramp,length(t),1);zeros(length(t),1)];
-init3 = [repmat(Data.(Axis).Rotor(3).SpeedActual(1)/t_ramp,length(t),1);zeros(length(t),1)];
-init4 = [repmat(Data.(Axis).Rotor(4).SpeedActual(1)/t_ramp,length(t),1);zeros(length(t),1)];
+init1 = [repmat(Data.(Axis).Rotor(1).SpeedActual(1)/t_ramp,length(t),1);zeros(length(t2),1)];
+init2 = [repmat(Data.(Axis).Rotor(2).SpeedActual(1)/t_ramp,length(t),1);zeros(length(t2),1)];
+init3 = [repmat(Data.(Axis).Rotor(3).SpeedActual(1)/t_ramp,length(t),1);zeros(length(t2),1)];
+init4 = [repmat(Data.(Axis).Rotor(4).SpeedActual(1)/t_ramp,length(t),1);zeros(length(t2),1)];
+
+
+
+
 init = [init1,init2,init3,init4];
 time1 = Data.(Axis).T+t_ramp+t_hold;
 accel = [Data.(Axis).Rotor(1).SpeedDerivative,Data.(Axis).Rotor(2).SpeedDerivative,Data.(Axis).Rotor(3).SpeedDerivative,Data.(Axis).Rotor(4).SpeedDerivative];
@@ -75,6 +81,6 @@ time = [t;t2';time1];
 cmd = [init;Data.(Axis).VehicleCmd]*180/pi;
 response = [init_response;Data.(Axis).VehicleResponse]*180/pi;
 
-plot(time, cmd, time, response,'--','LineWidth',2);xlim([6,25]);
-xlabel('Time (s)','FontSize',16); ylabel('Pitch (deg)','FontSize',16);%set(gca, 'YDir','reverse');
-legend('Commanded','Actual','FontSize',16);set(gca,'FontSize',14)
+% plot(time, cmd, time, response,'--','LineWidth',2);xlim([6,25]);
+% xlabel('Time (s)','FontSize',16); ylabel('Pitch (deg)','FontSize',16);%set(gca, 'YDir','reverse');
+% legend('Commanded','Actual','FontSize',16);set(gca,'FontSize',14)
