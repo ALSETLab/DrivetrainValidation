@@ -35,8 +35,9 @@ It is possible to generate an FMU from the Modelica model to simulate the drivet
 
 1. Open ``./DrivetrainValidation/package.mo``
 2. Set as ``Simulation model`` the model under ``DrivetrainValidation.FMU.Drive_45_FMU``
-![Alt text](/Pictures/FMUModel.png "Example model for FMU generation")
+![Alt text](/Pictures/FMUmodel.png "Example model for FMU generation")
 3. Go to the ``Simulation Setup`` menu ``Simulation>Translate>FMU``... and provide the following configurations in the different tabs shown below:
+
 ![Alt text](/Pictures/FMUOptions.png "FMU configuration options") 
 
 
