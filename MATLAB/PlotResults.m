@@ -276,3 +276,29 @@ def = [         0    0.4470    0.7410
     0.3010    0.7450    0.9330
     0.6350    0.0780    0.1840];
 colororder(def)
+
+def = [        
+     0.4660    0.6740    0.1880 
+0    0.4470    0.7410
+    0.8500    0.3250    0.0980
+    0.9290    0.6940    0.1250
+    0.4940    0.1840    0.5560
+    0.4660    0.6740    0.1880
+    0.3010    0.7450    0.9330
+    0.6350    0.0780    0.1840];
+colororder(def)
+
+%%
+
+plot(time_noL,i_noL,time_Bf,i_Bf,'--', time_Bs,i_Bs,':','LineWidth',2);xlim([5,5.5]);
+legend('Simple DC motor','Simple DC motor with inductance','Brushless DC motor','Trapezoidal DC motor','FontSize', 14);
+xlabel('Time(s)','FontSize', 20); ylabel('Current (A)','FontSize', 20);set(gca,'FontSize',16)
+figure;
+colororder(def)
+plot(time_Trap,-tau_Trap,'-.','LineWidth',2);xlim([5.0,5.5]);ylim([0,12]);
+legend('Trapezoidal DC motor','Simple DC motor','Simple DC motor with inductance','Brushless DC motor','Trapezoidal DC motor','FontSize', 14);
+xlabel('Time(s)','FontSize', 20); ylabel('Torque (N)','FontSize', 20);set(gca,'FontSize',16)
+
+plot(time_Trap,-i_Trap,'-.','LineWidth',2);xlim([5,5.05]);ylim([0,90]);
+legend('Trapezoidal DC motor','Simple DC motor','Simple DC motor with inductance','Brushless DC motor','FontSize', 14);
+xlabel('Time(s)','FontSize', 20); ylabel('Current (A)','FontSize', 20);set(gca,'FontSize',16)

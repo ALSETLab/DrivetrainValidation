@@ -13,7 +13,7 @@ t = (0:0.01:t_ramp)';
 t_hold = t1;
 t2 = t_start+(0:0.01:t_hold);
 
-Axis = 'Cruise20ms';
+Axis = 'Pitch';
 %% Preprocess
 init1 = [linspace(0,Data.(Axis).Rotor(1).SpeedCmd(1),length(t))';repmat(Data.(Axis).Rotor(1).SpeedCmd(1),length(t2),1)];
 init2 = [linspace(0,Data.(Axis).Rotor(2).SpeedCmd(1),length(t))';repmat(Data.(Axis).Rotor(2).SpeedCmd(1),length(t2),1)];
